@@ -6,7 +6,7 @@ Every symbol of the proof file 'dirac matrices' is listed with its defining equa
 |---|---|---|
 | $x_0,\dots,x_7$ | Cartesian coordinates of the project | $x_0$ hidden space, $x_1,x_2,x_3$ 3-space, $x_4$ time, $x_5,x_6,x_7$ superluminal time |
 | $A,B,C,D$ | frame indices | $A,B,C,D\in\{0,1,\dots,7\}$ |
-| $\eta^{AB}$, $\eta_{AB}$ | flat metric of signature (4,4) | $\eta = \mathrm{diag}(+1,+1,+1,+1,-1,-1,-1,-1)$ |
+| $\eta^{AB}$, $\eta_{AB}$ | flat metric of signature (4,4) | $\eta = \mathrm{diag}(+1,+1,+1,+1,$ $-1,-1,-1,-1)$ |
 | $\delta_{pq}$ | Kronecker delta | $\delta_{pq} = 1$ if $p=q$, else 0 |
 | $\epsilon_{pqrs}$ | Levi-Civita symbol | totally antisymmetric, $\epsilon_{1234}=1$ |
 | $I_n$ | identity matrix | $n\times n$ unit matrix |

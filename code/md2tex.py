@@ -62,10 +62,10 @@ PRE = r"""\documentclass[10pt]{article}
 \usepackage{longtable,booktabs,array}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
 \begin{document}
 """
 def convert(md):
@@ -90,7 +90,7 @@ def convert(md):
         m = re.match(r'^(#{1,4})\s+(.*)$', l)
         if m:
             flush_list(liststack); lev = len(m.group(1)); txt = inline(m.group(2))
-            if lev == 1: out.append(r'{\LARGE\bfseries ' + txt + r'}\par\medskip')
+            if lev == 1: out.append(r'{\raggedright\LARGE\bfseries ' + txt + r'\par}\medskip')
             else: out.append({2: r'\section*{', 3: r'\subsection*{', 4: r'\subsubsection*{'}[lev] + txt + '}')
             i += 1; continue
         if l.strip() == '---':
@@ -101,7 +101,8 @@ def convert(md):
                 if not re.match(r'^\|\s*:?-{2,}', lines[i]): rows.append(split_row(lines[i]))
                 i += 1
             nc = max(len(r) for r in rows); w = 0.96 / nc
-            out.append(r'{\small\begin{longtable}{' + ''.join(r'p{%.3f\linewidth}' % w for _ in range(nc)) + '}\\toprule')
+            colw = r'p{\dimexpr %.4f\linewidth-2\tabcolsep\relax}' % w
+            out.append(r'{\small\begin{longtable}{' + colw * nc + '}\\toprule')
             for k, r in enumerate(rows):
                 out.append(' & '.join(inline(c) for c in r + [''] * (nc - len(r))) + r' \\' + (r'\midrule' if k == 0 else ''))
             out.append(r'\bottomrule\end{longtable}}'); continue

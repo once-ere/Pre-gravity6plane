@@ -55,7 +55,10 @@ and the Lagrangian is exactly real, $\mathcal L^* = \mathcal L$. For diagonal vi
 **Primordial:**
 
 $$
-\cot(6Hx_0)\,T^0\partial_0\psi + e^{Hx_4}\sin^{\frac16}(6Hx_0)\sum_{i=1}^{3}T^i\partial_i\psi + T^4\partial_4\psi + e^{-Hx_4}\sin^{\frac16}(6Hx_0)\sum_{j=5}^{7}T^j\partial_j\psi - 3H\cot^2(6Hx_0)\,T^0\psi = (m + \lambda\bar\psi\psi)\psi .
+\begin{aligned}
+&\cot(6Hx_0)\,T^0\partial_0\psi + e^{Hx_4}\sin^{\frac16}(6Hx_0)\sum_{i=1}^{3}T^i\partial_i\psi + T^4\partial_4\psi \\
+&\qquad + e^{-Hx_4}\sin^{\frac16}(6Hx_0)\sum_{j=5}^{7}T^j\partial_j\psi - 3H\cot^2(6Hx_0)\,T^0\psi = (m + \lambda\bar\psi\psi)\psi .
+\end{aligned}
 $$
 
 **Modern** ($f = 1 - r_s/x_0$) and **future** ($f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$):
@@ -83,7 +86,11 @@ $$
 $\alpha$, $\beta$ are Hermitian, $\alpha^2 = \beta^2 = I_{16}$, $\alpha\beta + \beta\alpha = 0$, and both commute with the Krein operator $K = -i\sigma_{16}T^4$; so $h_{KS}$ is 8 copies (4 with $K=+1$, 4 with $K=-1$) of the $2\times2$ operator $\begin{pmatrix}0 & A^T\\ A & 0\end{pmatrix}$ with $A = \frac{d}{d\rho} + W$. Boundary conditions (bag): $u(\rho_L) = 0$, $v(\rho_R) = 0$ for $\chi = (u, v)$; the bag operator is $T^0 = -i\alpha\beta$. The maps to the tortoise coordinate are
 
 $$
-\text{primordial: } x_0 = \frac{\arccos e^{-6H\rho}}{6H},\ B = 1;\qquad \text{modern: } x_0 = r_s\left(1 + W_0\!\left(e^{\rho/r_s - 1}\right)\right),\ B = \sqrt{1 - r_s/x_0};\qquad \text{future: } \rho = \int_{3}^{x_0}\frac{dy}{f(y)},\ B = \sqrt f,
+\begin{gathered}
+\text{primordial: } x_0 = \frac{\arccos e^{-6H\rho}}{6H},\ B = 1; \\
+\text{modern: } x_0 = r_s\left(1 + W_0\!\left(e^{\rho/r_s - 1}\right)\right),\ B = \sqrt{1 - r_s/x_0}; \\
+\text{future: } \rho = \int_{3}^{x_0}\frac{dy}{f(y)},\ B = \sqrt f,
+\end{gathered}
 $$
 
 where $W_0$ is the Lambert function. **Numerical method.** Staggered grid ($u$ on integer, $v$ on half-integer points, spacing $d = 0.02$): $A$ becomes a lower bidiagonal matrix with diagonal $\frac1d + \frac{W_{j}}2$ and sub-diagonal $-\frac1d + \frac{W_j}2$, and the eigenvalues of $h_{KS}$ are exactly $\pm s_k$, the singular values of $A$. Test against the exact bag spectrum $k\cos kL + m\sin kL = 0$, $\epsilon = \sqrt{k^2+m^2}$ ($m=1$, $L=5$): numerical $1.13204, 1.47963, 1.95318$ versus exact $1.13211, 1.47986, 1.95361$.

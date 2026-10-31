@@ -6,13 +6,13 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
 \begin{document}
 
-{\LARGE\bfseries Provenance of 'dirac matrices': where every matrix, equation and result comes from}\par\medskip
+{\raggedright\LARGE\bfseries Provenance of 'dirac matrices': where every matrix, equation and result comes from\par}\medskip
 
 This provenance record accompanies the proof file 'dirac matrices'. It states, for every object and every claim, its origin (source notebook cell, published reference, or computation) and how it was checked. All equations that are referred to are written out here.
 
@@ -22,7 +22,7 @@ This provenance record accompanies the proof file 'dirac matrices'. It states, f
 Author: Patrick L. Nash, (C) 2022, GNU General Public License. File size 23,772,734 bytes, read in full (1,415 styled cells: 650 input, 546 output, 156 text, 32 section, 6 title). The constructions below are copied from the following cells (cell numbers count the styled cells of the notebook in document order).
 
 
-{\small\begin{longtable}{p{0.320\linewidth}p{0.320\linewidth}p{0.320\linewidth}}\toprule
+{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
 object & definition (as used) & notebook cells \\\midrule
 coordinates & $X = \{x_0,x_1,\dots,x_7\}$ & 45 \\
 metric & $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ & 66, 157 \\

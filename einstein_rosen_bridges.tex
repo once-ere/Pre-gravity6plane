@@ -6,13 +6,13 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
 \begin{document}
 
-{\LARGE\bfseries Einstein-Rosen bridges in the gravitational fields of dirac16complex}\par\medskip
+{\raggedright\LARGE\bfseries Einstein-Rosen bridges in the gravitational fields of dirac16complex\par}\medskip
 
 Einstein and Rosen (Phys. Rev. 48, 73, 1935) replaced the Schwarzschild radius $r$ by $u$ with $u^2 = r - 2m$. Space is then described by two congruent sheets ($u>0$ and $u<0$) joined by the hypersurface $u = 0$ on which the metric determinant $g$ vanishes: the bridge. This document proves the existence of such bridges, analyses them for the three gravitational fields used for dirac16complex, and shows how a bridge pairs universes of energy $+\epsilon$ and $-\epsilon$. Every equation used is written here; all results are exact computations in 6planes.nb, Part 8.
 
@@ -69,7 +69,7 @@ g_{uu} = \frac{4u^2}{f(x_h + su^2)} \xrightarrow{u\to0} \frac{4}{s\,f'(x_h)} = \
 the metric is even in $u$ (two congruent sheets), and the scalar curvature of the full 8-dimensional metric equals that of the 2-dimensional part, $R = -f''(x_0)$, finite on the bridge. Results (exact or 12-digit):
 
 
-{\small\begin{longtable}{p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}}\toprule
+{\small\begin{longtable}{p{\dimexpr 0.1600\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1600\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1600\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1600\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1600\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1600\linewidth-2\tabcolsep\relax}}\toprule
 bridge & $x_h$ & $g_{uu}(0)$ & $g_{44}(0)$ & $R(0) = -f''(x_h)$ & surface gravity $\kappa = \lvert f'(x_h)\rvert/2$ \\\midrule
 modern & $r_s$ & $4r_s$ & 0 & $2/r_s^2$ & $1/(2r_s)$ \\
 future, black-hole horizon ($r_s=1$, $H_\Lambda=0.1$) & 1.0103126 & 4.16891046302 & 0 & 1.95937912 & 0.479741654 \\

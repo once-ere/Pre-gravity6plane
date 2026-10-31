@@ -6,15 +6,15 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
 \begin{document}
 
-{\LARGE\bfseries Symbols used in the README of Pre-gravity6plane}\par\medskip
+{\raggedright\LARGE\bfseries Symbols used in the README of Pre-gravity6plane\par}\medskip
 
-{\small\begin{longtable}{p{0.480\linewidth}p{0.480\linewidth}}\toprule
+{\small\begin{longtable}{p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}}\toprule
 symbol & definition \\\midrule
 $x_0..x_7$ & coordinates: hidden, space (1-3), time (4), superluminal time (5-7) \\
 $\eta$ & $\mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ \\
@@ -36,6 +36,15 @@ $\rho_s$, $h_{KS}$, $\alpha$, $\beta$, $p$, $B$ & Kohn-Sham density, $\alpha p +
 $\Omega(T)$ & Kohn-Sham grand potential at temperature $T$ \\
 $R_1$ & $x_1\mapsto-x_1$ \\
 $R$, $\kappa$, $T_H$, $\epsilon$ & scalar curvature, surface gravity, $\kappa/2\pi$, Killing energy \\
+$I_n$ & $n\times n$ identity matrix \\
+$g_{jj}$, $b_{jj}$, $a$ & deflating metric functions $g_{jj} = b_{jj}e^{-ax_4}$ ($j = 5, 6, 7$), $a > 0$, $b_{jj} > 0$ \\
+$w$, $y_j$ & coordinates of the deflating block: $w = \frac2ae^{ax_4/2}$, $y_j = \sqrt{b_{jj}}\,x_j$ \\
+$\mathbb R^4$ & flat 4-space of $x_0, x_1, x_2, x_3$ \\
+$\ell$, $p_5$, $x_4^*$ & affine parameter; $p_5 = -g_{55}\,dx_5/d\ell$; turning point $\frac1a\ln(b_{55}/p_5^2)$ \\
+$\omega$, $k_0..k_3$, $q_5, q_6, q_7$ & frequency and wave numbers of a universe $e^{i(k_0x_0 + \dots + q_7x_7 - \omega x_4)}u$ (the indexed $q_j$ are wave numbers, not the exponent $q$); $u$ a constant spinor \\
+$a_c$ & critical deflation rate $2H$ \\
+$\chi$, $M$, $c_A$ & mode spinor with $\chi' = d\chi/dx_4 = M\chi$; $M = T^4(i\sum_{A\ne4}c_AT^A - m)$; real coefficients $c_A$ \\
+$P_\pm$ & $\chi^\dagger\frac12(I_{16} \pm K)\chi$, weights of the +mass and -mass sectors \\
 \bottomrule\end{longtable}}
 
 \end{document}

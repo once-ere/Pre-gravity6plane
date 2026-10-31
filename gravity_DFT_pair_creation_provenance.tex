@@ -6,13 +6,13 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
 \begin{document}
 
-{\LARGE\bfseries Provenance of 'dirac16complex in the primordial, modern and future gravitational fields: Euler-Lagrange equations, Kohn-Sham DFT, and pair creation'}\par\medskip
+{\raggedright\LARGE\bfseries Provenance of 'dirac16complex in the primordial, modern and future gravitational fields: Euler-Lagrange equations, Kohn-Sham DFT, and pair creation'\par}\medskip
 
 \section*{1. Sources}
 
@@ -24,7 +24,7 @@
 
 \section*{2. Computations (Wolfram Language 15.0.1, 2026-10-30)}
 
-{\small\begin{longtable}{p{0.480\linewidth}p{0.480\linewidth}}\toprule
+{\small\begin{longtable}{p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}}\toprule
 result & where computed \\\midrule
 covariant constancy $\partial_\mu\gamma^\nu + \Gamma^\nu{}_{\mu\lambda}\gamma^\lambda + [\Omega_\mu,\gamma^\nu] = 0$, sign of $\Omega_\mu$ & 6planes.nb Part 5, Out[23] (exact) \\
 $\sqrt{\lvert g\rvert} = \sec 6Hx_0$, 1, 1 & Part 5, Out[23] \\

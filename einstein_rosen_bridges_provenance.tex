@@ -6,13 +6,13 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
 \begin{document}
 
-{\LARGE\bfseries Provenance of 'Einstein-Rosen bridges in the gravitational fields of dirac16complex'}\par\medskip
+{\raggedright\LARGE\bfseries Provenance of 'Einstein-Rosen bridges in the gravitational fields of dirac16complex'\par}\medskip
 
 \section*{1. Sources}
 
@@ -25,7 +25,7 @@
 
 \section*{2. Computations (Wolfram Language 15.0.1, exact, 2026-10-30)}
 
-{\small\begin{longtable}{p{0.480\linewidth}p{0.480\linewidth}}\toprule
+{\small\begin{longtable}{p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}}\toprule
 result & 6planes.nb \\\midrule
 neutral bridge: $R_{\mu\nu}=0$, $\det g = -4u^2(u^2+2m)^4\sin^2\theta$, even in $u$, Kretschmann $48m^2/(u^2+2m)^6$ & Part 8, Out[31] \\
 charged bridge: $G_{\mu\nu}+8\pi T^{EM}_{\mu\nu}=0$, $\det g(0)=0$, Kretschmann$(0) = 56/q^4$ & Part 8, Out[31] \\

@@ -1,0 +1,21 @@
+cell 1 done in 0. s; messages: 0; result head: List
+cell 2 done in 0. s; messages: 0; result head: List
+cell 3 done in 0.13 s; messages: 0; result head: Association
+cell 4 done in 0. s; messages: 0; result head: Association
+cell 5 done in 0. s; messages: 0; result head: Symbol
+cell 6 done in 0.02 s; messages: 0; result head: Association
+cell 7 done in 0.1 s; messages: 0; result head: Association
+cell 8 done in 0.6 s; messages: 0; result head: Association
+cell 9 done in 0.11 s; messages: 0; result head: Association
+cell 10 done in 0.06 s; messages: 0; result head: Association
+cell 11 done in 0.24 s; messages: 0; result head: Association
+cell 12 done in 22.78 s; messages: 0; result head: Association
+cell 13 done in 0.63 s; messages: 0; result head: Association
+cell 14 done in 0.08 s; messages: 0; result head: Association
+cell 15 done in 2.62 s; messages: 0; result head: Graphics
+cell 16 done in 0.02 s; messages: 0; result head: Association
+cell 17 done in 0.01 s; messages: 0; result head: Association
+total time (s): 28
+messages: 0
+file size: 369507
+exit 0

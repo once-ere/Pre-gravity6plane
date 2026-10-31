@@ -6,13 +6,13 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
-\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
 \begin{document}
 
-{\LARGE\bfseries dirac matrices: proof that the eight real 16x16 Dirac matrices (T16\^{}A)[0..7] of dirac16complex are correct}\par\medskip
+{\raggedright\LARGE\bfseries dirac matrices: proof that the eight real 16x16 Dirac matrices (T16\^{}A)[0..7] of dirac16complex are correct\par}\medskip
 
 This file is the provenance proof requested for the eight real-valued $16\times 16$ Dirac ("gamma") matrices $(T16^A)[0], \dots, (T16^A)[7]$ that are used for the second-quantized Pin(4,4) spinor field dirac16complex. It shows the construction, displays every matrix, proves that the matrices are real and satisfy the Clifford anticommutation relations, proves that the scaled commutators generate Spin(4,4) and, together with the matrices themselves, Pin(4,4), and displays the products and the chiral projection matrices. Every equation used is written out in this file.
 
@@ -423,7 +423,7 @@ Thus $T^0,\dots,T^3$ are real symmetric with square $+I_{16}$ and $T^4,\dots,T^7
 Table of $\tfrac12\{T^A,T^B\}$ in units of $I_{16}$ (row $A$, column $B$):
 
 
-{\small\begin{longtable}{p{0.107\linewidth}p{0.107\linewidth}p{0.107\linewidth}p{0.107\linewidth}p{0.107\linewidth}p{0.107\linewidth}p{0.107\linewidth}p{0.107\linewidth}p{0.107\linewidth}}\toprule
+{\small\begin{longtable}{p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}p{\dimexpr 0.1067\linewidth-2\tabcolsep\relax}}\toprule
 A\textbackslash{}B & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\\midrule
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -1263,7 +1263,7 @@ The stored output cells of Pre-gravity6plane.nb were parsed and compared with th
 All checks were run with exact (integer or symbolic) arithmetic in Wolfram Language 15.0.1 by the script \texttt{verify\_dirac\_matrices.wls}; the result of every check:
 
 
-{\small\begin{longtable}{p{0.480\linewidth}p{0.480\linewidth}}\toprule
+{\small\begin{longtable}{p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}}\toprule
 check & result \\\midrule
 01 all entries of T16A[0..7] are real integers in \{-1,0,1\} & True \\
 02 \{T\^{}A,T\^{}B\} = 2 eta\^{}AB I16 (64 pairs) & True \\
