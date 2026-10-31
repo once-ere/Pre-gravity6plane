@@ -9,11 +9,11 @@ Please  cite  this  work  and this web page if you use it.
 
 Coordinates $x_0,\dots,x_7$ ($x_0$ hidden space, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time), metric $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$. The eight real $16\times16$ Dirac matrices are those of Pre-gravity6plane.nb,
 
-$$
+```math
 T^A = (T16^A)[A] = \begin{pmatrix}0&\bar\tau_A\\ \tau_A&0\end{pmatrix},\qquad T^AT^B + T^BT^A = 2\eta^{AB}I_{16},\qquad S^{AB} = \tfrac14[T^A,T^B],
-$$
+```
 
-with entries in $\{-1,0,1\}$; the $S^{AB}$ generate Spin(4,4) and, with the reflections $T^C$, Pin(4,4); $\Gamma = T^0\cdots T^7 = \mathrm{diag}(-I_8,I_8)$, $P_{L,R} = \frac12(I_{16}\mp\Gamma)$, $\sigma_{16} = T^0T^1T^2T^3$.
+with entries in $`\{-1,0,1\}`$; the $S^{AB}$ generate Spin(4,4) and, with the reflections $T^C$, Pin(4,4); $\Gamma = T^0\cdots T^7 = \mathrm{diag}(-I_8,I_8)$, $P_{L,R} = \frac12(I_{16}\mp\Gamma)$, $\sigma_{16} = T^0T^1T^2T^3$.
 
 ## 2. The field and its Lagrangian
 
@@ -23,21 +23,21 @@ $$
 \mathcal L = \tfrac12\left(\bar\psi T^A\partial_A\psi - (\partial_A\bar\psi)T^A\psi\right) - m\bar\psi\psi - \frac\lambda2(\bar\psi\psi)^2,\qquad T^A\partial_A\psi = (m + \lambda\bar\psi\psi)\psi .
 $$
 
-$\mathcal L$ is exactly real; the quadratic (mass) and quartic (self-coupling) terms are non-zero because the components are complex. Quantization with time $x_4$ gives $\{\psi_a,\psi_b^\dagger\} = K_{ab}\delta$, $K = -i\sigma_{16}T^4$, $K^2 = I$, with an (8,8) indefinite (Krein) metric, and an exact split into two mirror sectors of opposite energy: $\mathcal L = \mathcal L_D[\psi_+] - \mathcal L_D[\psi_-] - \frac\lambda2(S_+-S_-)^2$ for fields independent of $x_5,x_6,x_7$.
+$\mathcal L$ is exactly real; the quadratic (mass) and quartic (self-coupling) terms are non-zero because the components are complex. Quantization with time $x_4$ gives $`\{\psi_a,\psi_b^\dagger\} = K_{ab}\delta`$, $K = -i\sigma_{16}T^4$, $K^2 = I$, with an (8,8) indefinite (Krein) metric, and an exact split into two mirror sectors of opposite energy: $\mathcal L = \mathcal L_D[\psi_+] - \mathcal L_D[\psi_-] - \frac\lambda2(S_+-S_-)^2$ for fields independent of $x_5,x_6,x_7$.
 
 ## 3. Mirror of Pre-gravity6plane.nb and the 6-planes
 
-Restricted to configurations that depend only on $x_0$ and $x_4$, the analogue of the notebook's $\Psi_{16}(x_0,x_4)$ ($m = -2M$), the 16 field equations split into the four blocks $\{0,5,8,13\},\{1,4,9,12\},\{2,7,10,15\},\{3,6,11,14\}$, as in the old notebook; its exponential solutions $e^{pz+qt}u$ with $(6p+q)(6p-q) = m^2/H^2$, $z = 6Hx_0$, $t = Hx_4$, are exactly the Maple solutions of the old notebook. With the triality frames and vector forms $V_1 = \eta(\psi_1^T\sigma F_A{}^a)$, $V_2 = F_a{}^A\psi_2$, a Universe defines the 6-plane
+Restricted to configurations that depend only on $x_0$ and $x_4$, the analogue of the notebook's $\Psi_{16}(x_0,x_4)$ ($m = -2M$), the 16 field equations split into the four blocks $`\{0,5,8,13\},\{1,4,9,12\},\{2,7,10,15\},\{3,6,11,14\}`$, as in the old notebook; its exponential solutions $e^{pz+qt}u$ with $(6p+q)(6p-q) = m^2/H^2$, $z = 6Hx_0$, $t = Hx_4$, are exactly the Maple solutions of the old notebook. With the triality frames and vector forms $V_1 = \eta(\psi_1^T\sigma F_A{}^a)$, $V_2 = F_a{}^A\psi_2$, a Universe defines the 6-plane
 
-$$
+```math
 M^6 = \{Z\in\mathbb R^8 : n_1\cdot Z = 0,\ n_2\cdot Z = 0\},\qquad n_k = V_k[\mathrm{Re}\,\psi],
-$$
+```
 
-with $\binom82 = 28$ parameterizations; a pair of universes of energies $\pm E$ creates the 6-plane $\{Z:\mathrm{Re}V_2\cdot Z = \mathrm{Im}V_2\cdot Z = 0\}$ by itself.
+with $\binom82 = 28$ parameterizations; a pair of universes of energies $\pm E$ creates the 6-plane $`\{Z:\mathrm{Re}V_2\cdot Z = \mathrm{Im}V_2\cdot Z = 0\}`$ by itself.
 
 ## 4. Gravity, Kohn-Sham DFT, pair creation, Einstein-Rosen bridges
 
-Three gravitational fields (diagonal vielbeins): primordial $\mathrm{diag}(\tan6Hx_0,$ $e^{-Hx_4}\sin^{-1/6}6Hx_0\,(\times3),$ $1,$ $e^{Hx_4}\sin^{-1/6}6Hx_0\,(\times3))$ (the vielbein of Pre-gravity6plane.nb with $a_4 = Hx_4$); modern $\mathrm{diag}(f^{-1/2},1,1,1,f^{1/2},1,1,1)$ with $f = 1-r_s/x_0$; future the same with $f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$. In each, the Euler-Lagrange equations derived from the Grassmann Lagrangian are $\gamma^\mu D_\mu\psi = (m+\lambda\bar\psi\psi)\psi$, e.g. (primordial)
+Three gravitational fields (diagonal vielbeins): primordial $\mathrm{diag}(\tan6Hx_0,$ $`e^{-Hx_4}\sin^{-1/6}6Hx_0\,(\times3),`$ $1,$ $`e^{Hx_4}\sin^{-1/6}6Hx_0\,(\times3))`$ (the vielbein of Pre-gravity6plane.nb with $a_4 = Hx_4$); modern $\mathrm{diag}(f^{-1/2},1,1,1,f^{1/2},1,1,1)$ with $f = 1-r_s/x_0$; future the same with $f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$. In each, the Euler-Lagrange equations derived from the Grassmann Lagrangian are $\gamma^\mu D_\mu\psi = (m+\lambda\bar\psi\psi)\psi$, e.g. (primordial)
 
 $$
 \begin{aligned}
@@ -46,39 +46,39 @@ $$
 \end{aligned}
 $$
 
-The quartic term is treated in a Kohn-Sham (DFT) approximation, $M = m + \lambda\rho_s$, with the Kohn-Sham Hamiltonian $h_{KS} = \alpha p + BM\beta$ ($\alpha = -T^4T^0$, $\beta = -iT^4$) in tortoise coordinates, ground and first-excited ($\Delta$SCF) states, and the finite-temperature thermodynamic effective potential $\Omega(T)$. Proven in each field: $\mathcal L_m[\Gamma\psi^*] = \mathcal L_{-m}[\psi]$ and $\mathcal L_m[T^1\psi(R_1x)] = \mathcal L_{-m}[\psi]$ (mass-sign pairing); $T^0h_{KS}T^0 = -h_{KS}$ and $h_{KS}^* = -h_{KS}$ (every level $\epsilon$ has a partner $-\epsilon$); in the zero-energy vacuum the creation of a $+$ universe pair together with a $-$ universe pair changes the energy by exactly 0, while single quanta and single-sign creation are forbidden by the conserved charges and energy: universes of masses $\{+m,-m\}$ are created in pairs. The 1935 Einstein-Rosen bridges are verified; the modern field has one and the future field two exact bridges (two congruent sheets, $g = 0$ on the bridge, finite curvature); the primordial field's degenerate hypersurface $x_0 = 0$ is a curvature singularity ($R \approx -\frac{31}{216H^2x_0^4}$); across a bridge the vacuum pairs universes of energy $+\epsilon$ and $-\epsilon$ with weight $1/(e^{\epsilon/T_H}+1)$, $T_H = \kappa/2\pi$.
+The quartic term is treated in a Kohn-Sham (DFT) approximation, $M = m + \lambda\rho_s$, with the Kohn-Sham Hamiltonian $h_{KS} = \alpha p + BM\beta$ ($\alpha = -T^4T^0$, $\beta = -iT^4$) in tortoise coordinates, ground and first-excited ($\Delta\mathrm{SCF}$) states, and the finite-temperature thermodynamic effective potential $\Omega(T)$. Proven in each field: $`\mathcal L_m[\Gamma\psi^*] = \mathcal L_{-m}[\psi]`$ and $\mathcal L_m[T^1\psi(R_1x)] = \mathcal L_{-m}[\psi]$ (mass-sign pairing); $T^0h_{KS}T^0 = -h_{KS}$ and $`h_{KS}^* = -h_{KS}`$ (every level $\epsilon$ has a partner $-\epsilon$); in the zero-energy vacuum the creation of a $+$ universe pair together with a $-$ universe pair changes the energy by exactly 0, while single quanta and single-sign creation are forbidden by the conserved charges and energy: universes of masses $`\{+m,-m\}`$ are created in pairs. The 1935 Einstein-Rosen bridges are verified; the modern field has one and the future field two exact bridges (two congruent sheets, $g = 0$ on the bridge, finite curvature); the primordial field's degenerate hypersurface $x_0 = 0$ is a curvature singularity ($R \approx -\frac{31}{216H^2x_0^4}$); across a bridge the vacuum pairs universes of energy $+\epsilon$ and $-\epsilon$ with weight $1/(e^{\epsilon/T_H}+1)$, $T_H = \kappa/2\pi$.
 
 ## 5. Deflating degrees of freedom
 
 In deflation.nb the superluminal times $x_5, x_6, x_7$ of the primordial field are replaced by deflating degrees of freedom ($z = 6Hx_0$):
 
-$$
+```math
 \begin{gathered}
 ds^2 = \tan^2 z\,dx_0^2 + e^{-2Hx_4}\sin^{-1/3}z\,(dx_1^2 + dx_2^2 + dx_3^2) - dx_4^2 - g_{55}\,dx_5^2 - g_{66}\,dx_6^2 - g_{77}\,dx_7^2, \\
 g_{jj} = b_{jj}e^{-ax_4},\quad a > 0,\ b_{jj} > 0 .
 \end{gathered}
-$$
+```
 
-Proper sizes along $x_5, x_6, x_7$ shrink as $\sqrt{b_{jj}}\,e^{-ax_4/2}$. The Ricci scalar, the Einstein tensor and the Kretschmann scalar depend on $x_0$ only, so deflation creates no curvature singularity at finite $x_4$. The pure deflation field $dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2 - dx_4^2 - \sum_j g_{jj}dx_j^2$ is flat $\mathbb R^4$ times a hyperbolic 4-space of radius $2/a$ whose four directions are all timelike,
+Proper sizes along $x_5, x_6, x_7$ shrink as $`\sqrt{b_{jj}}\,e^{-ax_4/2}`$. The Ricci scalar, the Einstein tensor and the Kretschmann scalar depend on $x_0$ only, so deflation creates no curvature singularity at finite $x_4$. The pure deflation field $dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2 - dx_4^2 - \sum_j g_{jj}dx_j^2$ is flat $\mathbb R^4$ times a hyperbolic 4-space of radius $2/a$ whose four directions are all timelike,
 
-$$
+```math
 -dx_4^2 - \sum_{j=5}^{7}g_{jj}\,dx_j^2 = -\frac{4}{a^2}\,\frac{dw^2 + dy_5^2 + dy_6^2 + dy_7^2}{w^2}, \qquad w = \frac2a\,e^{ax_4/2},\quad y_j = \sqrt{b_{jj}}\,x_j ,
-$$
+```
 
-with $R = 3a^2$ and Kretschmann scalar $3a^4/2$. World lines with momentum $p_5 = -g_{55}\,dx_5/d\ell$ ($\ell$ an affine parameter) turn back in time at $x_4^* = \frac1a\ln(b_{55}/p_5^2)$. The field equation of dirac16complex, derived exactly from the Grassmann Lagrangian, is
+with $R = 3a^2$ and Kretschmann scalar $3a^4/2$. World lines with momentum $`p_5 = -g_{55}\,dx_5/d\ell`$ ($\ell$ an affine parameter) turn back in time at $x_4^* = \frac1a\ln(b_{55}/p_5^2)$. The field equation of dirac16complex, derived exactly from the Grassmann Lagrangian, is
 
-$$
+```math
 \begin{aligned}
 &\cot z\,T^0\partial_0\psi + e^{Hx_4}\sin^{\frac16}z\sum_{i=1}^{3}T^i\partial_i\psi + T^4\partial_4\psi + e^{ax_4/2}\sum_{j=5}^{7}\frac{T^j\partial_j\psi}{\sqrt{b_{jj}}} \\
 &\qquad - \frac32H\cot^2 z\,T^0\psi - \frac32\left(H + \frac a2\right)T^4\psi = (m + \lambda\bar\psi\psi)\psi .
 \end{aligned}
-$$
+```
 
 Its universes $e^{i(k_0x_0 + k_1x_1 + k_2x_2 + k_3x_3 + q_5x_5 + q_6x_6 + q_7x_7 - \omega x_4)}u$ (frozen coefficients) obey
 
-$$
+```math
 \omega^2 = m^2 + \cot^2 z\,k_0^2 + e^{2Hx_4}\sin^{1/3}z\,(k_1^2 + k_2^2 + k_3^2) - e^{ax_4}\sum_{j=5}^{7}\frac{q_j^2}{b_{jj}} ,
-$$
+```
 
 so momentum along a deflating direction turns oscillation into exponential growth, and the critical deflation rate is $a_c = 2H$. Every mode equation $\chi' = d\chi/dx_4 = M\chi$ with $M = T^4(i\sum_{A\ne4}c_AT^A - m)$ and real $c_A$ satisfies $M^\dagger K + KM = 0$. So the Krein charge $\chi^\dagger K\chi = P_+ - P_-$ is conserved, where $P_\pm = \chi^\dagger\frac12(I_{16} \pm K)\chi$ are the weights of the +mass and -mass sectors, while only the deflating directions change the norm $P_+ + P_-$. Hence $P_+$ and $P_-$ grow by equal amounts: deflation creates {+mass, -mass} universes in pairs. In the exact numerical example the -mass fraction $P_-/(P_+ + P_-)$ grows from $1.2\times10^{-31}$ to $0.49999995$.
 

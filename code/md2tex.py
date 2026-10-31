@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 r"""md2tex.py -- convert the restricted GitHub-Markdown used in this repository to a standalone LaTeX file.
-Supported: # headings, paragraphs, **bold**, *italic*, `code`, [links](url), inline math $..$, display math $$..$$,
-'-'/'*' bullet lists, '1.' numbered lists, ``` code blocks, indented code blocks, '>' quotes, '|' tables, '---' rules,
+Supported: # headings, paragraphs, **bold**, *italic*, `code`, [links](url), inline math $..$ and $`..`$, display math
+$$..$$ and ```math blocks (GitHub passes the TeX of $`..`$ and ```math unchanged to its math renderer), '-'/'*' bullet lists, '1.' numbered lists, ``` code blocks, indented code blocks, '>' quotes, '|' tables, '---' rules,
 <!-- comments --> (kept as LaTeX comments), <span style="font-size: Npx;"> (scaled by 10pt/16px), backslash escapes of
 ASCII punctuation, hard line breaks (two trailing spaces).  As on GitHub, a paragraph that is one $$..$$ is displayed and
-a $$..$$ inside a paragraph is set inline in display style.  In math, \\{ and \\} become \{ and \} and the MathJax macro
-\space becomes '\ '.  Straight quotes become opening/closing quotes, judged from their neighbours.  The first # heading
+a $$..$$ inside a paragraph is set inline in display style.  In $..$ and $$..$$ math, \\{ and \\} become \{ and \}; in all
+math the MathJax macro \space becomes '\ '.  Straight quotes become opening/closing quotes, judged from their neighbours.  The first # heading
 is the title; later # headings are unnumbered sections in the title's size.  Text and table cells are set ragged right,
 as GitHub sets them.  Usage: md2tex.py in.md out.tex"""
 import re, sys
@@ -66,14 +66,15 @@ def fmt_text(t, prev=' ', nxt=' '):
     t = re.sub(r'\*\*(.+?)\*\*', r'\\textbf{\1}', t)
     t = re.sub(r'(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])', r'\\emph{\1}', t)
     return re.sub('[\uE021-\uE07E]', lambda m: lit(unesc(m.group(0))), t)
-def mathnorm(t):
-    t = t.replace('\\\\{', '\\{').replace('\\\\}', '\\}')
+def mathnorm(t, escaped=True):
+    # escaped: $..$ and $$..$$ math, whose source GitHub passes through its Markdown backslash escapes
+    if escaped: t = t.replace('\\\\{', '\\{').replace('\\\\}', '\\}')
     t = re.sub(r'\\space(?![A-Za-z])', r'\\ ', t)
     for k, v in MATHUNI.items(): t = t.replace(k, v)
     t = t.replace(BR, ' ')
     if any(ord(c) > 127 for c in t): raise ValueError('non-ASCII in math: %r' % t)
     return t
-TOK = re.compile(r'(?P<esc>\\[!-/:-@\[-`{-~])|(?P<code>`[^`]+?`)|(?P<dm>\$\$.+?\$\$)|(?P<m>\$[^$]+?\$)'
+TOK = re.compile(r'(?P<bm>\$`[^`]+?`\$)|(?P<esc>\\[!-/:-@\[-`{-~])|(?P<code>`[^`]+?`)|(?P<dm>\$\$.+?\$\$)|(?P<m>\$[^$]+?\$)'
                  r'|(?P<link>\[(?P<lt>[^\]]+)\]\((?P<lu>[^)]+)\))'
                  r'|(?P<html></?[A-Za-z][A-Za-z0-9-]*(?:\s+[A-Za-z_:][\w.:-]*(?:\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s"\'=<>`]+))?)*\s*/?>)', re.S)
 def inline(s):
@@ -85,7 +86,8 @@ def inline(s):
     for m in TOK.finditer(s):
         if m.start() > i: text(s[i:m.start()], s[i:m.start()])
         g = m.group(0)
-        if m.group('esc'): text(g, chr(ESC0 + ord(g[1])))
+        if m.group('bm'): segs.append(['x', g, '$' + mathnorm(g[2:-2], escaped=False) + '$'])
+        elif m.group('esc'): text(g, chr(ESC0 + ord(g[1])))
         elif m.group('code'): segs.append(['x', g, r'\texttt{' + esc_code(g[1:-1]) + '}'])
         elif m.group('dm'): segs.append(['x', g, r'$\displaystyle ' + mathnorm(g[2:-2]) + '$'])
         elif m.group('m'): segs.append(['x', g, '$' + mathnorm(g[1:-1]) + '$'])
@@ -145,11 +147,13 @@ def convert(md):
     while i < n:
         l = lines[i]
         if l.strip().startswith('```'):
-            flush_list(liststack); i += 1; buf = []
+            flush_list(liststack); info = l.strip()[3:].strip(); i += 1; buf = []
             while i < n and not lines[i].strip().startswith('```'): buf.append(lines[i]); i += 1
+            i += 1
+            if info == 'math': out.append(r'\[' + '\n' + mathnorm('\n'.join(buf), escaped=False) + '\n' + r'\]'); continue
             for b in buf:
                 if any(ord(c) > 127 for c in b): raise ValueError('non-ASCII in code block: ' + b)
-            out.append(r'\begin{lstlisting}' + '\n' + '\n'.join(buf) + '\n' + r'\end{lstlisting}'); i += 1; continue
+            out.append(r'\begin{lstlisting}' + '\n' + '\n'.join(buf) + '\n' + r'\end{lstlisting}'); continue
         if l.strip() == '$$':
             flush_list(liststack); i += 1; buf = []
             while i < n and lines[i].strip() != '$$': buf.append(lines[i]); i += 1
