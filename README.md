@@ -1,6 +1,9 @@
 # Pre-gravity6plane: the Pin(4,4) fermion field dirac16complex, its 6-planes, gravity, Kohn-Sham pair creation, Einstein-Rosen bridges and deflating degrees of freedom
 
 This repository extends the Mathematica notebook Pre-gravity6plane.nb (P. L. Nash, (C) 2022, GNU General Public License) with a second-quantized fermion field, dirac16complex, and the calculations requested for it. Every equation and result stated below is computed with exact arithmetic (or a convergent numerical method where stated) in the notebooks 6planes.nb (Sections 1 to 4) and deflation.nb (Section 5).
+This notebook is distributed as free software under the GNU General Public License.They are distributed in the hope that they will  be useful,but WITHOUT ANY WARRANTY;without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU GPL for more details.
+
+Please  cite  this  work  and this web page if you use it.
 
 ## 1. Setting
 
