@@ -1,0 +1,6 @@
+prompt*.txt
+*.aux
+*.out
+*.toc
+*.pdflog
+.DS_Store

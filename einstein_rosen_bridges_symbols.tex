@@ -1,0 +1,45 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{longtable,booktabs,array}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\setcounter{MaxMatrixCols}{20}
+\allowdisplaybreaks
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\begin{document}
+
+{\LARGE\bfseries Symbols used in 'Einstein-Rosen bridges in the gravitational fields of dirac16complex'}\par\medskip
+
+{\small\begin{longtable}{p{0.320\linewidth}p{0.320\linewidth}p{0.320\linewidth}}\toprule
+symbol & meaning & definition \\\midrule
+$t,r,\theta,\phi$ & Schwarzschild coordinates & $ds^2 = -(1-\frac{2m}r)dt^2+\frac{dr^2}{1-2m/r}+r^2d\Omega^2$ \\
+$d\Omega^2$ & sphere metric & $d\theta^2+\sin^2\theta\,d\phi^2$ \\
+$m$ & Schwarzschild mass & geometric units $G=c=1$ \\
+$u$ & Einstein-Rosen coordinate & $u^2=r-2m$ (neutral), $u^2=r^2-q^2$ (charged), $x_0=x_h+su^2$ (Section 2) \\
+$q$ & charge parameter & $F_{tr}=q/r^2$ \\
+$F_{\mu\nu}$ & electromagnetic field tensor & antisymmetric, only $F_{tr}$ non-zero \\
+$T^{EM}_{\mu\nu}$ & electromagnetic stress tensor & $\frac1{4\pi}(F_{\mu\alpha}F_\nu{}^\alpha-\frac14g_{\mu\nu}F^2)$ \\
+$g_{\mu\nu}$, $g$ & metric and its determinant &  \\
+$R_{\mu\nu}$, $R$, $G_{\mu\nu}$ & Ricci tensor, scalar, Einstein tensor & $G_{\mu\nu}=R_{\mu\nu}-\frac12Rg_{\mu\nu}$ \\
+$R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ & Kretschmann scalar & full contraction of the Riemann tensor \\
+$x_0, x_4$ & hidden coordinate, time & coordinates of the dirac16complex project \\
+$f$ & metric function & modern $1-r_s/x_0$; future $1-r_s/x_0-H_\Lambda^2x_0^2$ \\
+$r_s$, $H_\Lambda$ & mass and dark-energy parameters & numerics: $r_s=1$, $H_\Lambda=0.1$ \\
+$x_h$ & horizon & simple root of $f$ \\
+$s$ & sign & $+1$ if $f'(x_h)>0$, $-1$ if $f'(x_h)<0$ \\
+$g_{uu}$, $g_{44}$ & metric components in $(u,x_4)$ & $g_{uu}=4u^2/f$, $g_{44}=-f$ \\
+$\kappa$ & surface gravity & $\lvert f'(x_h)\rvert/2$ \\
+$H$ & Hubble parameter of the primordial field & vielbein $\mathrm{diag}(\tan6Hx_0,\dots)$ \\
+$\rho$ & tortoise coordinate & $d\rho = dx_0/f$ \\
+$U$, $V$ & Kruskal coordinates & $U=-e^{-\kappa(x_4-\rho)}$, $V=e^{\kappa(x_4+\rho)}$ on sheet I \\
+$\epsilon$ & Killing energy of a universe (Kohn-Sham mode) & mode $\propto e^{-i\epsilon(x_4-\rho)}$ \\
+$\beta_\epsilon$ & Bogoliubov coefficient & $\lvert\beta_\epsilon\rvert^2=1/(e^{2\pi\epsilon/\kappa}+1)$ \\
+$T_H$ & Hawking temperature & $\kappa/(2\pi)$ \\
+$H_I$, $H_{II}$ & Killing Hamiltonians of the two sheets & the bridge vacuum is annihilated by $H_I-H_{II}$ \\
+\bottomrule\end{longtable}}
+
+\end{document}

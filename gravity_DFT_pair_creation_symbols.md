@@ -1,0 +1,53 @@
+# Symbols used in 'dirac16complex in the primordial, modern and future gravitational fields'
+
+| symbol | meaning | definition |
+|---|---|---|
+| $x_0,\dots,x_7$ | coordinates | $x_0$ hidden, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time |
+| $\eta_{AB}$ | flat metric | $\mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ |
+| $T^A$ | real 16x16 Dirac matrices $(T16^A)[A]$ | $T^AT^B+T^BT^A=2\eta^{AB}I_{16}$ |
+| $T_A$ | lowered index | $T_A=\eta_{AB}T^B$ |
+| $\Gamma$ | chirality | $T^0\cdots T^7=\mathrm{diag}(-I_8,I_8)$ |
+| $\sigma_{16}$ | Dirac-adjoint matrix | $T^0T^1T^2T^3$ |
+| $\psi$, $\bar\psi$ | dirac16complex and adjoint | complex Grassmann 16-spinor; $\bar\psi=\psi^\dagger\sigma_{16}$ |
+| $e^A{}_\mu$, $E_A{}^\mu$ | vielbein and inverse | $g_{\mu\nu}=\eta_{AB}e^A{}_\mu e^B{}_\nu$, $E_A{}^\mu e^A{}_\nu=\delta^\mu_\nu$ |
+| $e_A$ | diagonal vielbein entries | $e=\mathrm{diag}(e_0,\dots,e_7)$ |
+| $g_{\mu\nu}$, $\lvert g\rvert$ | metric, absolute determinant | $\sqrt{\lvert g\rvert}=\prod_A\lvert e_A\rvert$ |
+| $\Gamma^\nu{}_{\mu\lambda}$ | Christoffel symbols | $\frac12g^{\nu\kappa}(\partial_\mu g_{\kappa\lambda}+\partial_\lambda g_{\kappa\mu}-\partial_\kappa g_{\mu\lambda})$ |
+| $\omega_\mu{}^A{}_B$ | spin connection | $e^A{}_\nu(\partial_\mu E_B{}^\nu+\Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda)$ |
+| $\Omega_\mu$ | spinor connection | $\frac14\omega_\mu{}^A{}_BT_AT^B$ |
+| $\gamma^\mu$ | curved Dirac matrices | $E_A{}^\mu T^A$ |
+| $D_\mu$ | covariant derivatives | $D_\mu\psi=\partial_\mu\psi+\Omega_\mu\psi$, $D_\mu\bar\psi=\partial_\mu\bar\psi-\bar\psi\Omega_\mu$ |
+| $\mathcal L$ | Lagrangian density | $\sqrt{\lvert g\rvert}[\frac12(\bar\psi\gamma^\mu D_\mu\psi-(D_\mu\bar\psi)\gamma^\mu\psi)-m\bar\psi\psi-\frac\lambda2(\bar\psi\psi)^2]$ |
+| $m$, $\lambda$ | mass, quartic coupling | real constants ($m=1$, $\lambda=-0.03$ in the numerics) |
+| $H$ | Hubble parameter of the primordial field | $H=1$ in the numerics |
+| $r_s$ | mass (Schwarzschild-type) parameter | $f=1-r_s/x_0$; $r_s=1$ in the numerics |
+| $H_\Lambda$ | dark-energy Hubble rate | $f=1-r_s/x_0-H_\Lambda^2x_0^2$; $H_\Lambda=0.1$ |
+| $f$, $f'$ | metric function and derivative | as above; $f'=df/dx_0$ |
+| $e_P$, $e_M$, $e_F$ | primordial, modern, future vielbeins | Section 2 |
+| $R_1$ | reflection | $x_1\mapsto-x_1$ |
+| $\mathcal C$, $\mathcal P_1$ | mass-sign maps | $\mathcal C\psi=\Gamma\psi^*$, $\mathcal P_1\psi(x)=T^1\psi(R_1x)$ |
+| $\rho_s$ | Kohn-Sham scalar density | $\langle\bar\psi\psi\rangle_{KS}=\sum_{occ}\bar\phi_n\phi_n$ |
+| $\phi_n$ | Kohn-Sham orbitals | eigenfunctions of $h_{KS}$ |
+| $M$ | effective mass | $m+\lambda\rho_s$ |
+| $B$, $N$ | lapse and hidden scale | $B=e_4$, $N=e_0$ |
+| $\rho$ | tortoise coordinate | $d\rho=(N/B)dx_0$ |
+| $\epsilon$ | Kohn-Sham energy | $\psi=e^{-i\epsilon x_4}u(x_0)$ |
+| $u$, $\chi$, $(u,v)$ | rescaled orbitals | $u=(\sqrt{\lvert g\rvert}/N)^{-1/2}\chi$; $\chi=(u,v)$ in a $2\times2$ copy |
+| $h_{KS}$ | Kohn-Sham Hamiltonian | $\alpha p+W\beta$ |
+| $\alpha$, $\beta$, $p$ | Dirac operators | $\alpha=-T^4T^0$, $\beta=-iT^4$, $p=-i\,d/d\rho$ |
+| $W$ | effective potential | $W=BM$ |
+| $A$ | $2\times2$ copy operator | $A=d/d\rho+W$, $h=\begin{pmatrix}0&A^T\\ A&0\end{pmatrix}$ |
+| $K$ | Krein operator | $-i\sigma_{16}T^4$; $\sigma_{16}=K\beta$ |
+| $s_k$ | singular values of discretized $A$ | Kohn-Sham levels $\pm s_k$ |
+| $d$ | grid spacing | 0.02 |
+| $W_0$ | Lambert function | $W_0(y)e^{W_0(y)}=y$ |
+| $\zeta$ | vacuum label | $+1$ for $V_1$, $-1$ for $V_2$ |
+| $V_1$, $V_2$ | Spin(4,4)-symmetric and zero-energy vacua | Section 4 |
+| $\rho_{copy}$, $\rho_k$ | sea density of one copy, density of level $k$ | $\rho_{copy}=-\sum_k\rho_k$ |
+| $E_0$, $E_1$ | ground and first-excited total energies | $\Delta$SCF |
+| $T$ | temperature | Fermi-Dirac occupations |
+| $\Omega(T)$ | thermodynamic effective potential | $8\sum_k(-s_k-2T\ln(1+e^{-s_k/T}))-\frac\lambda2\int B\rho_s^2d\rho$ |
+| $\bar M$ | mean effective mass | average of $M$ over the grid |
+| $T_H$ | Hawking temperature | $1/(4\pi r_s)$ for the modern field |
+| $\psi_\pm$, $S_\pm$, $Q_\pm$ | mirror sectors, scalars, charges | $K\psi_\pm=\pm\psi_\pm$, $S_\pm=\psi_\pm^\dagger\beta\psi_\pm$, $Q_\pm=\int\psi^\dagger_\pm\psi_\pm$ |
+| $\mathcal L_D$ | 8-component Dirac Lagrangian | $\chi^\dagger\beta(T^A\partial_A-m)\chi$ |

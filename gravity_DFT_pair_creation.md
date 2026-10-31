@@ -1,0 +1,161 @@
+# dirac16complex in the primordial, modern and future gravitational fields: Euler-Lagrange equations, Kohn-Sham DFT, and the proof that universes of masses {+m, -m} are created in pairs
+
+All statements are computed with exact arithmetic (symbolic or integer) or, where stated, with a convergent numerical method, in the notebook 6planes.nb, Parts 5-7. All equations used are written out here.
+
+## 1. The field and its Lagrangian in a gravitational field
+
+dirac16complex is the 16-component Pin(4,4) spinor field $\psi$ with complex anticommuting (Grassmann) components, $\bar\psi = \psi^\dagger\sigma_{16}$, $\sigma_{16} = T^0T^1T^2T^3$, where the real Dirac matrices $T^A = (T16^A)[A]$ satisfy $T^AT^B + T^BT^A = 2\eta^{AB}I_{16}$, $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$. A gravitational field is a co-frame (vielbein) $e^A{}_\mu$ with inverse $E_A{}^\mu$, metric $g_{\mu\nu} = \eta_{AB}e^A{}_\mu e^B{}_\nu$ and Christoffel symbols $\Gamma^\nu{}_{\mu\lambda}$. The covariant Lagrangian density is
+
+$$
+\mathcal L = \sqrt{\lvert g\rvert}\left[\tfrac12\left(\bar\psi\gamma^\mu D_\mu\psi - (D_\mu\bar\psi)\gamma^\mu\psi\right) - m\bar\psi\psi - \frac\lambda2(\bar\psi\psi)^2\right],
+$$
+
+$$
+\gamma^\mu = E_A{}^\mu T^A,\qquad D_\mu\psi = \partial_\mu\psi + \Omega_\mu\psi,\qquad D_\mu\bar\psi = \partial_\mu\bar\psi - \bar\psi\Omega_\mu,\qquad \Omega_\mu = \tfrac14\,\omega_\mu{}^A{}_B\,T_AT^B,\qquad T_A = \eta_{AB}T^B,
+$$
+
+$$
+\omega_\mu{}^A{}_B = e^A{}_\nu\left(\partial_\mu E_B{}^\nu + \Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda\right).
+$$
+
+The sign of $\Omega_\mu$ is fixed by covariant constancy of the curved Dirac matrices, $\partial_\mu\gamma^\nu + \Gamma^\nu{}_{\mu\lambda}\gamma^\lambda + [\Omega_\mu, \gamma^\nu] = 0$, verified exactly in all three fields below.
+
+## 2. The three gravitational fields
+
+All three are diagonal vielbeins $e = \mathrm{diag}(e_0, e_1, \dots, e_7)$ of the form used in Pre-gravity6plane.nb.
+
+**Primordial field** (exactly the vielbein of Pre-gravity6plane.nb with the inflationary choice $a_4(Hx_4) = Hx_4$), $0 < 6Hx_0 < \pi/2$:
+
+$$
+e_P = \mathrm{diag}\left(\tan 6Hx_0,\ \frac{e^{-Hx_4}}{\sin^{1/6}6Hx_0}\ (\times3),\ 1,\ \frac{e^{Hx_4}}{\sin^{1/6}6Hx_0}\ (\times3)\right),\qquad \sqrt{\lvert g\rvert} = \sec 6Hx_0 .
+$$
+
+**Modern field** (static field of a mass along the hidden direction, Schwarzschild-type profile), $x_0 > r_s$:
+
+$$
+e_M = \mathrm{diag}\left(f^{-1/2}, 1, 1, 1, f^{1/2}, 1, 1, 1\right),\qquad f = 1 - \frac{r_s}{x_0},\qquad \sqrt{\lvert g\rvert} = 1 .
+$$
+
+**Future field** (mass plus dark energy, Schwarzschild-de Sitter-type profile), between the two horizons:
+
+$$
+e_F = \mathrm{diag}\left(f^{-1/2}, 1, 1, 1, f^{1/2}, 1, 1, 1\right),\qquad f = 1 - \frac{r_s}{x_0} - H_\Lambda^2x_0^2,\qquad \sqrt{\lvert g\rvert} = 1 .
+$$
+
+## 3. Euler-Lagrange equations of dirac16complex in the three fields
+
+Varying $\psi_a^{*}$ with left Grassmann derivatives, $\frac{\partial^L\mathcal L}{\partial\psi^*_a} - \partial_\mu\frac{\partial^L\mathcal L}{\partial(\partial_\mu\psi^*_a)} = 0$, gives in every field, exactly,
+
+$$
+\sqrt{\lvert g\rvert}\,\sigma_{16}\left(\gamma^\mu D_\mu\psi - m\psi - \lambda(\bar\psi\psi)\psi\right) = 0,
+$$
+
+and the Lagrangian is exactly real, $\mathcal L^* = \mathcal L$. For diagonal vielbeins $\gamma^\mu\Omega_\mu = \sum_A T^A\frac{1}{e_A}\frac12\partial_A\ln\frac{\sqrt{\lvert g\rvert}}{e_A}$ (verified), and only the $T^0$ term survives. Written out:
+
+**Primordial:**
+
+$$
+\cot(6Hx_0)\,T^0\partial_0\psi + e^{Hx_4}\sin^{\frac16}(6Hx_0)\sum_{i=1}^{3}T^i\partial_i\psi + T^4\partial_4\psi + e^{-Hx_4}\sin^{\frac16}(6Hx_0)\sum_{j=5}^{7}T^j\partial_j\psi - 3H\cot^2(6Hx_0)\,T^0\psi = (m + \lambda\bar\psi\psi)\psi .
+$$
+
+**Modern** ($f = 1 - r_s/x_0$) and **future** ($f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$):
+
+$$
+\sqrt f\,T^0\partial_0\psi + \sum_{i=1}^{3}T^i\partial_i\psi + \frac{1}{\sqrt f}T^4\partial_4\psi + \sum_{j=5}^{7}T^j\partial_j\psi + \frac{f'(x_0)}{4\sqrt{f}}\,T^0\psi = (m + \lambda\bar\psi\psi)\psi ,
+$$
+
+with $\frac{f'}{4\sqrt f} = \frac{r_s}{4\sqrt{x_0^3(x_0-r_s)}}$ (modern) and $\frac{f'}{4\sqrt f} = \frac{r_s - 2H_\Lambda^2x_0^3}{4\sqrt{x_0^3(x_0 - r_s - H_\Lambda^2x_0^3)}}$ (future). For configurations of dirac16complex that depend only on $x_0$ and $x_4$, only the $T^0$ and $T^4$ terms remain.
+
+## 4. The DFT-motivated Kohn-Sham approximation
+
+**Kohn-Sham (mean-field) treatment of the quartic term.** In the spirit of density-functional theory, the interacting field is replaced by non-interacting Kohn-Sham quanta moving in a self-consistent effective potential that depends on a local density:
+
+$$
+\frac\lambda2(\bar\psi\psi)^2 \longrightarrow \lambda\rho_s\,\bar\psi\psi - \frac\lambda2\rho_s^2,\qquad \rho_s(x) = \langle\bar\psi\psi\rangle_{KS} = \sum_{n\ \mathrm{occ}}\bar\phi_n(x)\phi_n(x),\qquad M(x) = m + \lambda\rho_s(x).
+$$
+
+**Kohn-Sham equation.** For a static field with lapse $B = e_4$ and hidden scale $N = e_0$, stationary modes $\psi = e^{-i\epsilon x_4}u(x_0)$, the rescaling $u = (\sqrt{\lvert g\rvert}/N)^{-1/2}\chi$ (which removes the spin-connection term) and the tortoise coordinate $d\rho = (N/B)\,dx_0$ give
+
+$$
+h_{KS}\chi = \epsilon\chi,\qquad h_{KS} = \alpha p + W(\rho)\beta,\qquad p = -i\frac{d}{d\rho},\qquad \alpha = -T^4T^0,\qquad \beta = -iT^4,\qquad W = B\,M .
+$$
+
+$\alpha$, $\beta$ are Hermitian, $\alpha^2 = \beta^2 = I_{16}$, $\alpha\beta + \beta\alpha = 0$, and both commute with the Krein operator $K = -i\sigma_{16}T^4$; so $h_{KS}$ is 8 copies (4 with $K=+1$, 4 with $K=-1$) of the $2\times2$ operator $\begin{pmatrix}0 & A^T\\ A & 0\end{pmatrix}$ with $A = \frac{d}{d\rho} + W$. Boundary conditions (bag): $u(\rho_L) = 0$, $v(\rho_R) = 0$ for $\chi = (u, v)$; the bag operator is $T^0 = -i\alpha\beta$. The maps to the tortoise coordinate are
+
+$$
+\text{primordial: } x_0 = \frac{\arccos e^{-6H\rho}}{6H},\ B = 1;\qquad \text{modern: } x_0 = r_s\left(1 + W_0\!\left(e^{\rho/r_s - 1}\right)\right),\ B = \sqrt{1 - r_s/x_0};\qquad \text{future: } \rho = \int_{3}^{x_0}\frac{dy}{f(y)},\ B = \sqrt f,
+$$
+
+where $W_0$ is the Lambert function. **Numerical method.** Staggered grid ($u$ on integer, $v$ on half-integer points, spacing $d = 0.02$): $A$ becomes a lower bidiagonal matrix with diagonal $\frac1d + \frac{W_{j}}2$ and sub-diagonal $-\frac1d + \frac{W_j}2$, and the eigenvalues of $h_{KS}$ are exactly $\pm s_k$, the singular values of $A$. Test against the exact bag spectrum $k\cos kL + m\sin kL = 0$, $\epsilon = \sqrt{k^2+m^2}$ ($m=1$, $L=5$): numerical $1.13204, 1.47963, 1.95318$ versus exact $1.13211, 1.47986, 1.95361$.
+
+**Occupations and the two vacua.** Because $\sigma_{16} = K\beta$, the $K=-1$ copies enter $\bar\psi\psi$ with a minus sign: $\bar\psi\psi = S_+ - S_-$. In terms of one copy's sea density $\rho_{copy}$:
+
+$$
+\rho_s = 4\rho_{copy} + 4\zeta\rho_{copy} + (\text{excitation}),\qquad \zeta = +1\ (\text{vacuum } V_1),\qquad \zeta = -1\ (\text{vacuum } V_2).
+$$
+
+$V_1$ (Spin(4,4)-symmetric vacuum): both sectors fill their negative-field-energy levels; the condensates add and a dynamical mass is generated (Nambu-Jona-Lasinio-like, the grid spacing being the ultraviolet cutoff). $V_2$ (zero-energy mirror vacuum): both sectors fill $\epsilon < 0$; the condensates cancel exactly, $\rho_s = 0$, $W = Bm$, and the total vacuum energy is exactly zero. **Total energy:** $E = \sum_{occ}(\text{field energy of level}) - \frac\lambda2\int B\rho_s^2\,d\rho$, where a level $\epsilon$ of the $K=\pm1$ sector carries field energy $\pm\epsilon$. **First excited state:** $\Delta$SCF, i.e. one particle-hole pair in the lowest level of one copy, re-solved self-consistently.
+
+**Thermodynamic effective potential.** At temperature $T$ (chemical potential 0) the Mermin-Kohn-Sham grand potential of the fermion gas, solved self-consistently, is
+
+$$
+\Omega(T) = 8\sum_k\left(-s_k - 2T\ln\left(1 + e^{-s_k/T}\right)\right) - \frac\lambda2\int B\rho_s^2\,d\rho,\qquad \rho_s = -8\sum_k\tanh\frac{s_k}{2T}\,\rho_k(\rho).
+$$
+
+## 5. Results (parameters $H = r_s = m = 1$, $H_\Lambda = 0.1$, $\lambda = -0.03$, $d = 0.02$)
+
+| quantity | primordial | modern | future |
+|---|---|---|---|
+| tortoise box, $x_0$ range | [0,4]; 0.0572-0.2618 | [-4,6]; 1.0068-4.6856 | [-3,3]; 1.5599-4.7480 |
+| V2: $\max\lvert W/B - m\rvert$ | 0 | 0 | 0 |
+| V2: vacuum energy | 0 | 0 | 0 |
+| V2: lowest KS levels $\pm s_k$ | 1.18792, 1.66827, 2.29936 | 0.478383, 0.833191, 1.04954 | 0.859668, 1.15294, 1.56262 |
+| V2: first excited, + universe pair | +2.35992 | +0.954610 | +1.71130 |
+| V2: first excited, - universe pair | -2.39177 | -0.958925 | -1.72737 |
+| V2: both created together | 0 (exact) | 0 (exact) | 0 (exact) |
+| V1: self-consistent $M$ range | 1.5353-6.2331 | 1.1002-6.1046 | 1.3499-6.1744 |
+| V1: ground energy $E_0$ | -101780.4385 | -254547.9728 | -152691.6224 |
+| V1: $E_1 - E_0$ ($\Delta$SCF) | 3.33886 | 1.03858 | 2.23828 |
+| V1: lowest KS levels $\pm s_k$ | 1.68180, 2.07587, 2.62805 | 0.520477, 0.971297, 1.24416 | 1.12479, 1.37113, 1.73680 |
+
+Thermodynamic effective potential $\Omega(T)$ and mean effective mass (vacuum $V_1$); $T_H = 1/(4\pi r_s) = 0.0795775$ is the Hawking temperature of the modern bridge:
+
+| $T$ | $\Omega$ primordial | $\bar M$ | $\Omega$ modern | $\bar M$ | $\Omega$ future | $\bar M$ |
+|---|---|---|---|---|---|---|
+| 0.0795775 | -101780.4385 | 1.60220 | -254547.9746 | 1.32224 | -152691.6224 | 1.43383 |
+| 0.25 | -101780.4444 | 1.60198 | -254548.5722 | 1.31644 | -152691.6880 | 1.43236 |
+| 0.5 | -101780.8961 | 1.59423 | -254553.1705 | 1.29929 | -152693.3587 | 1.41643 |
+| 1 | -101787.4992 | 1.54950 | -254579.3755 | 1.26456 | -152707.2232 | 1.37102 |
+| 2 | -101829.6777 | 1.46201 | -254699.1228 | 1.21945 | -152776.9684 | 1.30837 |
+
+The effective mass decreases with temperature (thermal melting of the condensate), as expected for a Kohn-Sham fermion gas with an attractive ($\lambda<0$) scalar coupling.
+
+## 6. Theorems: universes of masses {+m, -m} are created in pairs
+
+Definitions. A **Universe** is a mode function of dirac16complex (a c-number solution of the linear or Kohn-Sham field equation), as in Pre-gravity6plane.nb. Its **mass** is its energy $\epsilon$ with respect to translations of the time $x_4$ (for zero momentum, $\epsilon = \pm M$), or, for the mass-sign theorem, the parameter $m$ of the equation it solves.
+
+**Theorem 1 (mass-sign pairing; dirac16complex; primordial, modern and future fields).** Let $\mathcal C\psi = \Gamma\psi^*$ ($\Gamma = T^0\cdots T^7$) and $\mathcal P_1\psi(x) = T^1\psi(R_1x)$, $R_1: x_1\mapsto -x_1$. Then, as exact identities in the Grassmann algebra,
+
+$$
+\mathcal L_{m,\lambda}[\mathcal C\psi] = \mathcal L_{-m,\lambda}[\psi],\qquad \mathcal L_{m,\lambda}[\mathcal P_1\psi](x) = \mathcal L_{-m,\lambda}[\psi](R_1x).
+$$
+
+*Proof.* $\Gamma$ commutes with $\sigma_{16}$ and with every $S^{AB}$, anticommutes with every $T^A$, is real with $\Gamma^2 = I$. Under $\psi\to\Gamma\psi^*$ the reordering of Grassmann factors gives $\bar\psi T^A\partial_A\psi \to \bar\psi T^A\partial_A\psi$ (up to the same antisymmetrized combination), $\bar\psi\psi\to-\bar\psi\psi$, $(\bar\psi\psi)^2\to(\bar\psi\psi)^2$; the vielbein and $\Omega_\mu$ are real and commute with $\Gamma$ up to the same signs. For $\mathcal P_1$: $(T^1)^T\sigma_{16}T^1 = -\sigma_{16}$ and $T^1T^AT^1 = -T^A$ for $A\neq1$, $T^1T^1T^1 = T^1$ together with $\partial_1\to-\partial_1$ leave the kinetic term invariant and flip $\bar\psi\psi$; $R_1$ is an isometry of all three fields. Both identities were verified symbolically in each field (6planes.nb, Part 5.1). $\mathcal C^2 = \mathcal P_1^2 = 1$, so each map is a bijection between the solution sets with masses $+m$ and $-m$. $\square$
+
+**Theorem 2 (spectral pairing; all three fields).** For every real effective potential $W$,
+
+$$
+T^0h_{KS}T^0 = -h_{KS},\qquad h_{KS}^* = -h_{KS},
+$$
+
+and both maps preserve the bag boundary conditions. Hence every Kohn-Sham level $\epsilon$ has a partner $-\epsilon$: a Universe of mass $+\epsilon$ is always accompanied by a Universe of mass $-\epsilon$. *Proof.* $T^0\alpha T^0 = -\alpha$, $T^0\beta T^0 = -\beta$; $\alpha$ is real and $\beta$ imaginary, and $p^* = -p$ (verified, 6planes.nb Part 6.1); $T^0$ is the bag operator itself. The full field equation of dirac16complex has real coefficients, so complex conjugation maps a stationary solution of frequency $\epsilon$ to one of frequency $-\epsilon$ also for configurations that depend on all eight coordinates. Numerically the spectrum is $\{\pm s_k\}$ by construction (singular values). $\square$
+
+**Theorem 3 (mirror sectors and zero-energy pair creation; every configuration of dirac16complex independent of $x_5,x_6,x_7$).**
+
+$$
+\mathcal L = \mathcal L_D[\psi_+] - \mathcal L_D[\psi_-] - \frac\lambda2(S_+ - S_-)^2,\qquad (\bar\psi\psi)^2 = S_+^2 + S_-^2 - 2S_+S_-,\qquad K\psi_\pm = \pm\psi_\pm .
+$$
+
+(i) The $\pm$ sectors carry opposite field energies: a $+$ Universe of energy $\epsilon$ and a $-$ Universe in the same orbital have energies $+\epsilon$ and $-\epsilon$. (ii) In the zero-energy vacuum $V_2$ the total energy is exactly 0 and the condensates cancel. (iii) Creating a $+$ Universe pair (energy $+\Delta$) together with a $-$ Universe pair (energy $-\Delta$) leaves $\rho_s$ and the Kohn-Sham field unchanged and changes the total energy by exactly 0 (table above, all three fields): the creation of the pair costs no energy. (iv) The cross term $+\lambda S_+S_-$ (232 Grassmann monomials) connects the vacuum with this state, so the process is allowed by the dynamics; the separately conserved charges $Q_\pm = \int\psi_\pm^\dagger\psi_\pm$ forbid the creation of a single quantum, and conservation of the total energy (which is 0 in $V_2$) forbids the creation of quanta of only one sign, so the minimal allowed creation is the $\{+,-\}$ pair. Therefore **universes of masses $\{+m, -m\}$ are created in pairs**, in each of the primordial, modern and future fields. *Proof.* Algebra of Part 3.6 and Part 7 of 6planes.nb (exact identities) and the Kohn-Sham energy balance, in which the field-energy contributions $+2s_1$ and $-2s_1$ cancel and $\rho_s$ is unchanged. $\square$
+
+**Remarks (honest scope).** The theorems are exact statements about the model defined here: the Lagrangian of Section 1, the three gravitational fields of Section 2, and the Kohn-Sham approximation of Section 4. They do not prove that the physical universe was created this way. The single $\pm$ excitations are not exact mirror images of each other ($+2.35992$ versus $-2.39177$ in the primordial field), because the self-interaction energy $-\frac\lambda2\int B\rho_s^2$ is even under the exchange of the sectors. The exact cancellation holds for the pair. With four time directions the quantized field has an indefinite (Krein) metric; the $-$ sector consists of negative-norm (equivalently negative-energy) quanta.

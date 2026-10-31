@@ -1,0 +1,102 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{longtable,booktabs,array}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\setcounter{MaxMatrixCols}{20}
+\allowdisplaybreaks
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\begin{document}
+
+{\LARGE\bfseries Pre-gravity6plane: the Pin(4,4) fermion field dirac16complex, its 6-planes, gravity, Kohn-Sham pair creation and Einstein-Rosen bridges}\par\medskip
+
+This repository extends the Mathematica notebook Pre-gravity6plane.nb (P. L. Nash, (C) 2022, GNU General Public License) with a second-quantized fermion field, dirac16complex, and the calculations requested for it. Every equation and result stated below is computed with exact arithmetic (or a convergent numerical method where stated) in the notebook 6planes.nb.
+
+
+\section*{1. Setting}
+
+Coordinates $x_0,\dots,x_7$ ($x_0$ hidden space, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time), metric $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$. The eight real $16\times16$ Dirac matrices are those of Pre-gravity6plane.nb,
+
+
+\[
+T^A = (T16^A)[A] = \begin{pmatrix}0&\bar\tau_A\\ \tau_A&0\end{pmatrix},\qquad T^AT^B + T^BT^A = 2\eta^{AB}I_{16},\qquad S^{AB} = \tfrac14[T^A,T^B],
+\]
+
+with entries in $\{-1,0,1\}$; the $S^{AB}$ generate Spin(4,4) and, with the reflections $T^C$, Pin(4,4); $\Gamma = T^0\cdots T^7 = \mathrm{diag}(-I_8,I_8)$, $P_{L,R} = \frac12(I_{16}\mp\Gamma)$, $\sigma_{16} = T^0T^1T^2T^3$.
+
+
+\section*{2. The field and its Lagrangian}
+
+dirac16complex $\psi = (\psi_0,\dots,\psi_{15})$ has complex anticommuting (Grassmann) components and is a second-quantized fermion field; $\bar\psi = \psi^\dagger\sigma_{16}$.
+
+
+\[
+\mathcal L = \tfrac12\left(\bar\psi T^A\partial_A\psi - (\partial_A\bar\psi)T^A\psi\right) - m\bar\psi\psi - \frac\lambda2(\bar\psi\psi)^2,\qquad T^A\partial_A\psi = (m + \lambda\bar\psi\psi)\psi .
+\]
+
+$\mathcal L$ is exactly real; the quadratic (mass) and quartic (self-coupling) terms are non-zero because the components are complex. Quantization with time $x_4$ gives $\{\psi_a,\psi_b^\dagger\} = K_{ab}\delta$, $K = -i\sigma_{16}T^4$, $K^2 = I$, with an (8,8) indefinite (Krein) metric, and an exact split into two mirror sectors of opposite energy: $\mathcal L = \mathcal L_D[\psi_+] - \mathcal L_D[\psi_-] - \frac\lambda2(S_+-S_-)^2$ for fields independent of $x_5,x_6,x_7$.
+
+
+\section*{3. Mirror of Pre-gravity6plane.nb and the 6-planes}
+
+Restricted to configurations that depend only on $x_0$ and $x_4$, the analogue of the notebook's $\Psi_{16}(x_0,x_4)$ ($m = -2M$), the 16 field equations split into the four blocks $\{0,5,8,13\},\{1,4,9,12\},\{2,7,10,15\},\{3,6,11,14\}$, as in the old notebook; its exponential solutions $e^{pz+qt}u$ with $(6p+q)(6p-q) = m^2/H^2$, $z = 6Hx_0$, $t = Hx_4$, are exactly the Maple solutions of the old notebook. With the triality frames and vector forms $V_1 = \eta(\psi_1^T\sigma F_A{}^a)$, $V_2 = F_a{}^A\psi_2$, a Universe defines the 6-plane
+
+
+\[
+M^6 = \{Z\in\mathbb R^8 : n_1\cdot Z = 0,\ n_2\cdot Z = 0\},\qquad n_k = V_k[\mathrm{Re}\,\psi],
+\]
+
+with $\binom82 = 28$ parameterizations; a pair of universes of energies $\pm E$ creates the 6-plane $\{Z:\mathrm{Re}V_2\cdot Z = \mathrm{Im}V_2\cdot Z = 0\}$ by itself.
+
+
+\section*{4. Gravity, Kohn-Sham DFT, pair creation, Einstein-Rosen bridges}
+
+Three gravitational fields (diagonal vielbeins): primordial $\mathrm{diag}(\tan6Hx_0, e^{-Hx_4}\sin^{-1/6}6Hx_0\,(\times3), 1, e^{Hx_4}\sin^{-1/6}6Hx_0\,(\times3))$ (the vielbein of Pre-gravity6plane.nb with $a_4 = Hx_4$); modern $\mathrm{diag}(f^{-1/2},1,1,1,f^{1/2},1,1,1)$ with $f = 1-r_s/x_0$; future the same with $f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$. In each, the Euler-Lagrange equations derived from the Grassmann Lagrangian are $\gamma^\mu D_\mu\psi = (m+\lambda\bar\psi\psi)\psi$, e.g. (primordial)
+
+
+\[
+\cot(6Hx_0)T^0\partial_0\psi + e^{Hx_4}\sin^{\frac16}(6Hx_0)\sum_{i=1}^3T^i\partial_i\psi + T^4\partial_4\psi + e^{-Hx_4}\sin^{\frac16}(6Hx_0)\sum_{j=5}^7T^j\partial_j\psi - 3H\cot^2(6Hx_0)T^0\psi = (m+\lambda\bar\psi\psi)\psi .
+\]
+
+The quartic term is treated in a Kohn-Sham (DFT) approximation, $M = m + \lambda\rho_s$, with the Kohn-Sham Hamiltonian $h_{KS} = \alpha p + BM\beta$ ($\alpha = -T^4T^0$, $\beta = -iT^4$) in tortoise coordinates, ground and first-excited ($\Delta$SCF) states, and the finite-temperature thermodynamic effective potential $\Omega(T)$. Proven in each field: $\mathcal L_m[\Gamma\psi^*] = \mathcal L_{-m}[\psi]$ and $\mathcal L_m[T^1\psi(R_1x)] = \mathcal L_{-m}[\psi]$ (mass-sign pairing); $T^0h_{KS}T^0 = -h_{KS}$ and $h_{KS}^* = -h_{KS}$ (every level $\epsilon$ has a partner $-\epsilon$); in the zero-energy vacuum the creation of a $+$ universe pair together with a $-$ universe pair changes the energy by exactly 0, while single quanta and single-sign creation are forbidden by the conserved charges and energy: universes of masses $\{+m,-m\}$ are created in pairs. The 1935 Einstein-Rosen bridges are verified; the modern field has one and the future field two exact bridges (two congruent sheets, $g = 0$ on the bridge, finite curvature); the primordial field's degenerate hypersurface $x_0 = 0$ is a curvature singularity ($R \approx -\frac{31}{216H^2x_0^4}$); across a bridge the vacuum pairs universes of energy $+\epsilon$ and $-\epsilon$ with weight $1/(e^{\epsilon/T_H}+1)$, $T_H = \kappa/2\pi$.
+
+
+\section*{5. Assumptions and interpretations made in this work}
+
+\begin{enumerate}
+\item The modern and future gravitational fields (not specified in the request) are defined as above; the primordial field is the notebook's vielbein with $a_4(Hx_4) = Hx_4$.
+\item "Universe" means a mode function (c-number solution) of dirac16complex, as the notebook calls $\Psi_{16}$ the wave function of a Universe; its "mass" is its energy for translations of $x_4$ (or the mass parameter $m$ for the mass-sign theorem).
+\item The theorems are exact statements about this model; they are not a proof about the physical universe.
+\end{enumerate}
+
+\section*{6. Reproducing everything}
+
+\begin{lstlisting}
+cd code
+wolframscript -file verify_dirac_matrices.wls ../Pre-gravity6plane.nb
+wolframscript -file build_nb2.wls
+python3 gen_dm.py
+python3 md2tex.py <file>.md <file>.tex ; pdflatex <file>.tex
+\end{lstlisting}
+
+\section*{7. Repository inventory}
+
+{\small\begin{longtable}{p{0.480\linewidth}p{0.480\linewidth}}\toprule
+file & content \\\midrule
+Pre-gravity6plane.nb & original notebook (P. L. Nash, GPL) \\
+6planes.nb & new notebook, evaluated, 34 input cells, no messages \\
+README.md/.tex/.pdf & this overview \\
+dirac matrices.md/.tex/.pdf & proofs and display of the eight real 16x16 Dirac matrices \\
+dirac16complex\_6planes.md/.tex/.pdf & the field, Lagrangian, quantization, mirror of the old notebook, 6-planes \\
+gravity\_DFT\_pair\_creation.md/.tex/.pdf & three gravitational fields, Euler-Lagrange equations, Kohn-Sham DFT, pair theorems \\
+einstein\_rosen\_bridges.md/.tex/.pdf & Einstein-Rosen bridges \\
+*\_provenance.md/.tex/.pdf & sources and computations behind each document \\
+*\_symbols.md/.tex/.pdf & definitions of all symbols of each document \\
+code/ & core.wl, verify\_dirac\_matrices.wls (+ log), dm\_data.json, gen\_dm.py, md2tex.py, 6planes\_src.txt, build\_nb2.wls (+ log) \\
+\bottomrule\end{longtable}}
+
+\end{document}

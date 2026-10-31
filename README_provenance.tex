@@ -1,0 +1,24 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{longtable,booktabs,array}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\setcounter{MaxMatrixCols}{20}
+\allowdisplaybreaks
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\begin{document}
+
+{\LARGE\bfseries Provenance of the README of Pre-gravity6plane}\par\medskip
+
+\begin{itemize}
+\item Every equation of the README is a restatement of a result computed in 6planes.nb (Wolfram Language 15.0.1, run 2026-10-30, 34 input cells, 0 messages) or verified by verify\_dirac\_matrices.wls (31 exact checks, all True): $T^AT^B+T^BT^A = 2\eta^{AB}I_{16}$; $\Gamma = \mathrm{diag}(-I_8,I_8)$; $\mathcal L^* = \mathcal L$; the Euler-Lagrange equations $T^A\partial_A\psi = (m+\lambda\bar\psi\psi)\psi$ and $\gamma^\mu D_\mu\psi = (m+\lambda\bar\psi\psi)\psi$; $K = -i\sigma_{16}T^4$ with eigenvalues $\pm1$ (8 each); the coupling blocks; $(6p+q)(6p-q) = m^2/H^2$; rank 2 and 28 parameterizations of $M^6$; $\mathcal L_m[\Gamma\psi^*] = \mathcal L_{-m}[\psi]$; $T^0h_{KS}T^0 = -h_{KS}$; the zero energy of pair creation; the bridge data and $R\approx-\frac{31}{216H^2x_0^4}$; the occupation $1/(e^{\epsilon/T_H}+1)$.
+\item The matrices $T^A$, $\sigma_{16}$, $\Gamma$, $P_{L,R}$ are those of Pre-gravity6plane.nb (P. L. Nash, (C) 2022, GPL), compared entry by entry with its stored output cells 494, 310, 312, 379, 381.
+\item The primordial vielbein is the one displayed in Pre-gravity6plane.nb (text cells 901, 913) with $a_4(Hx_4) = Hx_4$; the modern and future fields and the interpretation of "Universe" are definitions of this work, listed in Section 5 of the README.
+\item Literature: A. Einstein and N. Rosen, Phys. Rev. 48, 73 (1935); W. Kohn and L. J. Sham, Phys. Rev. 140, A1133 (1965); N. D. Mermin, Phys. Rev. 137, A1441 (1965); W. G. Unruh, Phys. Rev. D 14, 870 (1976); J. B. Hartle and S. W. Hawking, Phys. Rev. D 13, 2188 (1976); P. L. Nash, J. Math. Phys. 51, 042501 (2010).
+\end{itemize}
+
+\end{document}

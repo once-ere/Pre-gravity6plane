@@ -1,0 +1,44 @@
+# Symbols used in 'dirac16complex: a second-quantized Pin(4,4) fermion field and the 6-planes it creates'
+
+| symbol | meaning | definition |
+|---|---|---|
+| $x_0,\dots,x_7$ | coordinates | $x_0$ hidden, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time |
+| $\eta_{AB}$ | metric | $\mathrm{diag}(+1,+1,+1,+1,-1,-1,-1,-1)$ |
+| $\sigma$ | 8x8 spinor metric | $\begin{pmatrix}0&I_4\\ I_4&0\end{pmatrix}$ |
+| $\tau_A$, $\bar\tau_A$ | 8x8 building blocks | $\bar\tau_A=\sigma\tau_A^T\sigma$, $\frac12(\tau_A\bar\tau_B+\tau_B\bar\tau_A)=\eta_{AB}I_8$ |
+| $T^A=(T16^A)[A]$ | real 16x16 Dirac matrices | $\begin{pmatrix}0&\bar\tau_A\\ \tau_A&0\end{pmatrix}$, $\{T^A,T^B\}=2\eta^{AB}I_{16}$ |
+| $\Gamma$ | chirality | $T^0T^1\cdots T^7=\mathrm{diag}(-I_8,I_8)$ |
+| $\sigma_{16}$ | Dirac-adjoint matrix | $T^0T^1T^2T^3=\mathrm{diag}(-\sigma,\sigma)$ |
+| $S^{AB}$ | Spin(4,4) generators | $\frac14[T^A,T^B]$ |
+| $\psi$ = dirac16complex | 16-component complex Grassmann spinor field (second quantized) | $\psi_a = \frac1{\sqrt2}(\xi_a + i\chi_a)$, $\psi_a\psi_b=-\psi_b\psi_a$ |
+| $\xi_a,\chi_a$ | real Grassmann generators | $\xi_a\xi_b = -\xi_b\xi_a$ |
+| $\psi^*$, $\psi^\dagger$ | conjugate, conjugate transpose | $(\theta\eta)^*=\eta^*\theta^*$ |
+| $\bar\psi$ | Dirac adjoint | $\psi^\dagger\sigma_{16}$ |
+| $\mathcal L$ | Lagrangian density | $\frac12(\bar\psi T^A\partial_A\psi-(\partial_A\bar\psi)T^A\psi) - m\bar\psi\psi - \frac\lambda2(\bar\psi\psi)^2$ |
+| $m$ | mass parameter | real constant; $m=-2M$ relative to Pre-gravity6plane.nb |
+| $\lambda$ | quartic self-coupling | real constant |
+| $M$, $H$ | mass and Hubble parameters of Pre-gravity6plane.nb | $L_a = \frac1H\Psi_{16}^T\sigma_{16}\sum T^A\partial_A\Psi_{16} + \frac{2M}H\Psi_{16}^T\sigma_{16}\Psi_{16}$ |
+| $\partial^L/\partial\psi^*_a$ | left Grassmann derivative | removes $\psi_a^*$ from the left, sign $(-1)^{\text{position}-1}$ |
+| $J^A$ | U(1) Noether current | $\bar\psi T^A\psi$, $\partial_AJ^A=0$ |
+| $\pi$ | canonical momentum | $\bar\psi T^4$ |
+| $K$ | Krein operator | $-i\sigma_{16}T^4$, $K^\dagger=K$, $K^2=I_{16}$ |
+| $\beta$ | Hermitian involution | $-iT^4$; $\sigma_{16}=K\beta$ |
+| $g_{45}$ | rotation by $\pi$ in the $(x_4,x_5)$-plane | $T^4T^5$ |
+| $\psi_\pm$ | mirror sectors | $K\psi_\pm=\pm\psi_\pm$, $\psi = \psi_++\psi_-$ |
+| $\mathcal L_D$ | 8-component Dirac Lagrangian | $\chi^\dagger\beta(T^A\partial_A-m)\chi$, $A=0..4$ |
+| $S_\pm$ | sector scalars | $\psi_\pm^\dagger\beta\psi_\pm$; $\bar\psi\psi = S_+-S_-$ |
+| $\Psi_{16}$, $f16[k]$ | Universe wave function of Pre-gravity6plane.nb | $\Psi_{16}=(f16[0][x_0,x_4],\dots,f16[15][x_0,x_4])$ |
+| $z$, $t$ | scaled variables | $z=6Hx_0$, $t=Hx_4$ |
+| $p$, $q$, $C$ | exponents of light-cone modes | $\psi=e^{pz+qt}u$, $(6p)^2-q^2=m^2/H^2$, $6p+q=2C$ |
+| $u$, $w$ | constant spinors | $u = (6pT^0+qT^4-\frac{2M}H)w$; plane wave $u=(ikT^0-iET^4+m)w$ |
+| $k$, $E$ | wave number, frequency | $E=\pm\sqrt{k^2+m^2}$ |
+| $z_{adv}$, $z_{ret}$, $\xi_{adv}$, $\xi_{ret}$ | light-cone variables | $6t\pm z$; $x_0\mp x_4$ |
+| $u$ (unit spinor) | triality unit | $\frac1{\sqrt2}(1,0,0,0,1,0,0,0)$, $u^T\sigma u=1$ |
+| $F_A{}^a$, $F_a{}^A$ | triality frames | $(F_A{}^a)_{aA}=\eta_{AA}(\tau_Au)_a$, $(F_a{}^A)_{Aa}=(u^T\sigma\bar\tau_A)_a$ |
+| $\psi_1$, $\psi_2$ | type-1, type-2 halves | components $0..7$ and $8..15$ |
+| $V_1$, $V_2$ | vector forms | $V_1=\eta(\psi_1^T\sigma F_A{}^a)$, $V_2=F_a{}^A\psi_2$ |
+| $n_1$, $n_2$ | real normals | $n_k = V_k[\mathrm{Re}\,\psi]$ |
+| $Z$, $z_i$ | point of $\mathbb R^8$ | $Z=(z_1,\dots,z_8)$ |
+| 7-plane | hyperplane | $\{Z: n\cdot Z=0\}$ |
+| $M^6$ | 6-plane | $\{Z:n_1\cdot Z=0,\ n_2\cdot Z=0\}$; 28 parameterizations |
+| $M^6_{pair}$ | 6-plane of a $\pm E$ pair | $\{Z:\mathrm{Re}\,V_2\cdot Z=0,\ \mathrm{Im}\,V_2\cdot Z=0\}$ |

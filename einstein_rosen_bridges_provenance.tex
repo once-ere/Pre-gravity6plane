@@ -1,0 +1,45 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{longtable,booktabs,array}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+\setcounter{MaxMatrixCols}{20}
+\allowdisplaybreaks
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\begin{document}
+
+{\LARGE\bfseries Provenance of 'Einstein-Rosen bridges in the gravitational fields of dirac16complex'}\par\medskip
+
+\section*{1. Sources}
+
+\begin{itemize}
+\item A. Einstein and N. Rosen, "The Particle Problem in the General Theory of Relativity", Phys. Rev. 48, 73-77 (1935), doi:10.1103/PhysRev.48.73. Quoted in Pre-gravity6plane.nb (cells 1397-1399, 1406, 1412): the substitution $u^2 = r - 2m$, two congruent sheets $u>0$, $u<0$, joined by the hyperplane $u = 0$ in which $g$ vanishes, called a bridge. The charged bridge with reversed sign of the electromagnetic energy and $m=0$ is from the same paper; here it is re-derived as $r^2 = u^2 + q^2$, $ds^2 = -\frac{u^2}{u^2+q^2}dt^2 + du^2 + (u^2+q^2)d\Omega^2$ and verified.
+\item Pre-gravity6plane.nb (P. L. Nash, (C) 2022, GPL): primordial vielbein $\mathrm{diag}(\tan 6Hx_0,\ e^{-a_4}\sin^{-1/6}6Hx_0\ (\times3),\ 1,\ e^{a_4}\sin^{-1/6}6Hx_0\ (\times3))$ (cells 901, 913) and the domain $0<6Hx_0<\pi/2$ (cell 48).
+\item The modern and future fields are this work's definitions ($f = 1 - r_s/x_0$, $f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$ for the $(x_0,x_4)$ metric $dx_0^2/f - f\,dx_4^2$).
+\item Standard results used in Section 4: W. G. Unruh, Phys. Rev. D 14, 870 (1976); W. Israel, Phys. Lett. A 57, 107 (1976); J. B. Hartle and S. W. Hawking, Phys. Rev. D 13, 2188 (1976); Kruskal coordinates (M. D. Kruskal, Phys. Rev. 119, 1743 (1960)). The picture of bridges as pair correlations follows J. Maldacena and L. Susskind, Fortsch. Phys. 61, 781 (2013).
+\end{itemize}
+
+\section*{2. Computations (Wolfram Language 15.0.1, exact, 2026-10-30)}
+
+{\small\begin{longtable}{p{0.480\linewidth}p{0.480\linewidth}}\toprule
+result & 6planes.nb \\\midrule
+neutral bridge: $R_{\mu\nu}=0$, $\det g = -4u^2(u^2+2m)^4\sin^2\theta$, even in $u$, Kretschmann $48m^2/(u^2+2m)^6$ & Part 8, Out[31] \\
+charged bridge: $G_{\mu\nu}+8\pi T^{EM}_{\mu\nu}=0$, $\det g(0)=0$, Kretschmann$(0) = 56/q^4$ & Part 8, Out[31] \\
+modern and future bridges: $g_{uu}(0)$, $g_{44}(0)$, evenness, $R(0)$, $\kappa$ (exact cubic roots; check at $u=10^{-6}$) & Part 8.1, Out[32] \\
+primordial: $R = -\frac{3H^2}{2}(57+64\cos12Hx_0+3\cos24Hx_0)\csc^46Hx_0$, series $-\frac{31}{216H^2x_0^4}$, $\det g = \sec^2 6Hx_0$ & Part 8.2, Out[33] \\
+continuation factor $e^{-\pi\epsilon/\kappa}$, occupation $1/(e^{2\pi\epsilon/\kappa}+1)$ equals Fermi-Dirac at $T_H = \kappa/2\pi$ & Part 8.3, Out[34] \\
+\bottomrule\end{longtable}}
+
+The curvature routines (Christoffel symbols, Riemann tensor $R^i{}_{jkl} = \partial_k\Gamma^i{}_{jl} - \partial_l\Gamma^i{}_{jk} + \Gamma^i{}_{km}\Gamma^m{}_{jl} - \Gamma^i{}_{lm}\Gamma^m{}_{jk}$, Ricci tensor $R_{jl} = R^i{}_{jil}$, Einstein tensor, Kretschmann scalar) are written out in 6planes.nb and were first tested on the Einstein-Rosen metrics in a scratch script (test\_er.wls) with identical results.
+
+
+\section*{3. New in this work}
+
+Application of the Einstein-Rosen substitution $x_0 = x_h + su^2$ to the modern and future fields; the proof that the primordial field's degenerate hypersurface is singular; the identification of the Kruskal pairing with the $\{+\epsilon,-\epsilon\}$ universes of dirac16complex.
+
+
+\end{document}

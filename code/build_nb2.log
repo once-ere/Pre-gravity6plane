@@ -1,0 +1,37 @@
+cell 1 done in 0. s; messages: 0; result head: List
+cell 2 done in 0. s; messages: 0; result head: List
+cell 3 done in 0.02 s; messages: 0; result head: Association
+cell 4 done in 4.61 s; messages: 0; result head: Association
+cell 5 done in 0. s; messages: 0; result head: List
+cell 6 done in 0. s; messages: 0; result head: List
+cell 7 done in 0. s; messages: 0; result head: Association
+cell 8 done in 0.28 s; messages: 0; result head: Association
+cell 9 done in 0.35000000000000003 s; messages: 0; result head: Association
+cell 10 done in 0. s; messages: 0; result head: Plus
+cell 11 done in 0.13 s; messages: 0; result head: Association
+cell 12 done in 0. s; messages: 0; result head: Association
+cell 13 done in 0. s; messages: 0; result head: Association
+cell 14 done in 0.04 s; messages: 0; result head: Column
+cell 15 done in 0. s; messages: 0; result head: List
+cell 16 done in 0.03 s; messages: 0; result head: Symbol
+cell 17 done in 0. s; messages: 0; result head: List
+cell 18 done in 0. s; messages: 0; result head: Association
+cell 19 done in 0. s; messages: 0; result head: List
+cell 20 done in 0.12 s; messages: 0; result head: Association
+cell 21 done in 0.05 s; messages: 0; result head: Association
+cell 22 done in 0.16 s; messages: 0; result head: Legended
+cell 23 done in 3.8000000000000003 s; messages: 0; result head: Association
+cell 24 done in 12.05 s; messages: 0; result head: Association
+cell 25 done in 0. s; messages: 0; result head: Association
+cell 26 done in 0.5 s; messages: 0; result head: Association
+cell 27 done in 18.67 s; messages: 0; result head: Association
+cell 28 done in 0.14 s; messages: 0; result head: Legended
+cell 29 done in 25.03 s; messages: 0; result head: TableForm
+cell 30 done in 0.04 s; messages: 0; result head: Association
+cell 31 done in 0.17 s; messages: 0; result head: Association
+cell 32 done in 0.01 s; messages: 0; result head: Association
+cell 33 done in 0.32 s; messages: 0; result head: Association
+cell 34 done in 0. s; messages: 0; result head: Association
+total time (s): 68
+messages: 0
+file size: 393326
