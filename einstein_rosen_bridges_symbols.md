@@ -3,7 +3,7 @@
 | symbol | meaning | definition |
 |---|---|---|
 | $t,r,\theta,\phi$ | Schwarzschild coordinates | $ds^2 = -(1-\frac{2m}r)dt^2+\frac{dr^2}{1-2m/r}+r^2d\Omega^2$ |
-| $d\Omega^2$ | sphere metric | $d\theta^2+\sin^2\theta\,d\phi^2$ |
+| $d\Omega^2$ | sphere metric | $`d\theta^2+\sin^2\theta\,d\phi^2`$ |
 | $m$ | Schwarzschild mass | geometric units $G=c=1$ |
 | $u$ | Einstein-Rosen coordinate | $u^2=r-2m$ (neutral), $u^2=r^2-q^2$ (charged), $x_0=x_h+su^2$ (Section 2) |
 | $q$ | charge parameter | $F_{tr}=q/r^2$ |

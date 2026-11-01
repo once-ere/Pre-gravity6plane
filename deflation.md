@@ -12,11 +12,11 @@ $$
 
 We study the case in which $x_5, x_6, x_7$ are associated with metric components that each deflate exponentially in the time $x_4$:
 
-$$
+```math
 g_{55} = b_{55}\,e^{-ax_4}, \qquad g_{66} = b_{66}\,e^{-ax_4}, \qquad g_{77} = b_{77}\,e^{-ax_4}, \qquad a > 0, \quad b_{55} > 0, \quad b_{66} > 0, \quad b_{77} > 0 .
-$$
+```
 
-They enter the line element as $-g_{55}\,dx_5^2 - g_{66}\,dx_6^2 - g_{77}\,dx_7^2$, so $x_5, x_6, x_7$ remain timelike. They are called the **deflating degrees of freedom**. All other metric components are those of the primordial gravitational field, the vielbein of Pre-gravity6plane.nb with $a_4(Hx_4) = Hx_4$. With
+They enter the line element as $`-g_{55}\,dx_5^2 - g_{66}\,dx_6^2 - g_{77}\,dx_7^2`$, so $x_5, x_6, x_7$ remain timelike. They are called the **deflating degrees of freedom**. All other metric components are those of the primordial gravitational field, the vielbein of Pre-gravity6plane.nb with $a_4(Hx_4) = Hx_4$. With
 
 $$
 z = 6Hx_0
@@ -24,9 +24,9 @@ $$
 
 the line element is
 
-$$
+```math
 ds^2 = \tan^2 z\,dx_0^2 + e^{-2Hx_4}\sin^{-1/3}z\,\left(dx_1^2 + dx_2^2 + dx_3^2\right) - dx_4^2 - g_{55}\,dx_5^2 - g_{66}\,dx_6^2 - g_{77}\,dx_7^2 ,
-$$
+```
 
 on the domain $H > 0$, $0 < x_0 < \pi/(12H)$, that is $0 < z < \pi/2$, where $\tan z > 0$ and $\sin z > 0$.
 
@@ -36,13 +36,13 @@ on the domain $H > 0$, $0 < x_0 < \pi/(12H)$, that is $0 < z < \pi/2$, where $\t
 
 The vielbein is diagonal,
 
-$$
+```math
 e^A{}_\mu = \mathrm{diag}(e_0, e_1, \dots, e_7), \qquad g_{\mu\nu} = \eta_{AB}\,e^A{}_\mu\,e^B{}_\nu ,
-$$
+```
 
-$$
+```math
 e_0 = \tan z, \qquad e_1 = e_2 = e_3 = e^{-Hx_4}\sin^{-1/6}z, \qquad e_4 = 1, \qquad e_j = \sqrt{g_{jj}} = \sqrt{b_{jj}}\,e^{-ax_4/2} \quad (j = 5, 6, 7),
-$$
+```
 
 and the inverse vielbein is $E_A{}^\mu = \delta_A^\mu/e_A$. The notebook confirms $e_j^2 = g_{jj}$ and
 
@@ -55,37 +55,37 @@ $$
 
 **Deflation.** A coordinate interval $\Delta x_j$ has the proper size
 
-$$
+```math
 L_j = \sqrt{g_{jj}}\,\Delta x_j = \sqrt{b_{jj}}\,e^{-ax_4/2}\,\Delta x_j, \qquad \frac{d\ln L_j}{dx_4} = -\frac a2 ,
-$$
+```
 
 so every proper size along $x_5, x_6, x_7$ shrinks by the factor $e^{-1}$ in the time $\Delta x_4 = 2/a$. The volume factor of the deflating 3-space is
 
-$$
+```math
 \sqrt{g_{55}\,g_{66}\,g_{77}} = \sqrt{b_{55}b_{66}b_{77}}\;e^{-3ax_4/2} ,
-$$
+```
 
 and the volume element of the eight-dimensional space, with $\left(\sqrt{\lvert g\rvert}\right)^2 = \lvert\det g_{\mu\nu}\rvert$, is
 
-$$
+```math
 \sqrt{\lvert g\rvert} = e_0e_1\cdots e_7 = \frac{\sqrt{b_{55}b_{66}b_{77}\,\sin z}}{\cos z}\;e^{-3(a+2H)x_4/2} = \sqrt{b_{55}b_{66}b_{77}}\;\tan z\,\sin^{-1/2}z\;e^{-3(H+a/2)x_4} .
-$$
+```
 
 ## 3. The Dirac matrices, the field dirac16complex and its two mirror sectors
 
 **The eight real 16x16 Dirac matrices** are those of Pre-gravity6plane.nb. With $h = 1, 2, 3$, $p, q = 1, \dots, 4$ and the Levi-Civita symbol $\epsilon_{hpq4}$ ($\epsilon_{1234} = 1$):
 
-$$
+```math
 \sigma = \begin{pmatrix} 0 & I_4 \\ I_4 & 0 \end{pmatrix}, \qquad (s_h)_{pq} = \epsilon_{hpq4} - \delta_{p4}\delta_{qh} + \delta_{ph}\delta_{q4}, \qquad (t_h)_{pq} = \epsilon_{hpq4} + \delta_{p4}\delta_{qh} - \delta_{ph}\delta_{q4},
-$$
+```
 
-$$
+```math
 \tau_0 = I_8, \quad \tau_h = \begin{pmatrix} 0 & s_h \\ s_h & 0 \end{pmatrix}, \quad \tau_4 = \begin{pmatrix} 0 & t_3 \\ -t_3 & 0 \end{pmatrix}, \quad \tau_5 = \begin{pmatrix} 0 & t_2 \\ -t_2 & 0 \end{pmatrix}, \quad \tau_6 = \begin{pmatrix} 0 & t_1 \\ -t_1 & 0 \end{pmatrix}, \quad \tau_7 = \tau_1\tau_2\tau_3\tau_4\tau_5\tau_6 ,
-$$
+```
 
-$$
+```math
 \bar\tau_A = \sigma\,\tau_A^T\,\sigma, \qquad T^A \equiv (T16^A)[A] = \begin{pmatrix} 0 & \bar\tau_A \\ \tau_A & 0 \end{pmatrix} \quad (A = 0, \dots, 7).
-$$
+```
 
 Proven exactly: all entries are $-1$, $0$ or $1$; $T^0, \dots, T^3$ are symmetric and $T^4, \dots, T^7$ antisymmetric;
 
@@ -101,9 +101,9 @@ $\sigma_{16}$ is symmetric because $\sigma$ is. The signature of the deflation f
 
 **The field.** dirac16complex is the 16-component Pin(4,4) spinor field $\psi = (\psi_0, \dots, \psi_{15})^T$ whose complex components are anticommuting Grassmann variables; it is a second-quantized fermion field. For Grassmann elements $\theta, \zeta$:
 
-$$
+```math
 \psi_a\psi_b = -\psi_b\psi_a, \qquad \psi_a\psi_b^* = -\psi_b^*\psi_a, \qquad \psi_a^2 = 0, \qquad (\theta\zeta)^* = \zeta^*\theta^*, \qquad \bar\psi = \psi^\dagger\sigma_{16} .
-$$
+```
 
 A commuting (c-number) solution of the linear field equation is a mode function of the field; as in Pre-gravity6plane.nb, a mode function is called the wave function of a universe.
 
@@ -121,15 +121,15 @@ $$
 
 and the same three identities hold without $T^A$. The Hermitian conjugate of the first identity, with $(\sigma_{16}T^A)^T = -\sigma_{16}T^A$, gives $\Pi_-\sigma_{16}T^A\Pi_+ = 0$ as well. Hence, for derivatives along $x_0, \dots, x_4$,
 
-$$
+```math
 \bar\psi\,T^A\partial_A\psi = \psi_+^\dagger\beta T^A\partial_A\psi_+ - \psi_-^\dagger\beta T^A\partial_A\psi_- \quad (A = 0, \dots, 4), \qquad \bar\psi\psi = \psi_+^\dagger\beta\psi_+ - \psi_-^\dagger\beta\psi_- :
-$$
+```
 
 there are no cross terms, and the $K = -1$ sector enters with the opposite sign. For a mode $\psi = e^{-i\omega x_4}u$ the canonical energy density is
 
-$$
+```math
 \tfrac12\left(\bar\psi\,T^4\partial_4\psi - (\partial_4\bar\psi)\,T^4\psi\right) = \omega\,\psi^\dagger K\psi ,
-$$
+```
 
 so a mode of the $K = -1$ sector carries the opposite energy of the same mode of the $K = +1$ sector. The energy of a universe is called its mass: $K = +1$ is the **+mass sector** and $K = -1$ the **-mass sector**.
 
@@ -137,17 +137,17 @@ so a mode of the $K = -1$ sector carries the opposite energy of the same mode of
 
 The curvature is computed from the Christoffel symbols (a symbol $\Gamma$ with three indices is a Christoffel symbol; $\Gamma$ without indices is the chirality matrix of Section 3):
 
-$$
+```math
 \Gamma^\lambda{}_{\mu\nu} = \tfrac12\,g^{\lambda\rho}\left(\partial_\mu g_{\rho\nu} + \partial_\nu g_{\rho\mu} - \partial_\rho g_{\mu\nu}\right),
-$$
+```
 
 $$
 R^\kappa{}_{\lambda\mu\nu} = \partial_\mu\Gamma^\kappa{}_{\lambda\nu} - \partial_\nu\Gamma^\kappa{}_{\lambda\mu} + \Gamma^\kappa{}_{\mu\rho}\Gamma^\rho{}_{\lambda\nu} - \Gamma^\kappa{}_{\nu\rho}\Gamma^\rho{}_{\lambda\mu}, \qquad R_{\lambda\nu} = R^\kappa{}_{\lambda\kappa\nu}, \qquad R = g^{\lambda\nu}R_{\lambda\nu},
 $$
 
-$$
+```math
 G_{\mu\nu} = R_{\mu\nu} - \tfrac12 R\,g_{\mu\nu}, \qquad R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = \sum_{\kappa,\lambda,\mu,\nu} \frac{g_{\kappa\kappa}}{g_{\lambda\lambda}\,g_{\mu\mu}\,g_{\nu\nu}}\left(R^\kappa{}_{\lambda\mu\nu}\right)^2 \quad \text{(diagonal metric)}.
-$$
+```
 
 ### 4.1 The full deflation field
 
@@ -181,23 +181,23 @@ $$
 
 they do not contain $a$. The Kretschmann scalar is
 
-$$
+```math
 R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = \frac32\left[a^4 + 6a^2H^2 + 8H^4 + H^4\left(1245 + 108\cos 2z - \cos 4z\right)\cot^4 z\,\csc^4 z + 8H^4\cos^2 2z\,\csc^8 z\right].
-$$
+```
 
 Three consequences:
 
-- $R$, every $G^\mu{}_\mu$, $R_{04}$ and the Kretschmann scalar depend on $x_0$ only, not on $x_4$. Deflation therefore creates no curvature singularity at any finite time $x_4$.
-- Near $x_0 = 0$, to leading order, $R = -\dfrac{7}{108\,H^2x_0^4}$ and $R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = \dfrac{85}{69984\,H^4x_0^8}$, independent of $a$: the curvature singularity of the primordial field at $x_0 = 0$ remains.
+- $R$, every $`G^\mu{}_\mu`$, $`R_{04}`$ and the Kretschmann scalar depend on $x_0$ only, not on $x_4$. Deflation therefore creates no curvature singularity at any finite time $x_4$.
+- Near $x_0 = 0$, to leading order, $`R = -\dfrac{7}{108\,H^2x_0^4}`$ and $`R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = \dfrac{85}{69984\,H^4x_0^8}`$, independent of $a$: the curvature singularity of the primordial field at $x_0 = 0$ remains.
 - The term $\frac32a^4$ of the Kretschmann scalar is exactly the Kretschmann scalar of the pure deflation field below.
 
 ### 4.2 The pure deflation field: a hyperbolic 4-space of times
 
 The pure deflation field keeps only the deflation,
 
-$$
+```math
 ds^2 = dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2 - dx_4^2 - g_{55}\,dx_5^2 - g_{66}\,dx_6^2 - g_{77}\,dx_7^2 ,
-$$
+```
 
 and isolates the effect of the deflating degrees of freedom. Its curvature invariants are constants:
 
@@ -205,7 +205,7 @@ $$
 R = 3a^2, \qquad R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = \frac{3a^4}{2}, \qquad G^\mu{}_\mu = -\frac{3a^2}{2}\ (\mu = 0, 1, 2, 3), \qquad G^\mu{}_\mu = -\frac{3a^2}{4}\ (\mu = 4, 5, 6, 7) \quad (\text{no sum}).
 $$
 
-Every Riemann component with an index in $\{0, 1, 2, 3\}$ vanishes, so $x_0, \dots, x_3$ span a flat $\mathbb R^4$. The block $(x_4, x_5, x_6, x_7)$ with metric $-dx_4^2 - g_{55}dx_5^2 - g_{66}dx_6^2 - g_{77}dx_7^2$ is maximally symmetric:
+Every Riemann component with an index in $`\{0, 1, 2, 3\}`$ vanishes, so $x_0, \dots, x_3$ span a flat $\mathbb R^4$. The block $(x_4, x_5, x_6, x_7)$ with metric $-dx_4^2 - g_{55}dx_5^2 - g_{66}dx_6^2 - g_{77}dx_7^2$ is maximally symmetric:
 
 $$
 R_{\kappa\lambda\mu\nu} = \frac{a^2}{4}\left(g_{\kappa\mu}g_{\lambda\nu} - g_{\kappa\nu}g_{\lambda\mu}\right), \qquad R_{\kappa\lambda\mu\nu} = g_{\kappa\rho}R^\rho{}_{\lambda\mu\nu} .
@@ -213,15 +213,15 @@ $$
 
 With the new coordinates
 
-$$
+```math
 w = \frac2a\,e^{ax_4/2} > 0, \qquad y_j = \sqrt{b_{jj}}\,x_j \quad (j = 5, 6, 7),
-$$
+```
 
 the metric of the block becomes exactly
 
-$$
+```math
 -dx_4^2 - g_{55}\,dx_5^2 - g_{66}\,dx_6^2 - g_{77}\,dx_7^2 = -\frac{4}{a^2}\,\frac{dw^2 + dy_5^2 + dy_6^2 + dy_7^2}{w^2} .
-$$
+```
 
 The right side is minus the Poincare upper-half-space metric $\frac{4}{a^2}(dw^2 + dy_5^2 + dy_6^2 + dy_7^2)/w^2$ of the hyperbolic 4-space $H^4$ of radius $2/a$. **Time and the three deflating degrees of freedom together form a hyperbolic 4-space whose four directions are all timelike.** Its radius is $2/a$. The infinite past $x_4 \to -\infty$ is the boundary $w = 0$, the infinite future $x_4 \to +\infty$ is $w \to \infty$. This is why the invariants are constant: $R = 12/(2/a)^2 = 3a^2$ and $R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = 24/(2/a)^4 = 3a^4/2$.
 
@@ -229,21 +229,21 @@ The right side is minus the Poincare upper-half-space metric $\frac{4}{a^2}(dw^2
 
 Consider a world line $x^\mu(\ell)$ in the $(x_4, x_5)$ plane of the deflation field, with affine parameter $\ell$ and $\dot x = dx/d\ell$. Nothing depends on $x_5$, so the momentum
 
-$$
+```math
 p_5 = g_{5\mu}\,\dot x^\mu = -g_{55}\,\dot x_5
-$$
+```
 
 is conserved, and
 
-$$
+```math
 \dot x_5 = -\frac{p_5}{b_{55}}\,e^{ax_4}
-$$
+```
 
-grows exponentially. The normalization $-\dot x_4^2 - g_{55}\,\dot x_5^2 = -1$ gives
+grows exponentially. The normalization $`-\dot x_4^2 - g_{55}\,\dot x_5^2 = -1`$ gives
 
-$$
+```math
 \dot x_4^2 = 1 - \frac{p_5^2}{b_{55}}\,e^{ax_4} .
-$$
+```
 
 Since $\dot x_4^2 \ge 0$, the world line cannot go beyond the **turning point**
 
@@ -251,70 +251,70 @@ $$
 x_4^* = \frac1a\ln\frac{b_{55}}{p_5^2} .
 $$
 
-The $x_4$ component of the geodesic equation, $\ddot x_4 = -\Gamma^4{}_{55}\,\dot x_5^2$ with $\ddot x_4 = \frac12\,d(\dot x_4^2)/dx_4$, is satisfied. In the coordinates $w = (2/a)e^{ax_4/2}$, $y_5 = \sqrt{b_{55}}\,x_5$ of Section 4.2,
+The $x_4$ component of the geodesic equation, $`\ddot x_4 = -\Gamma^4{}_{55}\,\dot x_5^2`$ with $`\ddot x_4 = \frac12\,d(\dot x_4^2)/dx_4`$, is satisfied. In the coordinates $`w = (2/a)e^{ax_4/2}`$, $`y_5 = \sqrt{b_{55}}\,x_5`$ of Section 4.2,
 
-$$
+```math
 \left(\frac{dw}{dy_5}\right)^2 = \frac{w_*^2 - w^2}{w^2}, \qquad w_* = \frac{2\sqrt{b_{55}}}{a\,\lvert p_5\rvert} ,
-$$
+```
 
-whose solutions are the semicircles $(y_5 - y_{5c})^2 + w^2 = w_*^2$ standing on the boundary $w = 0$ ($y_{5c}$ is a constant). The top of the semicircle, $w = w_*$, is exactly the turning point $x_4^*$. The world line comes from $x_4 \to -\infty$, rises to $x_4^*$ and returns to $x_4 \to -\infty$: **deflation turns world lines back in time.**
+whose solutions are the semicircles $`(y_5 - y_{5c})^2 + w^2 = w_*^2`$ standing on the boundary $`w = 0`$ ($`y_{5c}`$ is a constant). The top of the semicircle, $`w = w_*`$, is exactly the turning point $`x_4^*`$. The world line comes from $`x_4 \to -\infty`$, rises to $`x_4^*`$ and returns to $x_4 \to -\infty$: **deflation turns world lines back in time.**
 
 ## 6. The field equation of dirac16complex in the deflation field
 
 The curved-space Dirac matrices and the spin connection are
 
-$$
+```math
 \gamma^\mu = E_A{}^\mu\,T^A, \qquad D_\mu\psi = \partial_\mu\psi + \Omega_\mu\psi, \qquad D_\mu\bar\psi = \partial_\mu\bar\psi - \bar\psi\,\Omega_\mu ,
-$$
+```
 
-$$
+```math
 \Omega_\mu = \tfrac14\,\omega_\mu{}^A{}_B\,T_AT^B, \qquad T_A = \eta_{AB}T^B, \qquad \omega_\mu{}^A{}_B = e^A{}_\nu\left(\partial_\mu E_B{}^\nu + \Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda\right).
-$$
+```
 
 The Lagrangian density of dirac16complex, with real constants $m$ (mass) and $\lambda$ (quartic self-coupling), is
 
-$$
+```math
 \mathcal L = \sqrt{\lvert g\rvert}\left[\tfrac12\left(\bar\psi\gamma^\mu D_\mu\psi - (D_\mu\bar\psi)\gamma^\mu\psi\right) - m\,\bar\psi\psi - \frac\lambda2\,(\bar\psi\psi)^2\right].
-$$
+```
 
 Treating $\psi_a$ and $\psi_a^*$ as independent Grassmann variables, the Euler-Lagrange equations with left derivatives,
 
-$$
+```math
 \frac{\partial^L\mathcal L}{\partial\psi_a^*} - \partial_\mu\,\frac{\partial^L\mathcal L}{\partial(\partial_\mu\psi_a^*)} = 0 \quad (a = 0, \dots, 15),
-$$
+```
 
 were computed exactly in the Grassmann algebra; they equal
 
-$$
+```math
 \sqrt{\lvert g\rvert}\,\sigma_{16}\left(\gamma^\mu D_\mu\psi - m\psi - \lambda(\bar\psi\psi)\psi\right) = 0 .
-$$
+```
 
-Also proven: $\gamma^\mu$ is covariantly constant, $\partial_\mu\gamma^\nu + \Gamma^\nu{}_{\mu\lambda}\gamma^\lambda + [\Omega_\mu, \gamma^\nu] = 0$, and $\mathcal L$ is real, $\mathcal L^* = \mathcal L$. The inverse-vielbein factors and the spin-connection term are
+Also proven: $\gamma^\mu$ is covariantly constant, $`\partial_\mu\gamma^\nu + \Gamma^\nu{}_{\mu\lambda}\gamma^\lambda + [\Omega_\mu, \gamma^\nu] = 0`$, and $\mathcal L$ is real, $\mathcal L^* = \mathcal L$. The inverse-vielbein factors and the spin-connection term are
 
 $$
 \left(E_A{}^A\right)_{A=0..7} = \left(\cot z,\ e^{Hx_4}\sin^{1/6}z,\ e^{Hx_4}\sin^{1/6}z,\ e^{Hx_4}\sin^{1/6}z,\ 1,\ \frac{e^{ax_4/2}}{\sqrt{b_{55}}},\ \frac{e^{ax_4/2}}{\sqrt{b_{66}}},\ \frac{e^{ax_4/2}}{\sqrt{b_{77}}}\right),
 $$
 
-$$
+```math
 \gamma^\mu\Omega_\mu = -\frac32H\cot^2 z\,T^0 - \frac34(a + 2H)\,T^4 ,
-$$
+```
 
 so **the field equation of dirac16complex in the deflation field** is
 
-$$
+```math
 \begin{aligned}
 &\cot z\,T^0\partial_0\psi + e^{Hx_4}\sin^{1/6}z\sum_{i=1}^{3}T^i\partial_i\psi + T^4\partial_4\psi + e^{ax_4/2}\sum_{j=5}^{7}\frac{T^j\partial_j\psi}{\sqrt{b_{jj}}} \\
 &\qquad - \frac32H\cot^2 z\,T^0\psi - \frac32\left(H + \frac a2\right)T^4\psi = (m + \lambda\bar\psi\psi)\,\psi .
 \end{aligned}
-$$
+```
 
 The deflating directions enter through the growing factors $e^{ax_4/2}/\sqrt{b_{jj}}$, and deflation adds the friction term $-\frac{3a}{4}T^4\psi$.
 
-**Mass-sign pairing.** Let $\mathcal L_m$ denote the Lagrangian with mass $m$. Define the map $\mathcal C\psi = \Gamma\psi^*$, i.e. $\psi_a \mapsto \Gamma_{ab}\psi_b^*$ and $\psi_a^* \mapsto \Gamma_{ab}\psi_b$, and the map $P_1\psi(x) = T^1\psi(R_1x)$ with the reflection $R_1: x_1 \mapsto -x_1$. Proven exactly in the Grassmann algebra:
+**Mass-sign pairing.** Let $\mathcal L_m$ denote the Lagrangian with mass $m$. Define the map $`\mathcal C\psi = \Gamma\psi^*`$, i.e. $`\psi_a \mapsto \Gamma_{ab}\psi_b^*`$ and $\psi_a^* \mapsto \Gamma_{ab}\psi_b$, and the map $P_1\psi(x) = T^1\psi(R_1x)$ with the reflection $R_1: x_1 \mapsto -x_1$. Proven exactly in the Grassmann algebra:
 
-$$
+```math
 \mathcal L_m[\Gamma\psi^*] = \mathcal L_{-m}[\psi], \qquad \mathcal L_m[T^1\psi(R_1x)] = \mathcal L_{-m}[\psi](R_1x) .
-$$
+```
 
 Each map sends every solution with mass $+m$ onto a solution with mass $-m$.
 
@@ -324,9 +324,9 @@ Universes are mode functions: c-number solutions of the linear part of the field
 
 **Exact removal of the friction terms.** With
 
-$$
+```math
 \psi = F\chi, \qquad F = \sin^{1/4}z\;e^{3(a+2H)x_4/4}, \qquad \gamma^\mu\partial_\mu F + F\,\gamma^\mu\Omega_\mu = 0 ,
-$$
+```
 
 one has $\gamma^\mu D_\mu(F\chi) = F\gamma^\mu\partial_\mu\chi$, so the linear equation becomes $\gamma^\mu\partial_\mu\chi = m\chi$ without friction terms.
 
@@ -338,29 +338,29 @@ $$
 
 with frozen (adiabatic) coefficients $c_A = E_A{}^A = 1/e_A$, valid when the $c_A$ change little over one wavelength, the equation becomes
 
-$$
+```math
 (iS - i\omega T^4 - m)\,u = 0, \qquad S = \sum_{A \ne 4} c_Ak_A\,T^A \quad (k_5, k_6, k_7 \equiv q_5, q_6, q_7).
-$$
+```
 
 Proven: $ST^4 + T^4S = 0$ and $S^2 = s^2I_{16}$ with $s^2 = \sum_{A \ne 4}\eta_{AA}(c_Ak_A)^2$. With $X = iS - i\omega T^4$ and $(T^4)^2 = -I_{16}$ this gives $X^2 = -S^2 + \omega(ST^4 + T^4S) - \omega^2(T^4)^2 = (\omega^2 - s^2)I_{16}$ and $(X + m)(X - m) = (\omega^2 - s^2 - m^2)I_{16}$. Non-zero $u$ therefore exist exactly when $\omega^2 = m^2 + s^2$:
 
-$$
+```math
 \omega^2 = m^2 + \cot^2 z\,k_0^2 + e^{2Hx_4}\sin^{1/3}z\,(k_1^2 + k_2^2 + k_3^2) - e^{ax_4}\,\bar q^{\,2}, \qquad \bar q^{\,2} = \frac{q_5^2}{b_{55}} + \frac{q_6^2}{b_{66}} + \frac{q_7^2}{b_{77}} .
-$$
+```
 
 Momentum along a deflating (timelike) direction lowers $\omega^2$, with the growing weight $e^{ax_4}$.
 
-**Turning point.** For $k_1 = k_2 = k_3 = 0$ and $\bar q^{\,2} > 0$,
+**Turning point.** For $k_1 = k_2 = k_3 = 0$ and $`\bar q^{\,2} > 0`$,
 
-$$
+```math
 \omega^2 = m^2 + \cot^2 z\,k_0^2 - e^{ax_4}\,\bar q^{\,2}, \qquad \frac{d\omega^2}{dx_4} = -a\,e^{ax_4}\,\bar q^{\,2} < 0 ,
-$$
+```
 
 so $\omega^2$ decreases strictly and vanishes at exactly one point,
 
-$$
+```math
 x_4^* = \frac1a\ln\frac{m^2 + \cot^2 z\,k_0^2}{\bar q^{\,2}} .
-$$
+```
 
 Before $x_4^*$ the universe oscillates ($\omega^2 > 0$); after it, the universe grows exponentially ($\omega^2 < 0$).
 
@@ -370,33 +370,33 @@ $$
 a_c = 2H .
 $$
 
-For $a > 2H$ and $\bar q^{\,2} > 0$, $\omega^2 \to -\infty$; for $a < 2H$ and $k_1^2 + k_2^2 + k_3^2 > 0$, $\omega^2 \to +\infty$. At $a = 2H$ exactly,
+For $a > 2H$ and $`\bar q^{\,2} > 0`$, $\omega^2 \to -\infty$; for $a < 2H$ and $k_1^2 + k_2^2 + k_3^2 > 0$, $\omega^2 \to +\infty$. At $a = 2H$ exactly,
 
-$$
+```math
 \omega^2 = m^2 + \cot^2 z\,k_0^2 + e^{2Hx_4}\left(\sin^{1/3}z\,(k_1^2 + k_2^2 + k_3^2) - \bar q^{\,2}\right),
-$$
+```
 
 and the late-time sign is the sign of the bracket. Exact limits for $H = 1$, $x_0 = 1/10$ (so $z = 3/5$), $m = 1$, $k_0 = 0$, $k_1 = 1$, $k_2 = k_3 = 0$, $q_5 = 1$, $q_6 = q_7 = 0$, $b_{55} = b_{66} = b_{77} = 1$: $\omega^2 \to -\infty$ for $a = 3$; $\omega^2 \to -\infty$ for $a = 2$, because $\sin^{1/3}(3/5) = 0.8265 < 1$; $\omega^2 \to +\infty$ for $a = 1$.
 
 ## 8. Exact evolution of a universe in the pure deflation field
 
-In the pure deflation field of Section 4.2 ($e_0 = e_1 = e_2 = e_3 = e_4 = 1$, $e_j = \sqrt{b_{jj}}\,e^{-ax_4/2}$), $\gamma^\mu$ is covariantly constant and
+In the pure deflation field of Section 4.2 ($e_0 = e_1 = e_2 = e_3 = e_4 = 1$, $`e_j = \sqrt{b_{jj}}\,e^{-ax_4/2}`$), $\gamma^\mu$ is covariantly constant and
 
-$$
+```math
 \gamma^\mu\Omega_\mu = -\frac{3a}{4}\,T^4 .
-$$
+```
 
 With
 
-$$
+```math
 \psi = e^{3ax_4/4}\,e^{i(k_1x_1 + q_5x_5)}\,\chi(x_4)
-$$
+```
 
 one has exactly
 
-$$
+```math
 \gamma^\mu D_\mu\psi - m\psi = e^{3ax_4/4}\,e^{i(k_1x_1 + q_5x_5)}\;T^4\left(\chi' - M\chi\right), \qquad M = T^4\left(ik_1T^1 + iq_5\,c(x_4)\,T^5 - m\right), \qquad c(x_4) = \frac{e^{ax_4/2}}{\sqrt{b_{55}}} ,
-$$
+```
 
 so the linear field equation is the first-order system $\chi' = d\chi/dx_4 = M\chi$, with no approximation. With $c_0 = c_1 = c_2 = c_3 = 1$ the frozen-coefficient relation of Section 7 reads $\omega^2 = m^2 + k_1^2 - e^{ax_4}q_5^2/b_{55}$.
 
@@ -431,13 +431,13 @@ On the grid $x_4 = -8, -7, \dots, 5$ the fraction $P_-/N$ differs from $(N - 1)/
 
 **(ii) Frequency pairing.** The linear field equation has real coefficients: $T^A$, $E_A{}^A$, the spin-connection coefficients and $m$ are real. So the complex conjugate $\psi^*$ of a solution is a solution, and it maps a mode of frequency $\omega$ and momenta $k_A$ onto a mode of frequency $-\omega$ and momenta $-k_A$.
 
-**(iii) Mixing of the mirror sectors.** The cross terms of direction $A$ between the sectors are $(I_{16} + K)\,\sigma_{16}\,c_AT^A\,(I_{16} - K)$. They vanish for $A = 0, \dots, 4$. For $A = 5, 6, 7$ their non-zero entries have the growing magnitude
+**(iii) Mixing of the mirror sectors.** The cross terms of direction $A$ between the sectors are $`(I_{16} + K)\,\sigma_{16}\,c_AT^A\,(I_{16} - K)`$. They vanish for $A = 0, \dots, 4$. For $A = 5, 6, 7$ their non-zero entries have the growing magnitude
 
-$$
+```math
 \frac{2\,e^{ax_4/2}}{\sqrt{b_{jj}}} .
-$$
+```
 
-By Hermitian conjugation, $(I_{16} - K)\,\sigma_{16}\,c_AT^A\,(I_{16} + K)$ vanishes for the same $A$. Only the deflating directions couple the +mass and -mass sectors, and ever more strongly.
+By Hermitian conjugation, $`(I_{16} - K)\,\sigma_{16}\,c_AT^A\,(I_{16} + K)`$ vanishes for the same $A$. Only the deflating directions couple the +mass and -mass sectors, and ever more strongly.
 
 **(iv) Exact pair creation: conservation of the Krein charge.** For arbitrary real numbers $\kappa_A$ ($A \ne 4$) the matrix
 
@@ -447,9 +447,9 @@ $$
 
 satisfies (proven)
 
-$$
+```math
 M^\dagger K + KM = 0, \qquad M^\dagger + M = 2i\,T^4\left(\kappa_5T^5 + \kappa_6T^6 + \kappa_7T^7\right), \qquad K\left(M^\dagger + M\right) + \left(M^\dagger + M\right)K = 0 .
-$$
+```
 
 The equation of Section 8 is the case $\kappa_1 = k_1$, $\kappa_5 = q_5c(x_4)$, all other $\kappa_A = 0$. Every frozen-coefficient mode of Section 7 obeys $\chi' = M\chi$ with $\kappa_A = c_Ak_A$, because $T^4\partial_4\chi = (m - iS)\chi$ and $(T^4)^{-1} = -T^4$. For $\chi' = M\chi$,
 
@@ -463,24 +463,24 @@ $$
 Q = \chi^\dagger K\chi = P_+ - P_-
 $$
 
-is conserved. It is the $x_4$-component of the U(1) current of dirac16complex: $\bar\psi\gamma^4\psi = \psi^\dagger\sigma_{16}T^4\psi = i\,\psi^\dagger K\psi$ because $\gamma^4 = T^4$ and $\sigma_{16}T^4 = iK$; in the pure deflation field $\sqrt{\lvert g\rvert}\,\psi^\dagger K\psi = \sqrt{b_{55}b_{66}b_{77}}\;\chi^\dagger K\chi$. The norm $N = P_+ + P_-$ changes only through the deflating directions. Its generator $M^\dagger + M$ anticommutes with $K$, so it maps the +mass sector into the -mass sector and back, and it can only create +mass and -mass weight together. With $Q$ fixed,
+is conserved. It is the $x_4$-component of the U(1) current of dirac16complex: $`\bar\psi\gamma^4\psi = \psi^\dagger\sigma_{16}T^4\psi = i\,\psi^\dagger K\psi`$ because $\gamma^4 = T^4$ and $\sigma_{16}T^4 = iK$; in the pure deflation field $`\sqrt{\lvert g\rvert}\,\psi^\dagger K\psi = \sqrt{b_{55}b_{66}b_{77}}\;\chi^\dagger K\chi`$. The norm $N = P_+ + P_-$ changes only through the deflating directions. Its generator $M^\dagger + M$ anticommutes with $K$, so it maps the +mass sector into the -mass sector and back, and it can only create +mass and -mass weight together. With $Q$ fixed,
 
-$$
+```math
 P_+ = \frac{N + Q}{2}, \qquad P_- = \frac{N - Q}{2}, \qquad \frac{dP_+}{dx_4} = \frac{dP_-}{dx_4} = \frac12\,\frac{dN}{dx_4} :
-$$
+```
 
 the +mass and -mass weights grow by exactly the same amount. In the example of Section 8, $Q = 1$ (the computed values deviate from 1 by less than $2.2\times10^{-7}$), so $P_-/N = (N - 1)/(2N) \to 1/2$. The two sectors carry opposite energies (Section 3), so equal growth of $P_+$ and $P_-$ is the creation of pairs of universes of opposite mass. **Deflation creates {+mass, -mass} universes in pairs.**
 
 ## 10. Summary of results
 
-1. The deflating degrees of freedom have proper sizes $\sqrt{b_{jj}}\,e^{-ax_4/2}$ per unit coordinate interval, so the deflation rate is $-a/2$ and the e-folding time is $2/a$. Their volume factor is $\sqrt{b_{55}b_{66}b_{77}}\,e^{-3ax_4/2}$, and the volume element is $\sqrt{\lvert g\rvert} = \sqrt{b_{55}b_{66}b_{77}}\tan z\sin^{-1/2}z\,e^{-3(H+a/2)x_4}$.
-2. The curvature of the full field ($R$, $G^\mu{}_\nu$, Kretschmann scalar) depends on $x_0$ only; $R_{04} = -3H^2\cot z$ is the only off-diagonal Ricci component. There is no curvature singularity at finite $x_4$. Near $x_0 = 0$, $R = -7/(108H^2x_0^4)$ and $R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = 85/(69984H^4x_0^8)$, independent of $a$.
+1. The deflating degrees of freedom have proper sizes $`\sqrt{b_{jj}}\,e^{-ax_4/2}`$ per unit coordinate interval, so the deflation rate is $-a/2$ and the e-folding time is $2/a$. Their volume factor is $`\sqrt{b_{55}b_{66}b_{77}}\,e^{-3ax_4/2}`$, and the volume element is $`\sqrt{\lvert g\rvert} = \sqrt{b_{55}b_{66}b_{77}}\tan z\sin^{-1/2}z\,e^{-3(H+a/2)x_4}`$.
+2. The curvature of the full field ($R$, $`G^\mu{}_\nu`$, Kretschmann scalar) depends on $`x_0`$ only; $`R_{04} = -3H^2\cot z`$ is the only off-diagonal Ricci component. There is no curvature singularity at finite $x_4$. Near $x_0 = 0$, $R = -7/(108H^2x_0^4)$ and $R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = 85/(69984H^4x_0^8)$, independent of $a$.
 3. The pure deflation field is flat $\mathbb R^4$ times a hyperbolic 4-space $H^4$ of radius $2/a$ formed by $x_4$ and the deflating degrees of freedom, all four directions timelike: $R = 3a^2$, Kretschmann scalar $3a^4/2$, $G^\mu{}_\mu = -3a^2/2$ ($\mu = 0..3$) and $-3a^2/4$ ($\mu = 4..7$).
 4. World lines with momentum $p_5$ along a deflating direction turn back at $x_4^* = (1/a)\ln(b_{55}/p_5^2)$; in $H^4$ they are semicircles of radius $w_* = 2\sqrt{b_{55}}/(a\lvert p_5\rvert)$.
-5. The field equation of dirac16complex is derived exactly from the Grassmann Lagrangian: $\gamma^\mu$ is covariantly constant, $\mathcal L$ is real, mass-sign pairing holds, and $\psi = \sin^{1/4}z\,e^{3(a+2H)x_4/4}\chi$ removes the friction terms exactly.
-6. The dispersion relation is $\omega^2 = m^2 + \cot^2 z\,k_0^2 + e^{2Hx_4}\sin^{1/3}z\,(k_1^2 + k_2^2 + k_3^2) - e^{ax_4}\bar q^{\,2}$. Universes turn from oscillation to exponential growth at $x_4^* = (1/a)\ln[(m^2 + \cot^2 z\,k_0^2)/\bar q^{\,2}]$. The critical deflation rate is $a_c = 2H$.
+5. The field equation of dirac16complex is derived exactly from the Grassmann Lagrangian: $\gamma^\mu$ is covariantly constant, $\mathcal L$ is real, mass-sign pairing holds, and $`\psi = \sin^{1/4}z\,e^{3(a+2H)x_4/4}\chi`$ removes the friction terms exactly.
+6. The dispersion relation is $`\omega^2 = m^2 + \cot^2 z\,k_0^2 + e^{2Hx_4}\sin^{1/3}z\,(k_1^2 + k_2^2 + k_3^2) - e^{ax_4}\bar q^{\,2}`$. Universes turn from oscillation to exponential growth at $`x_4^* = (1/a)\ln[(m^2 + \cot^2 z\,k_0^2)/\bar q^{\,2}]`$. The critical deflation rate is $a_c = 2H$.
 7. In the exact pure-deflation evolution, the norm grows from 1 to $1.06\times10^7$ between $x_4 = -8$ and $x_4 = 5$ ($x_4^* = \ln 8$), and the -mass fraction grows from $1.2\times10^{-31}$ to $0.49999995$.
-8. The Krein charge $Q = P_+ - P_-$ is exactly conserved while deflation increases $P_+$ and $P_-$ by equal amounts: deflation creates $\{+\text{mass}, -\text{mass}\}$ universes in pairs.
+8. The Krein charge $Q = P_+ - P_-$ is exactly conserved while deflation increases $P_+$ and $P_-$ by equal amounts: deflation creates $`\{+\text{mass}, -\text{mass}\}`$ universes in pairs.
 
 ## 11. Assumptions and scope
 

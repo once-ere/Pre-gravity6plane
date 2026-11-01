@@ -6,17 +6,17 @@ A classroom guide for a beginning student. Everything stated here is computed, w
 
 The coordinates are $x_0, x_1, \dots, x_7$: $x_0$ is the hidden space direction, $x_1, x_2, x_3$ are ordinary 3-space, $x_4$ is time and $x_5, x_6, x_7$ are superluminal time directions. Lengths are measured with
 
-$$
+```math
 \eta_{AB} = \mathrm{diag}(+1,+1,+1,+1,-1,-1,-1,-1), \qquad ds^2 = \eta_{AB}\,dx^A dx^B = dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2 - dx_4^2 - dx_5^2 - dx_6^2 - dx_7^2 .
-$$
+```
 
 ## 2. The eight real 16x16 Dirac matrices
 
-With $\sigma = \begin{pmatrix} 0 & I_4\\ I_4 & 0\end{pmatrix}$, the eight real $8\times8$ matrices $\tau_A$ of Pre-gravity6plane.nb ($\tau_0 = I_8$, six antisymmetric matrices built from self-dual and anti-self-dual $4\times4$ blocks, $\tau_7 = \tau_1\cdots\tau_6$) and $\bar\tau_A = \sigma\tau_A^T\sigma$, the Dirac matrices are
+With $`\sigma = \begin{pmatrix} 0 & I_4\\ I_4 & 0\end{pmatrix}`$, the eight real $8\times8$ matrices $\tau_A$ of Pre-gravity6plane.nb ($\tau_0 = I_8$, six antisymmetric matrices built from self-dual and anti-self-dual $4\times4$ blocks, $\tau_7 = \tau_1\cdots\tau_6$) and $\bar\tau_A = \sigma\tau_A^T\sigma$, the Dirac matrices are
 
-$$
+```math
 T^A \equiv (T16^A)[A] = \begin{pmatrix} 0 & \bar\tau_A \\ \tau_A & 0 \end{pmatrix}, \qquad T^AT^B + T^BT^A = 2\eta^{AB} I_{16} .
-$$
+```
 
 All entries are $0$ or $\pm1$ (real). $T^0,\dots,T^3$ are symmetric with square $+I_{16}$; $T^4,\dots,T^7$ are antisymmetric with square $-I_{16}$. Further:
 
@@ -40,9 +40,9 @@ $$
 
 whose components are complex and anticommuting (Grassmann-odd): with $\xi_a, \chi_a$ real Grassmann generators,
 
-$$
+```math
 \psi_a\psi_b = -\psi_b\psi_a, \qquad \psi_a\psi_b^{*} = -\psi_b^{*}\psi_a, \qquad \psi_a^2 = 0, \qquad (\theta\eta)^{*} = \eta^{*}\theta^{*}.
-$$
+```
 
 The last rule (complex conjugation reverses the order of factors) is the classical shadow of Hermitian conjugation of operators. dirac16complex is a second-quantized field: the $\psi_a$ are field operators, and the Grassmann variables are their classical (path-integral) counterparts. A commuting (c-number) solution of the field equation is a mode function of the field; following Pre-gravity6plane.nb we call such a mode function the wave function of a Universe.
 
@@ -50,9 +50,9 @@ The last rule (complex conjugation reverses the order of factors) is the classic
 
 ## 4. The Lagrangian: kinetic, mass (quadratic) and self-coupling (quartic) terms
 
-$$
+```math
 \mathcal L = \tfrac12\left(\bar\psi\,T^A\partial_A\psi - (\partial_A\bar\psi)\,T^A\psi\right) - m\,\bar\psi\psi - \frac{\lambda}{2}\,(\bar\psi\psi)^2 ,
-$$
+```
 
 with $m \neq 0$ and $\lambda \neq 0$ real constants and $A$ summed over $0,\dots,7$. Compare with the Higgs potential $V = \mu^2\lvert\phi\rvert^2 + \lambda\lvert\phi\rvert^4$: here the mass term is quadratic and the self-coupling quartic in the spinor components; the field is a fermion, so $(\bar\psi\psi)^2$ is the simplest non-trivial self-interaction. Proven properties (exact Grassmann algebra, 392 monomials):
 
@@ -62,17 +62,17 @@ with $m \neq 0$ and $\lambda \neq 0$ real constants and $A$ summed over $0,\dots
 
 ## 5. The Euler-Lagrange equations (flat space)
 
-Treat $\psi_a$ and $\psi_a^{*}$ as independent Grassmann variables and vary $\psi_a^{*}$ with left derivatives:
+Treat $\psi_a$ and $`\psi_a^{*}`$ as independent Grassmann variables and vary $`\psi_a^{*}`$ with left derivatives:
 
-$$
+```math
 \frac{\partial^L\mathcal L}{\partial\psi_a^{*}} - \partial_\mu\,\frac{\partial^L\mathcal L}{\partial(\partial_\mu\psi_a^{*})} = 0 \quad (a = 0,\dots,15).
-$$
+```
 
 The exact computation gives the 16 equations
 
-$$
+```math
 \sigma_{16}\left(T^A\partial_A\psi - m\psi - \lambda(\bar\psi\psi)\psi\right) = 0 \quad\Longleftrightarrow\quad T^A\partial_A\psi = (m + \lambda\,\bar\psi\psi)\,\psi ,
-$$
+```
 
 and varying $\psi_a$ gives the complex-conjugate equation $(\partial_A\bar\psi)T^A = -(m + \lambda\bar\psi\psi)\bar\psi$. Example (first component, $\lambda = 0$):
 
@@ -84,19 +84,19 @@ $$
 
 ## 6. Second quantization and the indefinite (Krein) metric
 
-Quantize with $x_4$ as time. The momentum conjugate to $\psi$ is $\pi = \bar\psi T^4$, and $\{\psi_a(x), \pi_b(y)\} = i\delta_{ab}\delta(x-y)$ gives
+Quantize with $x_4$ as time. The momentum conjugate to $\psi$ is $\pi = \bar\psi T^4$, and $`\{\psi_a(x), \pi_b(y)\} = i\delta_{ab}\delta(x-y)`$ gives
 
-$$
+```math
 \{\psi_a(x), \psi_b^\dagger(y)\} = K_{ab}\,\delta(x-y), \qquad K = -i\,\sigma_{16}T^4, \qquad K^\dagger = K, \qquad K^2 = I_{16},
-$$
+```
 
 with eight eigenvalues $+1$ and eight $-1$. The space of states therefore carries an indefinite (Krein) metric. This cannot be avoided: $g_{45} = T^4T^5$ (the rotation by $\pi$ in the $(x_4,x_5)$-plane, an element of Spin(4,4)) obeys $g_{45}^T(\sigma_{16}T^4)g_{45} = -\sigma_{16}T^4$, so it reverses the sign of the $x_4$-charge density $\bar\psi T^4\psi$; with four time directions there is no invariant notion of positive energy.
 
 **Two mirror sectors.** Since $\sigma_{16} = K\beta$ with $\beta = -iT^4$, and $K$ commutes with $T^0, \dots, T^4$ (and anticommutes with $T^5, T^6, T^7$), every field that does not depend on $x_5, x_6, x_7$ splits as $\psi = \psi_+ + \psi_-$, $K\psi_\pm = \pm\psi_\pm$, and
 
-$$
+```math
 \mathcal L = \mathcal L_D[\psi_+] - \mathcal L_D[\psi_-] - \frac\lambda2\,(S_+ - S_-)^2, \qquad \mathcal L_D[\chi] = \chi^\dagger\beta(T^A\partial_A - m)\chi\ (A=0..4), \qquad S_\pm = \psi_\pm^\dagger\beta\psi_\pm .
-$$
+```
 
 The 16-component field is thus a pair of 8-component universes whose energies (masses) enter with opposite signs: a "+mass" and a "-mass" universe, coupled by $-\lambda S_+S_-$ inside $-\frac\lambda2(S_+-S_-)^2 = -\frac\lambda2(S_+^2 + S_-^2) + \lambda S_+S_-$.
 
@@ -110,9 +110,9 @@ $$
 
 **Couplings (analogue of eLaCouplings).** The 16 equations split into four independent systems of four components:
 
-$$
+```math
 \{0,5,8,13\},\quad \{1,4,9,12\},\quad \{2,7,10,15\},\quad \{3,6,11,14\},
-$$
+```
 
 exactly the pattern found in Pre-gravity6plane.nb.
 
@@ -136,7 +136,7 @@ $$
 
 **Retarded and advanced variables.** $z_{adv} = 6t + z$, $z_{ret} = 6t - z$ (equivalently $\xi_{adv} = x_0 - x_4$, $\xi_{ret} = x_0 + x_4$).
 
-**Light-like quanta.** For $m = 0$ the solution $\psi = e^{ik(x_0-x_4)}\,ik(T^0 - T^4)w$ depends on one light-cone variable only. Because $(T^0 - T^4)^2 = (T^0)^2 + (T^4)^2 = 0$, every component of the current $J^A = i\bar\psi T^A\psi$ and the scalar $\bar\psi\psi$ vanish identically, just as the bilinears $\psi\sigma_{16}\psi$ vanished for the light-like quanta of Pre-gravity6plane.nb.
+**Light-like quanta.** For $m = 0$ the solution $`\psi = e^{ik(x_0-x_4)}\,ik(T^0 - T^4)w`$ depends on one light-cone variable only. Because $(T^0 - T^4)^2 = (T^0)^2 + (T^4)^2 = 0$, every component of the current $J^A = i\bar\psi T^A\psi$ and the scalar $\bar\psi\psi$ vanish identically, just as the bilinears $\psi\sigma_{16}\psi$ vanished for the light-like quanta of Pre-gravity6plane.nb.
 
 ## 8. Triality frames and vector forms
 
@@ -148,41 +148,41 @@ $$
 
 For a Universe $\psi$ write $\psi_1 = (\psi_0,\dots,\psi_7)$ (type 1) and $\psi_2 = (\psi_8,\dots,\psi_{15})$ (type 2), and define the vector forms
 
-$$
+```math
 V_2 = F_a{}^A\,\psi_2, \qquad V_1 = \eta\,(\psi_1^T\sigma F_A{}^a) .
-$$
+```
 
 ## 9. The 6-planes of dirac16complex
 
-The field equation is real, so the real part of every Universe that depends only on $x_0$ and $x_4$ is itself a real solution of the type studied in Pre-gravity6plane.nb. Apply the old construction to it: $n_1 = V_1[\mathrm{Re}\,\psi]$ and $n_2 = V_2[\mathrm{Re}\,\psi]$ are real 8-vectors depending on $(x_0, x_4)$, and with $Z = (z_1,\dots,z_8)\in\mathbb R^8$:
+The field equation is real, so the real part of every Universe that depends only on $x_0$ and $x_4$ is itself a real solution of the type studied in Pre-gravity6plane.nb. Apply the old construction to it: $`n_1 = V_1[\mathrm{Re}\,\psi]`$ and $`n_2 = V_2[\mathrm{Re}\,\psi]`$ are real 8-vectors depending on $(x_0, x_4)$, and with $Z = (z_1,\dots,z_8)\in\mathbb R^8$:
 
-$$
+```math
 \text{7-plane}_k = \{Z : n_k\cdot Z = 0\}, \qquad M^6 = \text{7-plane}_1 \cap \text{7-plane}_2 = \{Z : n_1\cdot Z = 0,\ n_2\cdot Z = 0\}.
-$$
+```
 
-$M^6$ is 6-dimensional whenever $n_1$ and $n_2$ are linearly independent. Solving for a pair of coordinates $\{z_i, z_j\}$ is possible iff the minor $n_{1i}n_{2j} - n_{1j}n_{2i} \neq 0$; there are $\binom82 = 28$ such pairs, the 28 parameterizations of $M^6$. **Example** (computed in 6planes.nb): for $\psi = e^{i(\frac34x_0 - \frac54x_4)}(\frac34 iT^0 - \frac54 iT^4 + 1)w$ with $w = (1,2,\dots,16)$ at $(x_0,x_4) = (0.3, 0.7)$, the rank of $\{n_1, n_2\}$ is 2 and all 28 minors are non-zero, and
+$M^6$ is 6-dimensional whenever $n_1$ and $n_2$ are linearly independent. Solving for a pair of coordinates $`\{z_i, z_j\}`$ is possible iff the minor $n_{1i}n_{2j} - n_{1j}n_{2i} \neq 0$; there are $\binom82 = 28$ such pairs, the 28 parameterizations of $M^6$. **Example** (computed in 6planes.nb): for $\psi = e^{i(\frac34x_0 - \frac54x_4)}(\frac34 iT^0 - \frac54 iT^4 + 1)w$ with $w = (1,2,\dots,16)$ at $(x_0,x_4) = (0.3, 0.7)$, the rank of $`\{n_1, n_2\}`$ is 2 and all 28 minors are non-zero, and
 
-$$
+```math
 z_7 = -132.890\,z_1 + 189.925\,z_2 - 174.913\,z_3 + 155.902\,z_4 + 77.0462\,z_5 - 74.0462\,z_6,
-$$
+```
 
-$$
+```math
 z_8 = -149.525\,z_1 + 213.689\,z_2 - 196.301\,z_3 + 174.913\,z_4 + 87.5520\,z_5 - 84.5520\,z_6 .
-$$
+```
 
-**A pair of universes creates a 6-plane by itself.** For a single plane wave, $V_2 = e^{i\phi}\times$(real vector), so $\mathrm{Re}\,V_2$ and $\mathrm{Im}\,V_2$ are parallel and only give a 7-plane. For the superposition of a positive-energy and a negative-energy Universe,
+**A pair of universes creates a 6-plane by itself.** For a single plane wave, $V_2 = e^{i\phi}\times$(real vector), so $`\mathrm{Re}\,V_2`$ and $`\mathrm{Im}\,V_2`$ are parallel and only give a 7-plane. For the superposition of a positive-energy and a negative-energy Universe,
 
 $$
 \psi_{pair} = e^{i(kx_0 - Ex_4)}(ikT^0 - iET^4 + m)w + e^{i(kx_0 + Ex_4)}(ikT^0 + iET^4 + m)w', \qquad E = \sqrt{k^2+m^2},
 $$
 
-$\mathrm{Re}\,V_2$ and $\mathrm{Im}\,V_2$ are independent (rank 2) and
+$`\mathrm{Re}\,V_2`$ and $`\mathrm{Im}\,V_2`$ are independent (rank 2) and
 
-$$
+```math
 M^6_{pair} = \{Z : \mathrm{Re}\,V_2\cdot Z = 0,\ \mathrm{Im}\,V_2\cdot Z = 0\}
-$$
+```
 
-is a 6-plane that moves with $(x_0, x_4)$: the pair $\{+E, -E\}$ of universes generates a 6-dimensional plane.
+is a 6-plane that moves with $(x_0, x_4)$: the pair $`\{+E, -E\}`$ of universes generates a 6-dimensional plane.
 
 ## 10. What a student should remember
 

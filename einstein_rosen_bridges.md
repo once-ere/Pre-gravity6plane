@@ -6,9 +6,9 @@ Einstein and Rosen (Phys. Rev. 48, 73, 1935) replaced the Schwarzschild radius $
 
 **Neutral bridge.** With $u^2 = r - 2m$ the Schwarzschild metric becomes
 
-$$
+```math
 ds^2 = -\frac{u^2}{u^2+2m}\,dt^2 + 4(u^2+2m)\,du^2 + (u^2+2m)^2\left(d\theta^2 + \sin^2\theta\,d\phi^2\right).
-$$
+```
 
 Proven by exact computation: (a) $R_{\mu\nu} = 0$ (vacuum Einstein equations) for all $u$; (b) $\det g = -4u^2(u^2+2m)^4\sin^2\theta$, which vanishes exactly on the bridge $u = 0$; (c) the metric is even in $u$: the sheets $u>0$ and $u<0$ are congruent; (d) the curvature is finite on the bridge,
 
@@ -16,13 +16,13 @@ $$
 R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma} = \frac{48m^2}{(u^2+2m)^6}\quad\xrightarrow{u\to0}\quad\frac{3}{4m^4};
 $$
 
-(e) the area $4\pi(u^2+2m)^2$ of the spheres $u = $ const is minimal at $u = 0$: the bridge is a throat.
+(e) the area $4\pi(u^2+2m)^2$ of the spheres $`u = `$ const is minimal at $u = 0$: the bridge is a throat.
 
 **Charged bridge** ($m = 0$, field energy of the electric field taken with the reversed sign, as in Einstein-Rosen). With $r^2 = u^2 + q^2$:
 
-$$
+```math
 ds^2 = -\frac{u^2}{u^2+q^2}\,dt^2 + du^2 + (u^2+q^2)\left(d\theta^2+\sin^2\theta\,d\phi^2\right),\qquad F_{tr} = \frac{q}{r^2},
-$$
+```
 
 $$
 G_{\mu\nu} + 8\pi T^{EM}_{\mu\nu} = 0,\qquad T^{EM}_{\mu\nu} = \frac1{4\pi}\left(F_{\mu\alpha}F_\nu{}^\alpha - \tfrac14g_{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right),
@@ -34,15 +34,15 @@ verified exactly; $\det g = 0$ at $u = 0$ and $R_{\mu\nu\rho\sigma}R^{\mu\nu\rho
 
 The modern and future fields of dirac16complex have the $(x_0,x_4)$ metric
 
-$$
+```math
 ds_2^2 = \frac{dx_0^2}{f(x_0)} - f(x_0)\,dx_4^2,\qquad f_{modern} = 1 - \frac{r_s}{x_0},\qquad f_{future} = 1 - \frac{r_s}{x_0} - H_\Lambda^2x_0^2,
-$$
+```
 
-times the flat transverse metric $dx_1^2+dx_2^2+dx_3^2-dx_5^2-dx_6^2-dx_7^2$. A horizon is a simple root $x_h$ of $f$. **Einstein-Rosen substitution:** $x_0 = x_h + s\,u^2$ with $s = +1$ if $f'(x_h)>0$ (black-hole type) and $s = -1$ if $f'(x_h) < 0$ (cosmological type). Then
+times the flat transverse metric $dx_1^2+dx_2^2+dx_3^2-dx_5^2-dx_6^2-dx_7^2$. A horizon is a simple root $x_h$ of $f$. **Einstein-Rosen substitution:** $`x_0 = x_h + s\,u^2`$ with $s = +1$ if $f'(x_h)>0$ (black-hole type) and $s = -1$ if $f'(x_h) < 0$ (cosmological type). Then
 
-$$
+```math
 g_{uu} = \frac{4u^2}{f(x_h + su^2)} \xrightarrow{u\to0} \frac{4}{s\,f'(x_h)} = \frac{4}{\lvert f'(x_h)\rvert}\ (\text{finite, non-zero}),\qquad g_{44} = -f(x_h+su^2) \xrightarrow{u\to0} 0,
-$$
+```
 
 the metric is even in $u$ (two congruent sheets), and the scalar curvature of the full 8-dimensional metric equals that of the 2-dimensional part, $R = -f''(x_0)$, finite on the bridge. Results (exact or 12-digit):
 
@@ -66,7 +66,7 @@ $$
 
 diverges at $x_0 = 0$. **Theorem 2.** The degenerate hypersurface $x_0 = 0$ of the primordial field is a curvature singularity, not a regular Einstein-Rosen bridge.
 
-## 4. A bridge creates universes in $\{+\epsilon, -\epsilon\}$ pairs
+## 4. A bridge creates universes in $`\{+\epsilon, -\epsilon\}`$ pairs
 
 Near a bridge (non-degenerate horizon with surface gravity $\kappa$) use the tortoise coordinate $\rho$, $d\rho = dx_0/f$, and Kruskal coordinates
 

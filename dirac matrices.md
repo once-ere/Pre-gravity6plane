@@ -4,7 +4,7 @@ This file is the provenance proof requested for the eight real-valued $16\times 
 
 ## 1. Summary of what is proved
 
-1. Every entry of every $T^A$ is a real integer in $\{-1,0,1\}$ (Theorem 1).
+1. Every entry of every $T^A$ is a real integer in $`\{-1,0,1\}`$ (Theorem 1).
 2. $T^A T^B + T^B T^A = 2\eta^{AB} I_{16}$ for all $A,B$ (Theorem 2).
 3. The 28 scaled commutators $S^{AB}=\tfrac14[T^A,T^B]$ ($A<B$) are linearly independent and close into the Lie algebra so(4,4); they exponentiate to Spin(4,4), a double cover of the identity component of SO(4,4); adding the eight reflections $T^C$ generates Pin(4,4), a double cover of the full group O(4,4) (Theorem 3).
 4. The 256 ordered products of the $T^A$ are linearly independent, so the $T^A$ generate the whole real Clifford algebra Cl(4,4) = M(16, R) (Theorem 4).
@@ -13,7 +13,7 @@ This file is the provenance proof requested for the eight real-valued $16\times 
 
 ## 2. Construction (exactly as in Pre-gravity6plane.nb)
 
-Index conventions: capital Latin indices $A, B, C, D \in \{0,1,\dots,7\}$ label the eight Cartesian directions $x_0,\dots,x_7$; the flat metric is
+Index conventions: capital Latin indices $`A, B, C, D \in \{0,1,\dots,7\}`$ label the eight Cartesian directions $x_0,\dots,x_7$; the flat metric is
 
 $$
 \eta^{AB} = \eta_{AB} = \mathrm{diag}(+1,+1,+1,+1,-1,-1,-1,-1).
@@ -21,15 +21,15 @@ $$
 
 The spinor metric of the 8-component spinors is
 
-$$
+```math
 \sigma = \begin{pmatrix} 0 & I_4 \\ I_4 & 0 \end{pmatrix}, \qquad \sigma^T = \sigma, \qquad \sigma^2 = I_8 .
-$$
+```
 
-For $h \in \{1,2,3\}$ and $p, q \in \{1,2,3,4\}$ define the two $4\times 4$ arrays
+For $`h \in \{1,2,3\}`$ and $`p, q \in \{1,2,3,4\}`$ define the two $4\times 4$ arrays
 
-$$
+```math
 (Q_a^{h})_{pq} = \epsilon_{h p q 4}, \qquad (Q_b^{h})_{pq} = \delta_{p4}\,\delta_{qh} - \delta_{ph}\,\delta_{q4},
-$$
+```
 
 where $\epsilon$ is the totally antisymmetric symbol with $\epsilon_{1234} = +1$, and the self-dual and anti-self-dual antisymmetric matrices
 
@@ -39,27 +39,27 @@ $$
 
 The eight real $8\times 8$ matrices $\tau_A$ are
 
-$$
+```math
 \tau_0 = I_8,\quad \tau_h = \begin{pmatrix} 0 & s_h \\ s_h & 0 \end{pmatrix}\ (h=1,2,3),\quad \tau_{3+j} = \begin{pmatrix} 0 & t_{4-j} \\ -t_{4-j} & 0 \end{pmatrix}\ (j=1,2,3),\quad \tau_7 = \tau_1\tau_2\tau_3\tau_4\tau_5\tau_6 ,
-$$
+```
 
 their partners are
 
-$$
+```math
 \bar\tau_A = \sigma\,(\sigma\,\tau_A)^T = \sigma\,\tau_A^T\,\sigma ,
-$$
+```
 
 and they satisfy (checked for all 64 pairs)
 
-$$
+```math
 \tfrac12\left(\tau_A\bar\tau_B + \tau_B\bar\tau_A\right) = \eta_{AB}\, I_8 .
-$$
+```
 
 The eight real $16\times 16$ Dirac matrices are the reduced Brauer-Weyl generators
 
-$$
+```math
 T^A \equiv (T16^A)[A] = \begin{pmatrix} 0 & \bar\tau_A \\ \tau_A & 0 \end{pmatrix}, \qquad A = 0,1,\dots,7 .
-$$
+```
 
 Further objects built from them:
 
@@ -349,9 +349,9 @@ $$
 
 ## 5. Theorem 1 (reality)
 
-**Statement.** Every $T^A$ is a real matrix; its entries belong to $\{-1,0,1\}$.
+**Statement.** Every $T^A$ is a real matrix; its entries belong to $`\{-1,0,1\}`$.
 
-**Proof.** The building blocks $\sigma$, $Q_a^h$, $Q_b^h$, $s_h$, $t_h$ have entries in $\{-1,0,1\}$ by their definitions (Levi-Civita symbols and Kronecker deltas). Products and transposes of signed permutation matrices are signed permutation matrices, so $\tau_A$ and $\bar\tau_A = \sigma\tau_A^T\sigma$ are signed permutation matrices, and so is the block matrix $T^A$. The sixteen rows of each $T^A$ displayed in Section 4 contain exactly one non-zero entry $\pm1$ each. No complex number enters the construction. $\square$
+**Proof.** The building blocks $\sigma$, $Q_a^h$, $Q_b^h$, $s_h$, $t_h$ have entries in $`\{-1,0,1\}`$ by their definitions (Levi-Civita symbols and Kronecker deltas). Products and transposes of signed permutation matrices are signed permutation matrices, so $\tau_A$ and $\bar\tau_A = \sigma\tau_A^T\sigma$ are signed permutation matrices, and so is the block matrix $T^A$. The sixteen rows of each $T^A$ displayed in Section 4 contain exactly one non-zero entry $\pm1$ each. No complex number enters the construction. $\square$
 
 Computer check: `all entries of T16A[0..7] are real integers in {-1,0,1}` gives `True`.
 
@@ -359,15 +359,15 @@ Computer check: `all entries of T16A[0..7] are real integers in {-1,0,1}` gives 
 
 **Statement.**
 
-$$
+```math
 T^A T^B + T^B T^A = 2\,\eta^{AB}\, I_{16}, \qquad A,B = 0,\dots,7 .
-$$
+```
 
 **Proof.** With the block form of $T^A$,
 
-$$
+```math
 T^A T^B = \begin{pmatrix} \bar\tau_A\tau_B & 0 \\ 0 & \tau_A\bar\tau_B \end{pmatrix}, \qquad T^A T^B + T^B T^A = \begin{pmatrix} \bar\tau_A\tau_B + \bar\tau_B\tau_A & 0 \\ 0 & \tau_A\bar\tau_B + \tau_B\bar\tau_A \end{pmatrix}.
-$$
+```
 
 The lower block equals $2\eta_{AB} I_8$ by the identity $\tfrac12(\tau_A\bar\tau_B + \tau_B\bar\tau_A) = \eta_{AB} I_8$. Upper block: for $A=B$ that identity gives $\tau_A\bar\tau_A = \eta_{AA} I_8$, hence $\bar\tau_A = \eta_{AA}\tau_A^{-1}$ and $\bar\tau_A\tau_A = \eta_{AA} I_8$ (a one-sided inverse of a square matrix is two-sided). For $A\neq B$ it reads $\tau_A\bar\tau_B = -\tau_B\bar\tau_A$, i.e. $\eta_{BB}\tau_A\tau_B^{-1} = -\eta_{AA}\tau_B\tau_A^{-1}$; multiplying by $\tau_A^{-1}$ on the left and by $\tau_A$ on the right gives $X^{-1} = -\eta_{AA}\eta_{BB}X$ for $X = \tau_A^{-1}\tau_B$, and therefore
 
@@ -385,7 +385,7 @@ $$
 
 Thus $T^0,\dots,T^3$ are real symmetric with square $+I_{16}$ and $T^4,\dots,T^7$ are real antisymmetric with square $-I_{16}$.
 
-Table of $\tfrac12\{T^A,T^B\}$ in units of $I_{16}$ (row $A$, column $B$):
+Table of $`\tfrac12\{T^A,T^B\}`$ in units of $I_{16}$ (row $A$, column $B$):
 
 | A\B | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |---|---|---|---|---|---|---|---|---|
@@ -1057,19 +1057,19 @@ $$
 
 ## 8. Chirality and the chiral projection matrices
 
-$$
+```math
 \Gamma = \begin{pmatrix} -I_8 & 0 \\ 0 & I_8 \end{pmatrix}, \qquad \Gamma^2 = I_{16}, \qquad \Gamma^T = \Gamma, \qquad \Gamma T^A = -T^A\Gamma .
-$$
+```
 
 The chiral projection matrices are
 
-$$
+```math
 P_L = \tfrac12(I_{16} - \Gamma) = \begin{pmatrix} I_8 & 0 \\ 0 & 0 \end{pmatrix}, \qquad P_R = \tfrac12(I_{16} + \Gamma) = \begin{pmatrix} 0 & 0 \\ 0 & I_8 \end{pmatrix},
-$$
+```
 
-$$
+```math
 P_L^2 = P_L,\quad P_R^2 = P_R,\quad P_LP_R = P_RP_L = 0,\quad P_L + P_R = I_{16},\quad \mathrm{rank}\,P_L = \mathrm{rank}\,P_R = 8,\quad P_L T^A = T^A P_R .
-$$
+```
 
 The first eight components of a 16-component spinor (left, $P_L$) are the type-1 spinor and the last eight (right, $P_R$) the type-2 spinor of Spin(4,4); each $T^A$ maps one type into the other.
 
@@ -1117,7 +1117,7 @@ $$
 
 ## 9. Theorem 3: the scaled commutators generate Spin(4,4); with the reflections they generate Pin(4,4)
 
-**Definitions.** The real Clifford algebra Cl(4,4) is generated by eight elements $e^A$ with $e^Ae^B + e^Be^A = 2\eta^{AB}$. A vector is $v = v_A e^A$ with $v\cdot v = \eta^{AB}v_Av_B$; it is a unit vector if $v\cdot v = \pm 1$. Pin(4,4) is the group of all finite products of unit vectors; Spin(4,4) is the subgroup of products of an even number of unit vectors; O(4,4) is the group of real $8\times8$ matrices $L$ with $L\eta L^T = \eta$. The twisted adjoint action of an invertible Clifford element $g$ of parity $|g|\in\{0,1\}$ on vectors is $\rho(g)v = (-1)^{|g|} g\,v\,g^{-1}$. In our representation $e^A \mapsto T^A$, and we write $\rho(g)T^C = \Lambda(g)^C{}_D\, T^D$.
+**Definitions.** The real Clifford algebra Cl(4,4) is generated by eight elements $e^A$ with $e^Ae^B + e^Be^A = 2\eta^{AB}$. A vector is $v = v_A e^A$ with $v\cdot v = \eta^{AB}v_Av_B$; it is a unit vector if $v\cdot v = \pm 1$. Pin(4,4) is the group of all finite products of unit vectors; Spin(4,4) is the subgroup of products of an even number of unit vectors; O(4,4) is the group of real $8\times8$ matrices $L$ with $L\eta L^T = \eta$. The twisted adjoint action of an invertible Clifford element $g$ of parity $`|g|\in\{0,1\}`$ on vectors is $`\rho(g)v = (-1)^{|g|} g\,v\,g^{-1}`$. In our representation $e^A \mapsto T^A$, and we write $`\rho(g)T^C = \Lambda(g)^C{}_D\, T^D`$.
 
 **Lemma 1 (vector action).**
 
@@ -1139,23 +1139,23 @@ Proof: apply Lemma 1 to $S^{CD} = \tfrac14[T^C,T^D]$ and the Leibniz rule for co
 
 **Lemma 4 (one-parameter subgroups).** For $A\neq B$,
 
-$$
+```math
 (S^{AB})^2 = -\tfrac14\,\eta^{AA}\eta^{BB}\, I_{16},
-$$
+```
 
-so there are 12 compact generators ($\eta^{AA}\eta^{BB}=+1$: both indices in $\{0,1,2,3\}$ or both in $\{4,5,6,7\}$) and 16 non-compact ones, and
+so there are 12 compact generators ($\eta^{AA}\eta^{BB}=+1$: both indices in $`\{0,1,2,3\}`$ or both in $`\{4,5,6,7\}`$) and 16 non-compact ones, and
 
-$$
+```math
 e^{\theta S^{AB}} = \cos\tfrac\theta2\, I_{16} + 2\sin\tfrac\theta2\, S^{AB}\ \ (\text{compact}), \qquad e^{\theta S^{AB}} = \cosh\tfrac\theta2\, I_{16} + 2\sinh\tfrac\theta2\, S^{AB}\ \ (\text{non-compact}).
-$$
+```
 
 Since $2S^{AB} = T^AT^B$, each $e^{\theta S^{AB}}$ is a product of two unit vectors of the $(A,B)$-plane:
 
-$$
+```math
 e^{\theta S^{AB}} = \eta^{AA}\,T^A\left(c\,T^A + \eta^{AA} s\,T^B\right), \qquad (c,s) = (\cos\tfrac\theta2, \sin\tfrac\theta2)\ \text{or}\ (\cosh\tfrac\theta2, \sinh\tfrac\theta2),
-$$
+```
 
-where $T^A$ and $n = c\,T^A + \eta^{AA}s\,T^B$ are unit vectors ($n^2 = \eta^{AA}(c^2 \pm s^2) = \eta^{AA}$ with the sign fixed by $\eta^{BB} = \pm\eta^{AA}$); hence $e^{\theta S^{AB}}\in$ Spin(4,4).
+where $T^A$ and $`n = c\,T^A + \eta^{AA}s\,T^B`$ are unit vectors ($n^2 = \eta^{AA}(c^2 \pm s^2) = \eta^{AA}$ with the sign fixed by $\eta^{BB} = \pm\eta^{AA}$); hence $e^{\theta S^{AB}}\in$ Spin(4,4).
 
 **Lemma 5 (covering).** For every generator and every real $\theta$ the matrix $\Lambda = \Lambda(e^{\theta S^{AB}})$ satisfies $\Lambda\eta\Lambda^T = \eta$ and $\det\Lambda = 1$ (exact symbolic check of all 28 one-parameter groups), and for the 12 compact generators
 
@@ -1167,13 +1167,13 @@ so the homomorphism $\Lambda$ is two-to-one on the group generated by the $e^{\t
 
 **Lemma 6 (reflections).** For each $C$, the twisted adjoint action of $T^C$ is the reflection in the hyperplane orthogonal to the $C$-th axis:
 
-$$
+```math
 \rho(T^C)\,T^D = -T^C T^D (T^C)^{-1} = \begin{cases} -T^C & D = C \\ +T^D & D\neq C \end{cases}, \qquad \det\rho(T^C) = -1 .
-$$
+```
 
-**Theorem 3.** (i) The group generated by $\{e^{\theta S^{AB}}\}$ is the identity component of Spin(4,4), and $\Lambda$ maps it two-to-one onto the identity component SO$^+$(4,4). (ii) The group generated by $\{e^{\theta S^{AB}}\}$ together with the eight matrices $T^C$ is Pin(4,4), and $\rho$ maps it two-to-one onto O(4,4).
+**Theorem 3.** (i) The group generated by $`\{e^{\theta S^{AB}}\}`$ is the identity component of Spin(4,4), and $\Lambda$ maps it two-to-one onto the identity component SO$`^+`$(4,4). (ii) The group generated by $`\{e^{\theta S^{AB}}\}`$ together with the eight matrices $T^C$ is Pin(4,4), and $\rho$ maps it two-to-one onto O(4,4).
 
-**Proof.** (i) By Lemma 4 the generated group lies in Spin(4,4) and is connected. By Lemma 3 its Lie algebra is (isomorphic to) so(4,4), so its image under $\Lambda$ is a connected Lie subgroup of O(4,4) (Lemma 5) whose Lie algebra is all of so(4,4); a connected Lie group is generated by any neighbourhood of the identity, so the image is SO$^+$(4,4). The kernel contains $-I_{16}$ (Lemma 5) and is contained in $\{\pm I_{16}\}$ because an element commuting with all $T^A$ is a multiple of the identity (the $T^A$ generate all of M(16,R), Theorem 4). (ii) By the Cartan-Dieudonne theorem every element of O(4,4) is a product of at most eight reflections in non-degenerate hyperplanes, i.e. of reflections along unit vectors $n$; every unit vector is $n = \Lambda(g)$ applied to a coordinate unit vector with $g$ in the group of (i) (SO$^+$(4,4) acts transitively on each sphere $n\cdot n=+1$ and $n\cdot n=-1$), and $\rho(g\,T^C g^{-1}) = \Lambda(g)\rho(T^C)\Lambda(g)^{-1}$, so all reflections, hence all of O(4,4), are reached. The generated group consists of products of unit vectors, i.e. it is Pin(4,4). The four connected components of O(4,4) are reached by $I_{16}$, $T^0$, $T^4$ and $T^0T^4$: the signs of the determinants of the space block and time block of $\rho$ are $(+,+)$, $(-,+)$, $(+,-)$ and $(-,-)$ respectively. $\square$
+**Proof.** (i) By Lemma 4 the generated group lies in Spin(4,4) and is connected. By Lemma 3 its Lie algebra is (isomorphic to) so(4,4), so its image under $\Lambda$ is a connected Lie subgroup of O(4,4) (Lemma 5) whose Lie algebra is all of so(4,4); a connected Lie group is generated by any neighbourhood of the identity, so the image is SO$`^+`$(4,4). The kernel contains $-I_{16}$ (Lemma 5) and is contained in $`\{\pm I_{16}\}`$ because an element commuting with all $T^A$ is a multiple of the identity (the $T^A$ generate all of M(16,R), Theorem 4). (ii) By the Cartan-Dieudonne theorem every element of O(4,4) is a product of at most eight reflections in non-degenerate hyperplanes, i.e. of reflections along unit vectors $n$; every unit vector is $n = \Lambda(g)$ applied to a coordinate unit vector with $g$ in the group of (i) (SO$`^+`$(4,4) acts transitively on each sphere $n\cdot n=+1$ and $n\cdot n=-1$), and $`\rho(g\,T^C g^{-1}) = \Lambda(g)\rho(T^C)\Lambda(g)^{-1}`$, so all reflections, hence all of O(4,4), are reached. The generated group consists of products of unit vectors, i.e. it is Pin(4,4). The four connected components of O(4,4) are reached by $I_{16}$, $T^0$, $T^4$ and $T^0T^4$: the signs of the determinants of the space block and time block of $\rho$ are $(+,+)$, $(-,+)$, $(+,-)$ and $(-,-)$ respectively. $\square$
 
 **Invariant form.** The spinor metric $\sigma_{16}$ satisfies
 
@@ -1181,15 +1181,15 @@ $$
 \sigma_{16}^T = \sigma_{16},\qquad \sigma_{16}^2 = I_{16},\qquad (\sigma_{16}T^A)^T = -\sigma_{16}T^A,\qquad (\sigma_{16}S^{AB})^T = -\sigma_{16}S^{AB},
 $$
 
-so $\bar\psi\psi = \psi^\dagger\sigma_{16}\psi$ is invariant under Spin(4,4), $\psi \mapsto e^{\frac12\omega_{AB}S^{AB}}\psi$, and $\bar\psi T^A\psi$ transforms as a vector. Under a reflection $\psi\mapsto T^C\psi$ one has $(T^C)^T\sigma_{16}T^C = -\eta^{CC}\sigma_{16}$: the mass term changes sign for the four space-like reflections, which is the origin of the $\{+m,-m\}$ pairing of dirac16complex.
+so $\bar\psi\psi = \psi^\dagger\sigma_{16}\psi$ is invariant under Spin(4,4), $\psi \mapsto e^{\frac12\omega_{AB}S^{AB}}\psi$, and $\bar\psi T^A\psi$ transforms as a vector. Under a reflection $\psi\mapsto T^C\psi$ one has $(T^C)^T\sigma_{16}T^C = -\eta^{CC}\sigma_{16}$: the mass term changes sign for the four space-like reflections, which is the origin of the $`\{+m,-m\}`$ pairing of dirac16complex.
 
 ## 10. Theorem 4: the 256 products form a basis (Cl(4,4) = M(16,R))
 
-Let $B_I = T^{A_1}T^{A_2}\cdots T^{A_k}$ with $I = \{A_1<\dots<A_k\}\subseteq\{0,\dots,7\}$ ($B_\emptyset = I_{16}$); there are $\sum_{k=0}^{8}\binom8k = 256 = 16^2$ of them. The $256\times256$ matrix of their entries has rank 256 and
+Let $B_I = T^{A_1}T^{A_2}\cdots T^{A_k}$ with $`I = \{A_1<\dots<A_k\}\subseteq\{0,\dots,7\}`$ ($B_\emptyset = I_{16}$); there are $\sum_{k=0}^{8}\binom8k = 256 = 16^2$ of them. The $256\times256$ matrix of their entries has rank 256 and
 
-$$
+```math
 \mathrm{Tr}\left(B_I B_J^{-1}\right) = 16\,\delta_{IJ},
-$$
+```
 
 so the $B_I$ are a basis of all real $16\times16$ matrices: the $T^A$ generate the full real Clifford algebra Cl(4,4) $\cong$ M(16, R), the representation is faithful and irreducible over the reals, and $S^{AB}$ restricted to the two $8\times8$ blocks gives the two inequivalent 8-dimensional spinor representations (type 1 and type 2): $S^{AB} = \mathrm{diag}(D_{(1)}^{AB}, D_{(2)}^{AB})$ with $4D_{(1)}^{AB} = \bar\tau_A\tau_B - \bar\tau_B\tau_A$ and $4D_{(2)}^{AB} = \tau_A\bar\tau_B - \tau_B\bar\tau_A$.
 

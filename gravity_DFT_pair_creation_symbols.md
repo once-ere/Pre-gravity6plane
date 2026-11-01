@@ -9,11 +9,11 @@
 | $\Gamma$ | chirality | $T^0\cdots T^7=\mathrm{diag}(-I_8,I_8)$ |
 | $\sigma_{16}$ | Dirac-adjoint matrix | $T^0T^1T^2T^3$ |
 | $\psi$, $\bar\psi$ | dirac16complex and adjoint | complex Grassmann 16-spinor; $\bar\psi=\psi^\dagger\sigma_{16}$ |
-| $e^A{}_\mu$, $E_A{}^\mu$ | vielbein and inverse | $g_{\mu\nu}=\eta_{AB}e^A{}_\mu e^B{}_\nu$, $E_A{}^\mu e^A{}_\nu=\delta^\mu_\nu$ |
+| $e^A{}_\mu$, $E_A{}^\mu$ | vielbein and inverse | $`g_{\mu\nu}=\eta_{AB}e^A{}_\mu e^B{}_\nu`$, $`E_A{}^\mu e^A{}_\nu=\delta^\mu_\nu`$ |
 | $e_A$ | diagonal vielbein entries | $e=\mathrm{diag}(e_0,\dots,e_7)$ |
 | $g_{\mu\nu}$, $\lvert g\rvert$ | metric, absolute determinant | $\sqrt{\lvert g\rvert}=\prod_A\lvert e_A\rvert$ |
 | $\Gamma^\nu{}_{\mu\lambda}$ | Christoffel symbols | $\frac12g^{\nu\kappa}(\partial_\mu g_{\kappa\lambda}+\partial_\lambda g_{\kappa\mu}-\partial_\kappa g_{\mu\lambda})$ |
-| $\omega_\mu{}^A{}_B$ | spin connection | $e^A{}_\nu(\partial_\mu E_B{}^\nu+\Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda)$ |
+| $\omega_\mu{}^A{}_B$ | spin connection | $`e^A{}_\nu(\partial_\mu E_B{}^\nu+\Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda)`$ |
 | $\Omega_\mu$ | spinor connection | $\frac14\omega_\mu{}^A{}_BT_AT^B$ |
 | $\gamma^\mu$ | curved Dirac matrices | $E_A{}^\mu T^A$ |
 | $D_\mu$ | covariant derivatives | $D_\mu\psi=\partial_\mu\psi+\Omega_\mu\psi$, $D_\mu\bar\psi=\partial_\mu\bar\psi-\bar\psi\Omega_\mu$ |
@@ -34,9 +34,9 @@
 | $\epsilon$ | Kohn-Sham energy | $\psi=e^{-i\epsilon x_4}u(x_0)$ |
 | $u$, $\chi$, $(u,v)$ | rescaled orbitals | $u=(\sqrt{\lvert g\rvert}/N)^{-1/2}\chi$; $\chi=(u,v)$ in a $2\times2$ copy |
 | $h_{KS}$ | Kohn-Sham Hamiltonian | $\alpha p+W\beta$ |
-| $\alpha$, $\beta$, $p$ | Dirac operators | $\alpha=-T^4T^0$, $\beta=-iT^4$, $p=-i\,d/d\rho$ |
+| $\alpha$, $\beta$, $p$ | Dirac operators | $\alpha=-T^4T^0$, $\beta=-iT^4$, $`p=-i\,d/d\rho`$ |
 | $W$ | effective potential | $W=BM$ |
-| $A$ | $2\times2$ copy operator | $A=d/d\rho+W$, $h=\begin{pmatrix}0&A^T\\ A&0\end{pmatrix}$ |
+| $A$ | $2\times2$ copy operator | $A=d/d\rho+W$, $`h=\begin{pmatrix}0&A^T\\ A&0\end{pmatrix}`$ |
 | $K$ | Krein operator | $-i\sigma_{16}T^4$; $\sigma_{16}=K\beta$ |
 | $s_k$ | singular values of discretized $A$ | Kohn-Sham levels $\pm s_k$ |
 | $d$ | grid spacing | 0.02 |
@@ -44,7 +44,7 @@
 | $\zeta$ | vacuum label | $+1$ for $V_1$, $-1$ for $V_2$ |
 | $V_1$, $V_2$ | Spin(4,4)-symmetric and zero-energy vacua | Section 4 |
 | $\rho_{copy}$, $\rho_k$ | sea density of one copy, density of level $k$ | $\rho_{copy}=-\sum_k\rho_k$ |
-| $E_0$, $E_1$ | ground and first-excited total energies | $\Delta$SCF |
+| $E_0$, $E_1$ | ground and first-excited total energies | $`\Delta`$SCF |
 | $T$ | temperature | Fermi-Dirac occupations |
 | $\Omega(T)$ | thermodynamic effective potential | $8\sum_k(-s_k-2T\ln(1+e^{-s_k/T}))-\frac\lambda2\int B\rho_s^2d\rho$ |
 | $\bar M$ | mean effective mass | average of $M$ over the grid |

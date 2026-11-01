@@ -5,18 +5,18 @@ Every symbol of the proof file 'dirac matrices' is listed with its defining equa
 | symbol | meaning | definition |
 |---|---|---|
 | $x_0,\dots,x_7$ | Cartesian coordinates of the project | $x_0$ hidden space, $x_1,x_2,x_3$ 3-space, $x_4$ time, $x_5,x_6,x_7$ superluminal time |
-| $A,B,C,D$ | frame indices | $A,B,C,D\in\{0,1,\dots,7\}$ |
+| $A,B,C,D$ | frame indices | $`A,B,C,D\in\{0,1,\dots,7\}`$ |
 | $\eta^{AB}$, $\eta_{AB}$ | flat metric of signature (4,4) | $\eta = \mathrm{diag}(+1,+1,+1,+1,$ $-1,-1,-1,-1)$ |
 | $\delta_{pq}$ | Kronecker delta | $\delta_{pq} = 1$ if $p=q$, else 0 |
 | $\epsilon_{pqrs}$ | Levi-Civita symbol | totally antisymmetric, $\epsilon_{1234}=1$ |
 | $I_n$ | identity matrix | $n\times n$ unit matrix |
-| $\sigma$ | 8x8 spinor metric | $\sigma = \begin{pmatrix}0&I_4\\ I_4&0\end{pmatrix}$ |
-| $Q_a^h$, $Q_b^h$ | 4x4 building blocks | $(Q_a^h)_{pq} = \epsilon_{hpq4}$, $(Q_b^h)_{pq} = \delta_{p4}\delta_{qh} - \delta_{ph}\delta_{q4}$, $h=1,2,3$ |
-| $s_h$ | self-dual antisymmetric 4x4 | $s_h = Q_a^h - Q_b^h$, $\tfrac12\epsilon_{pqrs}(s_h)_{rs} = (s_h)_{pq}$ |
-| $t_h$ | anti-self-dual antisymmetric 4x4 | $t_h = Q_a^h + Q_b^h$, $\tfrac12\epsilon_{pqrs}(t_h)_{rs} = -(t_h)_{pq}$ |
-| $\tau_A$ | real 8x8 matrices | $\tau_0 = I_8$, $\tau_h = \begin{pmatrix}0&s_h\\ s_h&0\end{pmatrix}$, $\tau_{3+j} = \begin{pmatrix}0&t_{4-j}\\ -t_{4-j}&0\end{pmatrix}$, $\tau_7=\tau_1\cdots\tau_6$ |
+| $\sigma$ | 8x8 spinor metric | $`\sigma = \begin{pmatrix}0&I_4\\ I_4&0\end{pmatrix}`$ |
+| $Q_a^h$, $Q_b^h$ | 4x4 building blocks | $`(Q_a^h)_{pq} = \epsilon_{hpq4}`$, $`(Q_b^h)_{pq} = \delta_{p4}\delta_{qh} - \delta_{ph}\delta_{q4}`$, $h=1,2,3$ |
+| $s_h$ | self-dual antisymmetric 4x4 | $s_h = Q_a^h - Q_b^h$, $`\tfrac12\epsilon_{pqrs}(s_h)_{rs} = (s_h)_{pq}`$ |
+| $t_h$ | anti-self-dual antisymmetric 4x4 | $t_h = Q_a^h + Q_b^h$, $`\tfrac12\epsilon_{pqrs}(t_h)_{rs} = -(t_h)_{pq}`$ |
+| $\tau_A$ | real 8x8 matrices | $\tau_0 = I_8$, $`\tau_h = \begin{pmatrix}0&s_h\\ s_h&0\end{pmatrix}`$, $`\tau_{3+j} = \begin{pmatrix}0&t_{4-j}\\ -t_{4-j}&0\end{pmatrix}`$, $\tau_7=\tau_1\cdots\tau_6$ |
 | $\bar\tau_A$ | partner matrices | $\bar\tau_A = \sigma\tau_A^T\sigma$; $\tfrac12(\tau_A\bar\tau_B+\tau_B\bar\tau_A) = \eta_{AB}I_8$ |
-| $T^A = (T16^A)[A]$ | the eight real 16x16 Dirac matrices | $T^A = \begin{pmatrix}0&\bar\tau_A\\ \tau_A&0\end{pmatrix}$, $T^AT^B + T^BT^A = 2\eta^{AB}I_{16}$ |
+| $T^A = (T16^A)[A]$ | the eight real 16x16 Dirac matrices | $`T^A = \begin{pmatrix}0&\bar\tau_A\\ \tau_A&0\end{pmatrix}`$, $T^AT^B + T^BT^A = 2\eta^{AB}I_{16}$ |
 | $\Gamma = (T16^A)[8]$ | chirality matrix | $\Gamma = T^0T^1\cdots T^7 = \mathrm{diag}(-I_8, I_8)$, $\Gamma T^A = -T^A\Gamma$ |
 | $P_L$, $P_R$ | chiral projection matrices | $P_L = \tfrac12(I_{16}-\Gamma)$, $P_R = \tfrac12(I_{16}+\Gamma)$ |
 | $\sigma_{16}$ | 16x16 spinor metric (Dirac adjoint) | $\sigma_{16} = T^0T^1T^2T^3 = \mathrm{diag}(-\sigma,\sigma)$; $\bar\psi = \psi^\dagger\sigma_{16}$ |
@@ -30,9 +30,9 @@ Every symbol of the proof file 'dirac matrices' is listed with its defining equa
 | unit vector | element $v = v_Ae^A$ | $v\cdot v = \eta^{AB}v_Av_B = \pm1$ |
 | Pin(4,4) | group of products of unit vectors | double cover of O(4,4) via $\rho$ |
 | Spin(4,4) | even part of Pin(4,4) | products of an even number of unit vectors |
-| O(4,4), SO$^+$(4,4) | orthogonal groups | $L\eta L^T = \eta$; SO$^+$ = identity component |
+| O(4,4), SO$`^+`$(4,4) | orthogonal groups | $L\eta L^T = \eta$; SO$`^+`$ = identity component |
 | so(4,4) | Lie algebra of O(4,4) | real $8\times8$ $X$ with $X\eta + \eta X^T = 0$; dimension 28 |
-| $B_I$ | basis of M(16,R) | $B_I = T^{A_1}\cdots T^{A_k}$, $I=\{A_1<\dots<A_k\}$, $B_\emptyset = I_{16}$; $\mathrm{Tr}(B_IB_J^{-1}) = 16\delta_{IJ}$ |
+| $B_I$ | basis of M(16,R) | $B_I = T^{A_1}\cdots T^{A_k}$, $`I=\{A_1<\dots<A_k\}`$, $B_\emptyset = I_{16}$; $\mathrm{Tr}(B_IB_J^{-1}) = 16\delta_{IJ}$ |
 | $c$, $s$ | coefficients in Lemma 4 | $(c,s) = (\cos\frac\theta2,\sin\frac\theta2)$ or $(\cosh\frac\theta2,\sinh\frac\theta2)$; $e^{\theta S^{AB}} = cI_{16} + 2sS^{AB}$ |
 | $X$ | auxiliary matrix in the proof of Theorem 2 | $X = \tau_A^{-1}\tau_B$, $X^{-1} = -\eta_{AA}\eta_{BB}X$ for $A\neq B$ |
 | $\psi$, $\bar\psi$ | 16-component spinor and its adjoint | $\bar\psi = \psi^\dagger\sigma_{16}$; $\bar\psi\psi$ is Spin(4,4) invariant because $(\sigma_{16}S^{AB})^T = -\sigma_{16}S^{AB}$ |

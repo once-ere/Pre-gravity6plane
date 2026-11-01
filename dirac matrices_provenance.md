@@ -8,13 +8,13 @@ Author: Patrick L. Nash, (C) 2022, GNU General Public License. File size 23,772,
 
 | object | definition (as used) | notebook cells |
 |---|---|---|
-| coordinates | $X = \{x_0,x_1,\dots,x_7\}$ | 45 |
+| coordinates | $`X = \{x_0,x_1,\dots,x_7\}`$ | 45 |
 | metric | $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ | 66, 157 |
-| spinor metric | $\sigma = \begin{pmatrix}0&I_4\\ I_4&0\end{pmatrix}$ | 73 |
-| self-dual / anti-self-dual | $(Q_a^h)_{pq} = \epsilon_{hpq4}$, $(Q_b^h)_{pq} = \delta_{p4}\delta_{qh}-\delta_{ph}\delta_{q4}$, $s_h = Q_a^h - Q_b^h$, $t_h = Q_a^h + Q_b^h$ | 203, 208, 209 |
-| six antisymmetric 8x8 | $\begin{pmatrix}0&s_h\\ s_h&0\end{pmatrix}$ ($h=1,2,3$), $\begin{pmatrix}0&t_h\\ -t_h&0\end{pmatrix}$ ($h=3,2,1$) | 213 |
+| spinor metric | $`\sigma = \begin{pmatrix}0&I_4\\ I_4&0\end{pmatrix}`$ | 73 |
+| self-dual / anti-self-dual | $`(Q_a^h)_{pq} = \epsilon_{hpq4}`$, $`(Q_b^h)_{pq} = \delta_{p4}\delta_{qh}-\delta_{ph}\delta_{q4}`$, $s_h = Q_a^h - Q_b^h$, $t_h = Q_a^h + Q_b^h$ | 203, 208, 209 |
+| six antisymmetric 8x8 | $`\begin{pmatrix}0&s_h\\ s_h&0\end{pmatrix}`$ ($h=1,2,3$), $`\begin{pmatrix}0&t_h\\ -t_h&0\end{pmatrix}`$ ($h=3,2,1$) | 213 |
 | tau matrices | $\tau_0 = I_8$, $\tau_h$ = the six matrices, $\tau_7 = \tau_1\cdots\tau_6$, $\bar\tau_A = \sigma(\sigma\tau_A)^T$ | 265 |
-| Dirac matrices | $T^A = (T16^A)[A] = \begin{pmatrix}0&\bar\tau_A\\ \tau_A&0\end{pmatrix}$ | 308 |
+| Dirac matrices | $`T^A = (T16^A)[A] = \begin{pmatrix}0&\bar\tau_A\\ \tau_A&0\end{pmatrix}`$ | 308 |
 | chirality | $(T16^A)[8] = T^0T^1\cdots T^7$ | 309 |
 | spinor metric 16 | $\sigma_{16} = T^0T^1T^2T^3 = \mathrm{diag}(-\sigma,\sigma)$ | 306, 333 |
 | chiral projectors | $P_L = \tfrac12(I_{16}-(T16^A)[8])$, $P_R = \tfrac12(I_{16}+(T16^A)[8])$ | 378, 380, 382 |
@@ -24,15 +24,15 @@ Author: Patrick L. Nash, (C) 2022, GNU General Public License. File size 23,772,
 
 The notebook also states the defining identity
 
-$$
+```math
 \tfrac12\left(\tau_A\bar\tau_B + \tau_B\bar\tau_A\right) = \eta_{AB}\,I_8
-$$
+```
 
 (its text cell 68 and the check of cell 265), which is the starting point of the anticommutation proof.
 
 ## 2. Published references quoted by the notebook (used for terminology and for the block form)
 
-- P. L. Nash, "Second gravity", J. Math. Phys. 51, 042501 (2010): block form $t^A = \begin{pmatrix}0&\bar\tau^A\\ \tau^A&0\end{pmatrix}$ and $t^At^B - t^Bt^A = 4\,\mathrm{diag}(D_{(1)}^{AB}, D_{(2)}^{AB})$ with $4D_{(1)}^{AB} = \bar\tau^A\tau^B - \bar\tau^B\tau^A$, $4D_{(2)}^{AB} = \tau^A\bar\tau^B - \tau^B\bar\tau^A$ (notebook image cells 70, 255, 304).
+- P. L. Nash, "Second gravity", J. Math. Phys. 51, 042501 (2010): block form $`t^A = \begin{pmatrix}0&\bar\tau^A\\ \tau^A&0\end{pmatrix}`$ and $`t^At^B - t^Bt^A = 4\,\mathrm{diag}(D_{(1)}^{AB}, D_{(2)}^{AB})`$ with $4D_{(1)}^{AB} = \bar\tau^A\tau^B - \bar\tau^B\tau^A$, $4D_{(2)}^{AB} = \tau^A\bar\tau^B - \tau^B\bar\tau^A$ (notebook image cells 70, 255, 304).
 - E. A. Lord, "The Dirac spinor in six dimensions", Proc. Camb. Phil. Soc. 64, 765-778 (1968): reduced Brauer-Weyl generators (notebook cells 722-746).
 - P. A. M. Dirac, "A remarkable representation of the 3 + 2 de Sitter group", J. Math. Phys. 4, 901-909 (1963) (notebook cell 1406).
 - P. L. Nash, "Identities satisfied by the generators of the Dirac algebra", J. Math. Phys. 25, 204 (1984): conventions $S^{\alpha\beta} = -\tfrac14[\gamma^\alpha,\gamma^\beta]$ for the 4x4 case (notebook cells 619, 677, 703).
@@ -54,4 +54,4 @@ Standard mathematics used in the proof of Theorem 3 (not taken from the notebook
 
 ## 4. Statements that are new in this work
 
-The construction of the matrices is that of Pre-gravity6plane.nb. New here are: the written proofs of Theorems 1-4 (in particular the upper-block argument $\bar\tau_A\tau_B + \bar\tau_B\tau_A = \eta_{AA}X + \eta_{BB}X^{-1} = 0$ with $X = \tau_A^{-1}\tau_B$ for $A\neq B$), the factorization $e^{\theta S^{AB}} = \eta^{AA}T^A(c\,T^A + \eta^{AA}s\,T^B)$ into unit vectors, the identification of the four components of O(4,4) reached by $I_{16}$, $T^0$, $T^4$, $T^0T^4$, and the observation $(T^C)^T\sigma_{16}T^C = -\eta^{CC}\sigma_{16}$ (sign change of $\bar\psi\psi$ under space-like reflections).
+The construction of the matrices is that of Pre-gravity6plane.nb. New here are: the written proofs of Theorems 1-4 (in particular the upper-block argument $\bar\tau_A\tau_B + \bar\tau_B\tau_A = \eta_{AA}X + \eta_{BB}X^{-1} = 0$ with $X = \tau_A^{-1}\tau_B$ for $A\neq B$), the factorization $`e^{\theta S^{AB}} = \eta^{AA}T^A(c\,T^A + \eta^{AA}s\,T^B)`$ into unit vectors, the identification of the four components of O(4,4) reached by $I_{16}$, $T^0$, $T^4$, $T^0T^4$, and the observation $(T^C)^T\sigma_{16}T^C = -\eta^{CC}\sigma_{16}$ (sign change of $\bar\psi\psi$ under space-like reflections).
