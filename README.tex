@@ -7,6 +7,13 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
 \setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
@@ -25,7 +32,7 @@ Please  cite  this  work  and this web page if you use it.
 
 \section*{1. Setting}
 
-Coordinates $x_0,\dots,x_7$ ($x_0$ hidden space, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time), metric $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$. The eight real $16\times16$ Dirac matrices are those of Pre-gravity6plane.nb,
+Coordinates $x_0,\dots,x_7$ ($x_0$ hidden space, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time), metric $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$. The eight real $16\times16$ Dirac matrices are those of Pre-gravity6plane.nb,\keepnext
 
 
 \[
@@ -37,7 +44,7 @@ with entries in $\{-1,0,1\}$; the $S^{AB}$ generate Spin(4,4) and, with the refl
 
 \section*{2. The field and its Lagrangian}
 
-dirac16complex $\psi = (\psi_0,\dots,\psi_{15})$ has complex anticommuting (Grassmann) components and is a second-quantized fermion field; $\bar\psi = \psi^\dagger\sigma_{16}$.
+dirac16complex $\psi = (\psi_0,\dots,\psi_{15})$ has complex anticommuting (Grassmann) components and is a second-quantized fermion field; $\bar\psi = \psi^\dagger\sigma_{16}$.\keepnext
 
 
 \[
@@ -49,7 +56,7 @@ $\mathcal L$ is exactly real; the quadratic (mass) and quartic (self-coupling) t
 
 \section*{3. Mirror of Pre-gravity6plane.nb and the 6-planes}
 
-Restricted to configurations that depend only on $x_0$ and $x_4$, the analogue of the notebook's $\Psi_{16}(x_0,x_4)$ ($m = -2M$), the 16 field equations split into the four blocks $\{0,5,8,13\},\{1,4,9,12\},\{2,7,10,15\},\{3,6,11,14\}$, as in the old notebook; its exponential solutions $e^{pz+qt}u$ with $(6p+q)(6p-q) = m^2/H^2$, $z = 6Hx_0$, $t = Hx_4$, are exactly the Maple solutions of the old notebook. With the triality frames and vector forms $V_1 = \eta(\psi_1^T\sigma F_A{}^a)$, $V_2 = F_a{}^A\psi_2$, a Universe defines the 6-plane
+Restricted to configurations that depend only on $x_0$ and $x_4$, the analogue of the notebook's $\Psi_{16}(x_0,x_4)$ ($m = -2M$), the 16 field equations split into the four blocks $\{0,5,8,13\},\{1,4,9,12\},\{2,7,10,15\},\{3,6,11,14\}$, as in the old notebook; its exponential solutions $e^{pz+qt}u$ with $(6p+q)(6p-q) = m^2/H^2$, $z = 6Hx_0$, $t = Hx_4$, are exactly the Maple solutions of the old notebook. With the triality frames and vector forms $V_1 = \eta(\psi_1^T\sigma F_A{}^a)$, $V_2 = F_a{}^A\psi_2$, a Universe defines the 6-plane\keepnext
 
 
 \[
@@ -61,7 +68,7 @@ with $\binom82 = 28$ parameterizations; a pair of universes of energies $\pm E$ 
 
 \section*{4. Gravity, Kohn-Sham DFT, pair creation, Einstein-Rosen bridges}
 
-Three gravitational fields (diagonal vielbeins): primordial $\mathrm{diag}(\tan6Hx_0,$ $e^{-Hx_4}\sin^{-1/6}6Hx_0\,(\times3),$ $1,$ $e^{Hx_4}\sin^{-1/6}6Hx_0\,(\times3))$ (the vielbein of Pre-gravity6plane.nb with $a_4 = Hx_4$); modern $\mathrm{diag}(f^{-1/2},1,1,1,f^{1/2},1,1,1)$ with $f = 1-r_s/x_0$; future the same with $f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$. In each, the Euler-Lagrange equations derived from the Grassmann Lagrangian are $\gamma^\mu D_\mu\psi = (m+\lambda\bar\psi\psi)\psi$, e.g. (primordial)
+Three gravitational fields (diagonal vielbeins): primordial $\mathrm{diag}(\tan6Hx_0,$ $e^{-Hx_4}\sin^{-1/6}6Hx_0\,(\times3),$ $1,$ $e^{Hx_4}\sin^{-1/6}6Hx_0\,(\times3))$ (the vielbein of Pre-gravity6plane.nb with $a_4 = Hx_4$); modern $\mathrm{diag}(f^{-1/2},1,1,1,f^{1/2},1,1,1)$ with $f = 1-r_s/x_0$; future the same with $f = 1 - r_s/x_0 - H_\Lambda^2x_0^2$. In each, the Euler-Lagrange equations derived from the Grassmann Lagrangian are $\gamma^\mu D_\mu\psi = (m+\lambda\bar\psi\psi)\psi$, e.g. (primordial)\keepnext
 
 
 \[
@@ -76,7 +83,7 @@ The quartic term is treated in a Kohn-Sham (DFT) approximation, $M = m + \lambda
 
 \section*{5. Deflating degrees of freedom}
 
-In deflation.nb the superluminal times $x_5, x_6, x_7$ of the primordial field are replaced by deflating degrees of freedom ($z = 6Hx_0$):
+In deflation.nb the superluminal times $x_5, x_6, x_7$ of the primordial field are replaced by deflating degrees of freedom ($z = 6Hx_0$):\keepnext
 
 
 \[
@@ -86,14 +93,14 @@ g_{jj} = b_{jj}e^{-ax_4},\quad a > 0,\ b_{jj} > 0 .
 \end{gathered}
 \]
 
-Proper sizes along $x_5, x_6, x_7$ shrink as $\sqrt{b_{jj}}\,e^{-ax_4/2}$. The Ricci scalar, the Einstein tensor and the Kretschmann scalar depend on $x_0$ only, so deflation creates no curvature singularity at finite $x_4$. The pure deflation field $dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2 - dx_4^2 - \sum_j g_{jj}dx_j^2$ is flat $\mathbb R^4$ times a hyperbolic 4-space of radius $2/a$ whose four directions are all timelike,
+Proper sizes along $x_5, x_6, x_7$ shrink as $\sqrt{b_{jj}}\,e^{-ax_4/2}$. The Ricci scalar, the Einstein tensor and the Kretschmann scalar depend on $x_0$ only, so deflation creates no curvature singularity at finite $x_4$. The pure deflation field $dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2 - dx_4^2 - \sum_j g_{jj}dx_j^2$ is flat $\mathbb R^4$ times a hyperbolic 4-space of radius $2/a$ whose four directions are all timelike,\keepnext
 
 
 \[
 -dx_4^2 - \sum_{j=5}^{7}g_{jj}\,dx_j^2 = -\frac{4}{a^2}\,\frac{dw^2 + dy_5^2 + dy_6^2 + dy_7^2}{w^2}, \qquad w = \frac2a\,e^{ax_4/2},\quad y_j = \sqrt{b_{jj}}\,x_j ,
 \]
 
-with $R = 3a^2$ and Kretschmann scalar $3a^4/2$. World lines with momentum $p_5 = -g_{55}\,dx_5/d\ell$ ($\ell$ an affine parameter) turn back in time at $x_4^* = \frac1a\ln(b_{55}/p_5^2)$. The field equation of dirac16complex, derived exactly from the Grassmann Lagrangian, is
+with $R = 3a^2$ and Kretschmann scalar $3a^4/2$. World lines with momentum $p_5 = -g_{55}\,dx_5/d\ell$ ($\ell$ an affine parameter) turn back in time at $x_4^* = \frac1a\ln(b_{55}/p_5^2)$. The field equation of dirac16complex, derived exactly from the Grassmann Lagrangian, is\keepnext
 
 
 \[
@@ -103,7 +110,7 @@ with $R = 3a^2$ and Kretschmann scalar $3a^4/2$. World lines with momentum $p_5 
 \end{aligned}
 \]
 
-Its universes $e^{i(k_0x_0 + k_1x_1 + k_2x_2 + k_3x_3 + q_5x_5 + q_6x_6 + q_7x_7 - \omega x_4)}u$ (frozen coefficients) obey
+Its universes $e^{i(k_0x_0 + k_1x_1 + k_2x_2 + k_3x_3 + q_5x_5 + q_6x_6 + q_7x_7 - \omega x_4)}u$ (frozen coefficients) obey\keepnext
 
 
 \[
@@ -135,8 +142,9 @@ python3 md2tex.py <file>.md <file>.tex ; pdflatex <file>.tex
 
 \section*{8. Repository inventory}
 
-{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}}\toprule
-file & content \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.4354\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5246\linewidth-2\tabcolsep\relax}}\toprule
+file & content \\\midrule\endhead
+\bottomrule\endfoot
 Pre-gravity6plane.nb & original notebook (P. L. Nash, GPL) \\
 6planes.nb & new notebook, evaluated, 34 input cells, no messages \\
 deflation.nb & new notebook on the deflating degrees of freedom, evaluated, 17 input cells, no messages \\
@@ -149,7 +157,7 @@ deflation.md/.tex/.pdf & deflating degrees of freedom: geometry, curvature, geod
 *\_provenance.md/.tex/.pdf & sources and computations behind each document \\
 *\_symbols.md/.tex/.pdf & definitions of all symbols of each document \\
 code/ & core.wl, verify\_dirac\_matrices.wls (+ log), dm\_data.json, gen\_dm.py, md2tex.py, 6planes\_src.txt, build\_nb2.wls (+ log), deflation\_head.txt, deflation\_tail.txt, deflation\_src.txt, build\_deflation.wls (+ log) \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \mdpart*{Pre-Universe}
 
@@ -163,7 +171,7 @@ code/ & core.wl, verify\_dirac\_matrices.wls (+ log), dm\_data.json, gen\_dm.py,
 Let $\mathbb{R}^{4,4}$ denote a real, eight-dimensional, pseudo-Euclidean vector space endowed with  the $SO(4,4;\mathbb{R})$ invariant quadratic form
 
 
-$x0^{2} + x1^{2} + x2^{2} + x3^{2} - x4^{2} - x5^{2} - x6^{2} - x7^{2}$,
+$x0^{2} + x1^{2} + x2^{2} + x3^{2} - x4^{2} - x5^{2} - x6^{2} - x7^{2}$,\keepnext
 
 
 which defines the standard pseudo-Euclidean norm on $\mathbb{R}^{4,4}$ and associated non-degenerate indefinite inner product.
@@ -172,7 +180,7 @@ which defines the standard pseudo-Euclidean norm on $\mathbb{R}^{4,4}$ and assoc
 Let $\overline{SO(4,4;\mathbb{R})}$ denote the universal cover  of $SO(4,4;\mathbb{R})$.
 
 
-Spinor notation:
+Spinor notation:\keepnext
 
 
 ``left-handed'' and ``right-handed'' spin(8) spinors have $\overline{SO(4,4;\mathbb{R})}$ counterparts that are denoted as $\psi_1$ and $\psi_2$ in this repo.
@@ -191,27 +199,27 @@ Spinor notation:
 describes a conjectured `Quantum construction' of a Pre-Big-Bang \textbf{\emph{spacetime}},
 
 
-built using
+built using\keepnext
 
 
 the split octonion algebra $O_{4,4}$
 
 
-and
+and\keepnext
 
 
 the (pseudo-) Clifford algebra $C_{4,4}$ (with multiplicative identity id) generated by a set of 8 elements $e^{4,4}_A, \  A = 1-1,...8-1$ that anticommute with each other and have square equal to $\pm$ id.
 
 
-Explicitly, the generators $e^{4,4}_A,\  A=0, 1, ..., 7$ satisfy
+Explicitly, the generators $e^{4,4}_A,\  A=0, 1, ..., 7$ satisfy\keepnext
 
 
 \[e^{4,4}_A e^{4,4}_B + e^{4,4}_B e^{4,4}_A  = id \  g_{A B} , \  A, B = 0, 1, ..., 7\]
 
-where
+where\keepnext
 
 
-$\displaystyle g_{A B}=diag(1,1,1,1,-1,-1,-1,-1)$.
+$\displaystyle g_{A B}=diag(1,1,1,1,-1,-1,-1,-1)$.\keepnext
 
 
 The (scaled) skew-symmetrized products of the $e^{4,4}_A$, formed from an irreducible representation of the $e^{4,4}_A$, are the infinitesimal generators of a $16 = 2^{8/2}$-dimensional ,  reducible, basic spinor representation of $\overline{SO(4,4;\mathbb{R})}$.
@@ -251,10 +259,10 @@ The (scaled) skew-symmetrized products of the $e^{4,4}_A$, formed from an irredu
 We represent spinors in this 16-component basic spinor representation as
 
 
-$\psi \in \mathbb{R}^{16} = \{\psi_1,\psi_2\}$ ,
+$\psi \in \mathbb{R}^{16} = \{\psi_1,\psi_2\}$ ,\keepnext
 
 
-which are realized according to
+which are realized according to\keepnext
 
 
 \[\psi \in \mathbb{R}^{16} = \{\psi_1\in \mathbb{R}^{8}  \oplus \psi_2\in \mathbb{R}^{8}\}\]
@@ -270,7 +278,7 @@ which are realized according to
 for $\psi$ is defined,
 
 
-Euler-Lagrange equaions solved,
+Euler-Lagrange equaions solved,\keepnext
 
 
 vector forms of $\psi_1$  and $\psi_2$ calculated (please see `split octonions' , below),
@@ -282,7 +290,7 @@ two  7-planes, respectively dual to the preceding two vectors, are computed,
 the 6-plane of their intersection identified;
 
 
-todo:
+todo:\keepnext
 
 
 associate 6-plane with 3 generations of Einstein-Rosen 2-planes.
@@ -294,27 +302,27 @@ associate 6-plane with 3 generations of Einstein-Rosen 2-planes.
 study of a possible `Quantum construction' of a Pre-Big-Bang \textbf{\emph{spacetime}} is also carved out using the split octonion inner product algebra
 
 
-$O_{4,4}$ = Os
+$O_{4,4}$ = Os\keepnext
 
 
 and  Cartan's `triality' .
 
 
-Recall:
+Recall:\keepnext
 
 
-several properties of the split octonion inner product algebra Os are::
+several properties of the split octonion inner product algebra Os are::\keepnext
 
 
-$\displaystyle 1 \in Os$;
+$\displaystyle 1 \in Os$;\keepnext
 
 
-non-degenerate indefinite inner product
+non-degenerate indefinite inner product\keepnext
 
 
 \[< , > : Os \times Os \mapsto \mathbb{R}\]
 
-and a multiplication $Os \times Os \mapsto Os$ with unit $1 \in Os$ such that
+and a multiplication $Os \times Os \mapsto Os$ with unit $1 \in Os$ such that\keepnext
 
 
 $\displaystyle \forall x, y \in Os, $ \textless{} x y,  x y \textgreater{} =  \textless{}x, x\textgreater{} \textless{}y, y\textgreater{}.
@@ -334,7 +342,7 @@ We define the orthogonal compliment of 1 to be $Im \  Os \in Os$. It is a proper
 Given $x \in Os$, we define the conjugate $x^*$ according to
 
 
-$x \mapsto x^* = 2 <x, 1> - x$;
+$x \mapsto x^* = 2 <x, 1> - x$;\keepnext
 
 
 We denote \textless{}x, 1\textgreater{} by Re x
@@ -360,27 +368,27 @@ We are using the convention that
 A `Minkowski' vector realization of $x \in Os$ is
 
 
-$x = x^A e_A,  \  A=0, 1, ..., 7$ where
+$x = x^A e_A,  \  A=0, 1, ..., 7$ where\keepnext
 
 
-$x^A \in \mathbb{R}$.
+$x^A \in \mathbb{R}$.\keepnext
 
 
 
 (equivalent [by Cartan's triality] to each of the two independent spinor bases; explicit realizations of equivalence are constructed in this repo's files),
 
 
-and verify
+and verify\keepnext
 
 
-$< e_A, e_B > = g_{A,B} = diag(1,1,1,1,-1,-1,-1,-1)$,
+$< e_A, e_B > = g_{A,B} = diag(1,1,1,1,-1,-1,-1,-1)$,\keepnext
 
 
 
 Os is endowed with a non-associative multiplication $Os \times Os \mapsto Os$  , which may be defined according to
 
 
-$e_A \  e_B = e_C \  m^C_{A \  B}$.
+$e_A \  e_B = e_C \  m^C_{A \  B}$.\keepnext
 
 
 In this repo we construct the multiplication constants $m^C_{A \  B}$ from
@@ -423,7 +431,7 @@ e_7 & e_7 & e_6 & -e_5 & -e_4 & -e_3 & -e_2 & e_1 & e_0
 
 
 
-Let
+Let\keepnext
 
 
 $e^{1/2}_a, \  a=0, 1, ..., 7$ comprise a type 1 spinor basis of Os.
@@ -432,19 +440,19 @@ $e^{1/2}_a, \  a=0, 1, ..., 7$ comprise a type 1 spinor basis of Os.
 A type 1 spinor $\Psi_1 \in Os$ may be realized according to
 
 
-$\Psi_1 = \psi_1^a \  e^{1/2}_a,  a = 0, 1, ..., 7 $, where
+$\Psi_1 = \psi_1^a \  e^{1/2}_a,  a = 0, 1, ..., 7 $, where\keepnext
 
 
-$\psi_1^a \in \mathbb{R}$.
+$\psi_1^a \in \mathbb{R}$.\keepnext
 
 
 Similarly, a type 2 spinor $\Psi_2 \in Os$ may be realized according to
 
 
-$\Psi_2 = \psi_2^{(a)} \  e^{1/2}_{(a)}, \  (a) = (0), (1), ..., (7)$, where
+$\Psi_2 = \psi_2^{(a)} \  e^{1/2}_{(a)}, \  (a) = (0), (1), ..., (7)$, where\keepnext
 
 
-$\psi_2^{(a)} \in \mathbb{R}$, and
+$\psi_2^{(a)} \in \mathbb{R}$, and\keepnext
 
 
 and the $e^{1/2}_{(a)}, \  (a) = (0), (1), ..., (7)$ comprise a type 2 spinor basis of Os.
@@ -481,7 +489,7 @@ The term ``reduced Brauer[Dash]Weyl generators'',  refers to a specific set of i
 Here,  we employ  Lord's  idea of reduced Brauer[Dash]Weyl generators to extend Dirac's 4x4 gamma matrices into  this notebook's  real tau8  8x8 and  tau16   16x16 matrices, which  are  employed  to write  down the `Dirac Equation  for the Pre-Universe' [remember, this is before  the  Big Bang,  and before  the particles  of  the  standard  model  exist ] formulated  in  terms  of a 16-component    Overscript[O(4,4), \_] spinor [CapitalPsi]16 ([CapitalPsi]16  AKA `WAVE FUNCTION OF  the UN-UNIVERSE,' which could possibly be named something more pompous). This equation is used to  investigate EINSTEIN AND ROSEN's idea: ``If one tries to interpret the regular solution (5a) in the space of r, 0, {\o}, t, one arrives at the following conclusion. The four-dimensional space is described mathematically by two congruent parts or ``sheets,'' corresponding to u\textgreater{}0 and u \textless{}0, which are joined by a hyperplane r= 2m or u=0 in which g vanishes .2 We call such a connection between the two sheets a ``bridge.''{}''
 
 
-PLEASE IGNORE, FOR NOW, THE FOLLOWING:
+PLEASE IGNORE, FOR NOW, THE FOLLOWING:\keepnext
 
 
 Notation: $M_{4,4}$ = Minkowski spacetime,  signature = \{4,4\};

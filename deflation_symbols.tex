@@ -7,17 +7,25 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
 {\raggedright\LARGE\bfseries Symbols used in `Deflating degrees of freedom: dirac16complex when $x_5, x_6, x_7$ deflate' and in deflation.nb\par}\medskip
 
 \section*{1. Coordinates, metric and deflation}
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1242\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3239\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5119\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $x_0, \dots, x_7$ & coordinates & $x_0$ hidden space; $x_1, x_2, x_3$ 3-space; $x_4$ time; $x_5, x_6, x_7$ superluminal time, here the deflating degrees of freedom \\
 $i$; $j$ & index ranges & $i = 1, 2, 3$; $j = 5, 6, 7$ \\
 $A, B, C$ & frame indices & $0, \dots, 7$ \\
@@ -36,12 +44,13 @@ $ds^2$ & line element & $g_{\mu\nu}dx^\mu dx^\nu$ \\
 $\sqrt{\lvert g\rvert}$ & volume element & $e_0\cdots e_7$ $= \sqrt{b_{55}b_{66}b_{77}}\tan z\sin^{-1/2}z$ $\times e^{-3(H+a/2)x_4}$; $(\sqrt{\lvert g\rvert})^2 = \lvert\det g_{\mu\nu}\rvert$ \\
 $L_j$ & proper size of $\Delta x_j$ & $L_j = \sqrt{g_{jj}}\,\Delta x_j$; $d\ln L_j/dx_4 = -a/2$ \\
 pure deflation field & deflation alone & $ds^2 = dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2$ $- dx_4^2 - g_{55}dx_5^2 - g_{66}dx_6^2 - g_{77}dx_7^2$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \section*{2. Dirac matrices, the field and its sectors}
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1756\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3187\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4657\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $I_n$ & identity matrix & $n\times n$ \\
 $\delta_{pq}$, $\delta_A^\mu$ & Kronecker symbol & $1$ if the indices are equal, else $0$ \\
 $\epsilon_{hpq4}$ & Levi-Civita symbol & totally antisymmetric, $\epsilon_{1234} = 1$ \\
@@ -66,12 +75,13 @@ $\Pi_\pm$ & sector projectors & $\frac12(I_{16} \pm K)$ \\
 $\psi_\pm$ & mirror sectors & $\Pi_\pm\psi$; $K = +1$: +mass sector, $K = -1$: -mass sector \\
 $\omega$ & frequency & mode $\propto e^{-i\omega x_4}$; energy density of a mode $\omega\psi^\dagger K\psi$ \\
 $u$ & constant spinor & amplitude of a mode \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \section*{3. Curvature and geodesics}
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1323\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3502\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4775\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $\Gamma^\lambda{}_{\mu\nu}$ & Christoffel symbols & $\frac12g^{\lambda\rho}(\partial_\mu g_{\rho\nu} + \partial_\nu g_{\rho\mu} - \partial_\rho g_{\mu\nu})$ \\
 $R^\kappa{}_{\lambda\mu\nu}$ & Riemann tensor & $\partial_\mu\Gamma^\kappa{}_{\lambda\nu} - \partial_\nu\Gamma^\kappa{}_{\lambda\mu}$ $+ \Gamma^\kappa{}_{\mu\rho}\Gamma^\rho{}_{\lambda\nu} - \Gamma^\kappa{}_{\nu\rho}\Gamma^\rho{}_{\lambda\mu}$ \\
 $R_{\kappa\lambda\mu\nu}$ & lowered Riemann tensor & $g_{\kappa\rho}R^\rho{}_{\lambda\mu\nu}$ \\
@@ -86,12 +96,13 @@ $\ell$ & affine parameter of a world line & $\dot x = dx/d\ell$ \\
 $p_5$ & conserved momentum & $p_5 = g_{5\mu}\dot x^\mu = -g_{55}\dot x_5$ \\
 $x_4^*$ & turning point & world line: $\frac1a\ln\frac{b_{55}}{p_5^2}$; universe: $\frac1a\ln\frac{m^2 + \cot^2 z\,k_0^2}{\bar q^{\,2}}$; numerical example: $\ln 8$ \\
 $w_*$, $y_{5c}$ & radius and centre of a semicircle & $w_* = \frac{2\sqrt{b_{55}}}{a\lvert p_5\rvert}$; $(y_5 - y_{5c})^2 + w^2 = w_*^2$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \section*{4. Field equation, universes and pairs}
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1200\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3541\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4859\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $\gamma^\mu$ & curved-space Dirac matrices & $E_A{}^\mu T^A$ \\
 $\omega_\mu{}^A{}_B$ & spin-connection coefficients & $e^A{}_\nu(\partial_\mu E_B{}^\nu + \Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda)$ \\
 $\Omega_\mu$ & spinor connection & $\frac14\omega_\mu{}^A{}_BT_AT^B$; here $\gamma^\mu\Omega_\mu = -\frac32H\cot^2 z\,T^0 - \frac34(a + 2H)T^4$ \\
@@ -120,12 +131,13 @@ $N$ & norm & $\chi^\dagger\chi = P_+ + P_-$ \\
 $P_\pm$ & weights of the +mass and -mass sectors & $\chi^\dagger\Pi_\pm\chi$ \\
 $Q$ & Krein charge & $\chi^\dagger K\chi = P_+ - P_-$, conserved: $M^\dagger K + KM = 0$ \\
 $\bar\psi\gamma^4\psi$ & $x_4$-component of the U(1) current & $\psi^\dagger\sigma_{16}T^4\psi = i\psi^\dagger K\psi$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \section*{5. Names used in deflation.nb}
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-notebook name & symbol & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.2543\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2739\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4319\linewidth-2\tabcolsep\relax}}\toprule
+notebook name & symbol & definition \\\midrule\endhead
+\bottomrule\endfoot
 \texttt{X}, \texttt{eta4488} & $(x_0, \dots, x_7)$, $\eta_{AB}$ & coordinates; $\mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ \\
 \texttt{ID4}, \texttt{ID8}, \texttt{ID16} & $I_4$, $I_8$, $I_{16}$ & identity matrices \\
 \texttt{sigma}, \texttt{s4by4[h]}, \texttt{t4by4[h]} & $\sigma$, $s_h$, $t_h$ & Section 2 above \\
@@ -175,6 +187,6 @@ notebook name & symbol & definition \\\midrule
 \texttt{normAt}, \texttt{minusFrac}, \texttt{plusW}, \texttt{minusW} & $N$, $P_-/N$, $P_+$, $P_-$ & Section 4 above \\
 \texttt{crossD[A]} & sector cross term of direction $A$ & $(I_{16} + K)\sigma_{16}c_AT^A(I_{16} - K)$ \\
 \texttt{kapA}, \texttt{Mdef}, \texttt{MdefH} & $\kappa_A$, $M$, $M^\dagger$ & $M = T^4(i\sum_{A\ne4}\kappa_AT^A - m)$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \end{document}

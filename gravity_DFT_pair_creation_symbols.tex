@@ -7,15 +7,23 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
-{\raggedright\LARGE\bfseries Symbols used in 'dirac16complex in the primordial, modern and future gravitational fields'\par}\medskip
+{\raggedright\LARGE\bfseries Symbols used in `dirac16complex in the primordial, modern and future gravitational fields'\par}\medskip
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1200\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4391\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4009\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $x_0,\dots,x_7$ & coordinates & $x_0$ hidden, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time \\
 $\eta_{AB}$ & flat metric & $\mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ \\
 $T^A$ & real 16x16 Dirac matrices $(T16^A)[A]$ & $T^AT^B+T^BT^A=2\eta^{AB}I_{16}$ \\
@@ -65,6 +73,6 @@ $\bar M$ & mean effective mass & average of $M$ over the grid \\
 $T_H$ & Hawking temperature & $1/(4\pi r_s)$ for the modern field \\
 $\psi_\pm$, $S_\pm$, $Q_\pm$ & mirror sectors, scalars, charges & $K\psi_\pm=\pm\psi_\pm$, $S_\pm=\psi_\pm^\dagger\beta\psi_\pm$, $Q_\pm=\int\psi^\dagger_\pm\psi_\pm$ \\
 $\mathcal L_D$ & 8-component Dirac Lagrangian & $\chi^\dagger\beta(T^A\partial_A-m)\chi$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \end{document}

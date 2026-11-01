@@ -7,12 +7,19 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
-{\raggedright\LARGE\bfseries Provenance of 'dirac16complex in the primordial, modern and future gravitational fields: Euler-Lagrange equations, Kohn-Sham DFT, and pair creation'\par}\medskip
+{\raggedright\LARGE\bfseries Provenance of `dirac16complex in the primordial, modern and future gravitational fields: Euler-Lagrange equations, Kohn-Sham DFT, and pair creation'\par}\medskip
 
 \section*{1. Sources}
 
@@ -24,8 +31,9 @@
 
 \section*{2. Computations (Wolfram Language 15.0.1, 2026-10-30)}
 
-{\small\begin{longtable}{p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}}\toprule
-result & where computed \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.5655\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3945\linewidth-2\tabcolsep\relax}}\toprule
+result & where computed \\\midrule\endhead
+\bottomrule\endfoot
 covariant constancy $\partial_\mu\gamma^\nu + \Gamma^\nu{}_{\mu\lambda}\gamma^\lambda + [\Omega_\mu,\gamma^\nu] = 0$, sign of $\Omega_\mu$ & 6planes.nb Part 5, Out[23] (exact) \\
 $\sqrt{\lvert g\rvert} = \sec 6Hx_0$, 1, 1 & Part 5, Out[23] \\
 reality $\mathcal L^* = \mathcal L$ and EL equations $=\sqrt{\lvert g\rvert}\sigma_{16}(\gamma^\mu D_\mu\psi - m\psi - \lambda(\bar\psi\psi)\psi)$ in all three fields & Part 5, Out[23] (exact Grassmann algebra, 16 components, 8 coordinates) \\
@@ -36,7 +44,7 @@ bag test $1.13204, 1.47963, 1.95318$ vs exact $1.13211, 1.47986, 1.95361$ & Part
 table of Section 5 (V1, V2, $\Delta$SCF) & Part 6.3, Out[27] (machine precision; self-consistency tolerance $10^{-11}$; 51-55 iterations for V1) \\
 $\Omega(T)$ table & Part 6.4, Out[29] \\
 $\bar\psi\psi = S_+ - S_-$, $(\bar\psi\psi)^2 = S_+^2+S_-^2-2S_+S_-$, 232 monomials in $\lambda S_+S_-$, pair energy balance 0 & Part 7, Out[30] (exact) \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 Independent prototypes of the curved-space and Kohn-Sham computations (scratch scripts grav\_EL.wls and run\_dft.wls) gave the same results before the notebook was assembled.
 

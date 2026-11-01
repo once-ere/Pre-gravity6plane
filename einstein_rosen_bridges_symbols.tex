@@ -7,15 +7,23 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
-{\raggedright\LARGE\bfseries Symbols used in 'Einstein-Rosen bridges in the gravitational fields of dirac16complex'\par}\medskip
+{\raggedright\LARGE\bfseries Symbols used in `Einstein-Rosen bridges in the gravitational fields of dirac16complex'\par}\medskip
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1323\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4100\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4177\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $t,r,\theta,\phi$ & Schwarzschild coordinates & $ds^2 = -(1-\frac{2m}r)dt^2+\frac{dr^2}{1-2m/r}+r^2d\Omega^2$ \\
 $d\Omega^2$ & sphere metric & $d\theta^2+\sin^2\theta\,d\phi^2$ \\
 $m$ & Schwarzschild mass & geometric units $G=c=1$ \\
@@ -40,6 +48,6 @@ $\epsilon$ & Killing energy of a universe (Kohn-Sham mode) & mode $\propto e^{-i
 $\beta_\epsilon$ & Bogoliubov coefficient & $\lvert\beta_\epsilon\rvert^2=1/(e^{2\pi\epsilon/\kappa}+1)$ \\
 $T_H$ & Hawking temperature & $\kappa/(2\pi)$ \\
 $H_I$, $H_{II}$ & Killing Hamiltonians of the two sheets & the bridge vacuum is annihilated by $H_I-H_{II}$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \end{document}

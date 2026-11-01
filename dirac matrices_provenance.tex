@@ -7,23 +7,31 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
-{\raggedright\LARGE\bfseries Provenance of 'dirac matrices': where every matrix, equation and result comes from\par}\medskip
+{\raggedright\LARGE\bfseries Provenance of `dirac matrices': where every matrix, equation and result comes from\par}\medskip
 
-This provenance record accompanies the proof file 'dirac matrices'. It states, for every object and every claim, its origin (source notebook cell, published reference, or computation) and how it was checked. All equations that are referred to are written out here.
+This provenance record accompanies the proof file `dirac matrices'. It states, for every object and every claim, its origin (source notebook cell, published reference, or computation) and how it was checked. All equations that are referred to are written out here.
 
 
 \section*{1. Primary source: the notebook Pre-gravity6plane.nb}
 
-Author: Patrick L. Nash, (C) 2022, GNU General Public License. File size 23,772,734 bytes, read in full (1,415 styled cells: 650 input, 546 output, 156 text, 32 section, 6 title). The constructions below are copied from the following cells (cell numbers count the styled cells of the notebook in document order).
+\mdneed{9.4\baselineskip}Author: Patrick L. Nash, (C) 2022, GNU General Public License. File size 23,772,734 bytes, read in full (1,415 styled cells: 650 input, 546 output, 156 text, 32 section, 6 title). The constructions below are copied from the following cells (cell numbers count the styled cells of the notebook in document order).\keepnext
 
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-object & definition (as used) & notebook cells \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.2705\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5543\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1352\linewidth-2\tabcolsep\relax}}\toprule
+object & definition (as used) & notebook cells \\\midrule\endhead
+\bottomrule\endfoot
 coordinates & $X = \{x_0,x_1,\dots,x_7\}$ & 45 \\
 metric & $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ & 66, 157 \\
 spinor metric & $\sigma = \begin{pmatrix}0&I_4\\ I_4&0\end{pmatrix}$ & 73 \\
@@ -37,9 +45,9 @@ chiral projectors & $P_L = \tfrac12(I_{16}-(T16^A)[8])$, $P_R = \tfrac12(I_{16}+
 scaled commutators & $S^{AB} = \tfrac14(T^AT^B - T^BT^A)$ and its so(4,4) relations & 385-391 \\
 256-element basis & products of the $T^A$ & 453-491 \\
 stored numerical results used for comparison & output cells 310 ($(T16^A)[8]$), 312 ($\sigma_{16}$), 379 ($P_L$), 381 ($P_R$), 494 ($(T16^A)[0..7]$) & 310, 312, 379, 381, 494 \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
-The notebook also states the defining identity
+The notebook also states the defining identity\keepnext
 
 
 \[
@@ -52,13 +60,13 @@ The notebook also states the defining identity
 \section*{2. Published references quoted by the notebook (used for terminology and for the block form)}
 
 \begin{itemize}
-\item P. L. Nash, "Second gravity", J. Math. Phys. 51, 042501 (2010): block form $t^A = \begin{pmatrix}0&\bar\tau^A\\ \tau^A&0\end{pmatrix}$ and $t^At^B - t^Bt^A = 4\,\mathrm{diag}(D_{(1)}^{AB}, D_{(2)}^{AB})$ with $4D_{(1)}^{AB} = \bar\tau^A\tau^B - \bar\tau^B\tau^A$, $4D_{(2)}^{AB} = \tau^A\bar\tau^B - \tau^B\bar\tau^A$ (notebook image cells 70, 255, 304).
-\item E. A. Lord, "The Dirac spinor in six dimensions", Proc. Camb. Phil. Soc. 64, 765-778 (1968): reduced Brauer-Weyl generators (notebook cells 722-746).
-\item P. A. M. Dirac, "A remarkable representation of the 3 + 2 de Sitter group", J. Math. Phys. 4, 901-909 (1963) (notebook cell 1406).
-\item P. L. Nash, "Identities satisfied by the generators of the Dirac algebra", J. Math. Phys. 25, 204 (1984): conventions $S^{\alpha\beta} = -\tfrac14[\gamma^\alpha,\gamma^\beta]$ for the 4x4 case (notebook cells 619, 677, 703).
+\item P. L. Nash, ``Second gravity'', J. Math. Phys. 51, 042501 (2010): block form $t^A = \begin{pmatrix}0&\bar\tau^A\\ \tau^A&0\end{pmatrix}$ and $t^At^B - t^Bt^A = 4\,\mathrm{diag}(D_{(1)}^{AB}, D_{(2)}^{AB})$ with $4D_{(1)}^{AB} = \bar\tau^A\tau^B - \bar\tau^B\tau^A$, $4D_{(2)}^{AB} = \tau^A\bar\tau^B - \tau^B\bar\tau^A$ (notebook image cells 70, 255, 304).
+\item E. A. Lord, ``The Dirac spinor in six dimensions'', Proc. Camb. Phil. Soc. 64, 765-778 (1968): reduced Brauer-Weyl generators (notebook cells 722-746).
+\item P. A. M. Dirac, ``A remarkable representation of the 3 + 2 de Sitter group'', J. Math. Phys. 4, 901-909 (1963) (notebook cell 1406).
+\item P. L. Nash, ``Identities satisfied by the generators of the Dirac algebra'', J. Math. Phys. 25, 204 (1984): conventions $S^{\alpha\beta} = -\tfrac14[\gamma^\alpha,\gamma^\beta]$ for the 4x4 case (notebook cells 619, 677, 703).
 \end{itemize}
 
-Standard mathematics used in the proof of Theorem 3 (not taken from the notebook):
+Standard mathematics used in the proof of Theorem 3 (not taken from the notebook):\keepnext
 
 
 \begin{itemize}
@@ -74,7 +82,7 @@ Standard mathematics used in the proof of Theorem 3 (not taken from the notebook
 \item Script: \texttt{verify\_dirac\_matrices.wls} (with \texttt{core.wl}, which re-types the notebook definitions of Section 1). Every check uses exact integer or exact symbolic arithmetic; no floating point number is involved.
 \item Log: \texttt{verify\_dirac\_matrices.log}. Results: checks 01-27 (reality; $T^AT^B+T^BT^A = 2\eta^{AB}I_{16}$ for 64 pairs; transposes; squares; chirality; projectors; $\sigma_{16}$ properties; so(4,4) relations for 4096 quadruples; vector action for 512 triples; rank 28 of the $S^{AB}$; $(S^{AB})^2 = -\tfrac14\eta^{AA}\eta^{BB}I_{16}$; 12 compact and 16 non-compact generators; closed forms of $e^{\theta S^{AB}}$; $\Lambda\eta\Lambda^T=\eta$, $\det\Lambda = 1$; $e^{2\pi S^{AB}} = -I_{16}$; reflections; four components of O(4,4); rank 256 of the products; trace orthogonality $\mathrm{Tr}(B_IB_J^{-1}) = 16\delta_{IJ}$; block-diagonal $S^{AB}$; the tau identity) all returned True (or the stated numbers 28, \{12,16\}, \{256,256\}, and the component signs \{\{1,1\},\{-1,1\},\{1,-1\},\{-1,-1\}\}).
 \item Comparison with the notebook: checks 28-31 parsed the stored output cells 494, 310, 312, 379, 381 of Pre-gravity6plane.nb with \texttt{ToExpression} and compared them with the recomputed matrices: identical.
-\item Display: the matrices printed in 'dirac matrices' were written by the script \texttt{gen\_dm.py} directly from the JSON file \texttt{dm\_data.json} exported by \texttt{verify\_dirac\_matrices.wls}; no matrix was typed by hand.
+\item Display: the matrices printed in `dirac matrices' were written by the script \texttt{gen\_dm.py} directly from the JSON file \texttt{dm\_data.json} exported by \texttt{verify\_dirac\_matrices.wls}; no matrix was typed by hand.
 \item Conversion: the LaTeX version is produced from the Markdown version by \texttt{md2tex.py} and compiled with pdfLaTeX (TeX Live 2026).
 \end{itemize}
 

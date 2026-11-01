@@ -7,7 +7,12 @@ ASCII punctuation, hard line breaks (two trailing spaces).  As on GitHub, a para
 a $$..$$ inside a paragraph is set inline in display style.  In $..$ and $$..$$ math, \\{ and \\} become \{ and \}; in all
 math the MathJax macro \space becomes '\ '.  Straight quotes become opening/closing quotes, judged from their neighbours.  The first # heading
 is the title; later # headings are unnumbered sections in the title's size.  Text and table cells are set ragged right,
-as GitHub sets them.  Usage: md2tex.py in.md out.tex"""
+as GitHub sets them.  Table columns get widths that follow their contents; the header row repeats on every page; tables
+of up to 8 rows are not split.  A **bold** span may contain math and code.  A paragraph that leads into a display or a
+table, ends with a colon, or has at most three words is kept on the page of what follows (\keepnext; longtable is
+patched so that it does not break the page right after such a paragraph; before a lead-in to a table or a code block,
+\mdneed starts a new page if the estimated space of the lead-in and of what follows is not left).
+Usage: md2tex.py in.md out.tex"""
 import re, sys
 UNI = {'\u2013': '--', '\u2014': '---', '\u2019': "'", '\u2018': '`', '\u201c': '``', '\u201d': "''", '\u00d7': r'$\times$',
        '\u00b1': r'$\pm$', '\u2192': r'$\to$', '\u2264': r'$\le$', '\u2265': r'$\ge$', '\u2260': r'$\neq$', '\u00b7': r'$\cdot$',
@@ -17,6 +22,7 @@ MATHUNI = {k: v.strip('$') for k, v in UNI.items() if v.startswith('$')}
 MATHUNI.update({'\u2212': '-', '\u00b0': r'^\circ'})
 ESC0 = 0xE000                       # chr(ESC0 + ord(c)) stands for the backslash-escaped punctuation character c
 BR = '\uE100'                       # hard line break
+BOPEN, BCLOSE = '\uE101', '\uE102'  # a **bold** span whose two delimiters lie in different text segments
 LIT = {'\\': r'\textbackslash{}', '^': r'\^{}', '~': r'\~{}', '<': r'\textless{}', '>': r'\textgreater{}',
        "'": r'\textquotesingle{}', '"': r'\textquotedbl{}', '`': r'\textasciigrave{}', '-': '-{}'}
 def lit(ch):
@@ -42,6 +48,7 @@ def esc(t, prev=' ', nxt=' '):
     out, popen = [], False
     for k, ch in enumerate(t):
         p = unesc(t[k - 1] if k else prev); q = unesc(t[k + 1] if k + 1 < len(t) else nxt)
+        p = ' ' if p == BOPEN else p; q = ' ' if q == BCLOSE else q
         if ch in '\'"':
             op = (p.isspace() or p in '([{' or popen) and not q.isspace()
             s = ('`' if op else "'") * (1 if ch == "'" else 2)
@@ -56,6 +63,7 @@ def esc(t, prev=' ', nxt=' '):
         elif ch == '>': out.append(r'\textgreater{}')
         elif ch == '-' and q == '-': out.append('-{}')
         elif ch == BR: out.append(r'\newline ')
+        elif ch in (BOPEN, BCLOSE): out.append(ch)          # replaced by inline() after all segments are set
         elif unesc(ch) != ch: out.append(ch)                # resolved by fmt_text after the emphasis markup
         elif ch in UNI: out.append(UNI[ch])
         elif ord(ch) > 127: raise ValueError('non-ASCII character %r in text: %r' % (ch, t))
@@ -103,13 +111,48 @@ def inline(s):
         i = m.end()
     if i < len(s): text(s[i:], s[i:])
     if depth: raise ValueError('unclosed <span> in: %r' % s)
+    # pair the ** delimiters left to right; a pair split by math or code becomes \textbf{...} around both
+    marks = [(k, m.start()) for k, sg in enumerate(segs) if sg[0] == 't' for m in re.finditer(r'\*\*', sg[2])]
+    cut = {}
+    for (ka, pa), (kb, pb) in zip(marks[0::2], marks[1::2]):
+        if ka != kb: cut.setdefault(ka, []).append((pa, BOPEN)); cut.setdefault(kb, []).append((pb, BCLOSE))
+    for k, lst in cut.items():
+        for p, mk in sorted(lst, reverse=True): segs[k][2] = segs[k][2][:p] + mk + segs[k][2][p + 2:]
     res = []
     for k, (kind, src, pay) in enumerate(segs):
         if kind != 't': res.append(pay); continue
         prev = ' ' if k == 0 or segs[k - 1][0] == 'open' else segs[k - 1][1][-1]
         nxt = segs[k + 1][1][0] if k + 1 < len(segs) else ' '
         res.append(fmt_text(pay, prev, nxt))
-    return ''.join(res)
+    return ''.join(res).replace(BOPEN, r'\textbf{').replace(BCLOSE, '}')
+def vis(c):
+    # roughly the visible characters of a Markdown cell or paragraph (math reduced to its letters)
+    mathvis = lambda t: re.sub(r'[{}^_&]|\\\\', '', re.sub(r'\\[A-Za-z]+', 'x', re.sub(r'\\(begin|end)\{[a-z*]+\}', ' ', t)))
+    return re.sub(r'\$`([^`]+)`\$|\$([^$]+)\$', lambda m: mathvis(m.group(1) or m.group(2)), c).replace('`', '').replace('**', '')
+def tablelines(rows, lw=498.9, em=4.6):
+    # estimated height of the header and of each row of a table, in lines of 12pt (cells are set in \small)
+    ws = colwidths(rows)
+    h = [max(-(-len(vis(c)) * em // max(w * lw - 12, 20)) for c, w in zip(r, ws)) * 11 / 12 + 0.25 for r in rows]
+    return h
+def colwidths(rows, total=0.96, lw=498.9, em=5.4):
+    # column widths (fractions of \linewidth = lw pt) in proportion to the mean visible length of the cells, but each column
+    # at least as wide as its longest unbreakable piece (em pt per character in \small, generous, plus 2\tabcolsep = 12pt)
+    nc = len(rows[0])
+    demand = [sum(min(len(vis(r[j])), 60) for r in rows) / len(rows) + 1 for j in range(nc)]
+    lo = [min(max([len(w) for r in rows for w in vis(r[j]).split()] + [1]) * em + 12, 0.45 * lw) / lw for j in range(nc)]
+    lo = [max(x, min(0.12, total / nc)) for x in lo]
+    if sum(lo) >= total: return [total / nc] * nc
+    f = [d / sum(demand) * total for d in demand]; fixed = set()
+    for _ in range(nc):
+        low = [j for j in range(nc) if j not in fixed and f[j] < lo[j]]
+        if not low: break
+        fixed.update(low)
+        for j in low: f[j] = lo[j]
+        free = [j for j in range(nc) if j not in fixed]
+        if not free: return [total / nc] * nc
+        extra = sum(f) - total; tot = sum(f[j] for j in free)
+        for j in free: f[j] -= extra * f[j] / tot
+    return f
 def split_row(line):
     # split a markdown table row on '|' that are not inside $...$ math
     cells, cur, inmath = [], '', False
@@ -130,6 +173,13 @@ PRE = r"""\documentclass[10pt]{article}
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
 \setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
@@ -188,12 +238,16 @@ def convert(md):
             while i < n and lines[i].startswith('|'):
                 if not re.match(r'^\|\s*:?-{2,}', lines[i]): rows.append(split_row(lines[i]))
                 i += 1
-            nc = max(len(r) for r in rows); w = 0.96 / nc
-            colw = r'>{\raggedright\arraybackslash}p{\dimexpr %.4f\linewidth-2\tabcolsep\relax}' % w
-            out.append(r'{\small\begin{longtable}{' + colw * nc + '}\\toprule')
-            for k, r in enumerate(rows):
-                out.append(' & '.join(inline(c) for c in r + [''] * (nc - len(r))) + r' \\' + (r'\midrule' if k == 0 else ''))
-            out.append(r'\bottomrule\end{longtable}}'); continue
+            nc = max(len(r) for r in rows); rows = [r + [''] * (nc - len(r)) for r in rows]
+            spec = ''.join(r'>{\raggedright\arraybackslash}p{\dimexpr %.4f\linewidth-2\tabcolsep\relax}' % w for w in colwidths(rows))
+            row = lambda r: ' & '.join(inline(c) for c in r)
+            # the header row repeats on every page and a rule closes every page; tables of up to 8 rows are not split
+            out.append(r'{\small\begin{longtable}{' + spec + '}\\toprule')
+            out.append(row(rows[0]) + r' \\\midrule\endhead')
+            out.append(r'\bottomrule\endfoot')
+            end = r' \\*' if len(rows) <= 9 else r' \\'
+            for r in rows[1:]: out.append(row(r) + end)
+            out.append(r'\end{longtable}}'); continue
         if l.startswith('> '):
             flush_list(liststack); buf = []
             while i < n and lines[i].startswith('>'): buf.append(lines[i][1:].strip()); i += 1
@@ -222,7 +276,31 @@ def convert(md):
         if sp and '<span' not in sp.group(1) and '</span>' not in sp.group(1):
             # a paragraph that is one sized span ends inside the span, so its own line spacing applies
             out.append(inline(para)[:-1] + r'\par}' + '\n'); continue
-        out.append(inline(para) + '\n')
+        # a paragraph that leads into a display or a table, ends with a colon, or has at most three words (a fragment such as
+        # "and verify") stays on the page of what follows
+        j = i
+        while j < n and not lines[j].strip(): j += 1
+        nl = lines[j].strip() if j < n else ''
+        lead = nl == '$$' or nl.startswith('```math') or nl.startswith('|') or (nl.startswith('$$') and nl.endswith('$$') and len(nl) > 4)
+        short = len(re.sub(r'\$`[^`]+?`\$|\$[^$]+?\$', 'M', para).split()) <= 3
+        keep = j < n and (lead or short or para.rstrip().endswith(':'))
+        # longtable breaks the page before a table whose first rows do not fit, and a code block may break too; so a lead-in
+        # to a table or a code block first asks for the space of itself and of what follows (all of a table of up to 8 rows)
+        need = 0
+        if keep and nl.startswith('|'):
+            tb = []; k = j
+            while k < n and lines[k].startswith('|'):
+                if not re.match(r'^\|\s*:?-{2,}', lines[k]): tb.append(split_row(lines[k]))
+                k += 1
+            nc = max(len(r) for r in tb); h = tablelines([r + [''] * (nc - len(r)) for r in tb])
+            need = sum(h) + 1 if len(tb) <= 9 else sum(h[:3]) + 1
+        elif keep and nl.startswith('```') and not nl.startswith('```math'):
+            k = j + 1
+            while k < n and not lines[k].strip().startswith('```'): k += 1
+            need = min(k - j - 1, 8) * 9.5 / 12 + 1
+        if need: need += -(-len(vis(para)) // 100)
+        pre = r'\mdneed{%.1f\baselineskip}' % need if need else ''
+        out.append(pre + inline(para) + (r'\keepnext' if keep else '') + '\n')
     flush_list(liststack); out.append(r'\end{document}')
     if part: out[0] = PRE.replace(r'\begin{document}', MDPART + r'\begin{document}')
     return '\n'.join(out)

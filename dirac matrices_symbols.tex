@@ -7,18 +7,26 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
-{\raggedright\LARGE\bfseries Symbols used in 'dirac matrices' and their definitions\par}\medskip
+{\raggedright\LARGE\bfseries Symbols used in `dirac matrices' and their definitions\par}\medskip
 
-Every symbol of the proof file 'dirac matrices' is listed with its defining equation.
+\mdneed{6.4\baselineskip}Every symbol of the proof file `dirac matrices' is listed with its defining equation.\keepnext
 
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1215\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3361\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5025\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $x_0,\dots,x_7$ & Cartesian coordinates of the project & $x_0$ hidden space, $x_1,x_2,x_3$ 3-space, $x_4$ time, $x_5,x_6,x_7$ superluminal time \\
 $A,B,C,D$ & frame indices & $A,B,C,D\in\{0,1,\dots,7\}$ \\
 $\eta^{AB}$, $\eta_{AB}$ & flat metric of signature (4,4) & $\eta = \mathrm{diag}(+1,+1,+1,+1,$ $-1,-1,-1,-1)$ \\
@@ -51,6 +59,6 @@ $B_I$ & basis of M(16,R) & $B_I = T^{A_1}\cdots T^{A_k}$, $I=\{A_1<\dots<A_k\}$,
 $c$, $s$ & coefficients in Lemma 4 & $(c,s) = (\cos\frac\theta2,\sin\frac\theta2)$ or $(\cosh\frac\theta2,\sinh\frac\theta2)$; $e^{\theta S^{AB}} = cI_{16} + 2sS^{AB}$ \\
 $X$ & auxiliary matrix in the proof of Theorem 2 & $X = \tau_A^{-1}\tau_B$, $X^{-1} = -\eta_{AA}\eta_{BB}X$ for $A\neq B$ \\
 $\psi$, $\bar\psi$ & 16-component spinor and its adjoint & $\bar\psi = \psi^\dagger\sigma_{16}$; $\bar\psi\psi$ is Spin(4,4) invariant because $(\sigma_{16}S^{AB})^T = -\sigma_{16}S^{AB}$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \end{document}

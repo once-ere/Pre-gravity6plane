@@ -7,15 +7,23 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
-{\raggedright\LARGE\bfseries Symbols used in 'dirac16complex: a second-quantized Pin(4,4) fermion field and the 6-planes it creates'\par}\medskip
+{\raggedright\LARGE\bfseries Symbols used in `dirac16complex: a second-quantized Pin(4,4) fermion field and the 6-planes it creates'\par}\medskip
 
-{\small\begin{longtable}{p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}p{\dimexpr 0.3200\linewidth-2\tabcolsep\relax}}\toprule
-symbol & meaning & definition \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.1756\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3627\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4217\linewidth-2\tabcolsep\relax}}\toprule
+symbol & meaning & definition \\\midrule\endhead
+\bottomrule\endfoot
 $x_0,\dots,x_7$ & coordinates & $x_0$ hidden, $x_{1,2,3}$ space, $x_4$ time, $x_{5,6,7}$ superluminal time \\
 $\eta_{AB}$ & metric & $\mathrm{diag}(+1,+1,+1,+1,-1,-1,-1,-1)$ \\
 $\sigma$ & 8x8 spinor metric & $\begin{pmatrix}0&I_4\\ I_4&0\end{pmatrix}$ \\
@@ -56,6 +64,6 @@ $Z$, $z_i$ & point of $\mathbb R^8$ & $Z=(z_1,\dots,z_8)$ \\
 7-plane & hyperplane & $\{Z: n\cdot Z=0\}$ \\
 $M^6$ & 6-plane & $\{Z:n_1\cdot Z=0,\ n_2\cdot Z=0\}$; 28 parameterizations \\
 $M^6_{pair}$ & 6-plane of a $\pm E$ pair & $\{Z:\mathrm{Re}\,V_2\cdot Z=0,\ \mathrm{Im}\,V_2\cdot Z=0\}$ \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 \end{document}

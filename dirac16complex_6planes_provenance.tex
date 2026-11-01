@@ -7,12 +7,19 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
-{\raggedright\LARGE\bfseries Provenance of 'dirac16complex: a second-quantized Pin(4,4) fermion field and the 6-planes it creates'\par}\medskip
+{\raggedright\LARGE\bfseries Provenance of `dirac16complex: a second-quantized Pin(4,4) fermion field and the 6-planes it creates'\par}\medskip
 
 \section*{1. Sources}
 
@@ -24,11 +31,12 @@
 
 \section*{2. Computations (Wolfram Language 15.0.1, exact arithmetic, 2026-10-30)}
 
-All results quoted in the guide are outputs of 6planes.nb (generated from 6planes\_src.txt by build\_nb2.wls; 34 input cells, 0 messages):
+\mdneed{6.5\baselineskip}All results quoted in the guide are outputs of 6planes.nb (generated from 6planes\_src.txt by build\_nb2.wls; 34 input cells, 0 messages):\keepnext
 
 
-{\small\begin{longtable}{p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}p{\dimexpr 0.4800\linewidth-2\tabcolsep\relax}}\toprule
-result & 6planes.nb \\\midrule
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{\dimexpr 0.6425\linewidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3175\linewidth-2\tabcolsep\relax}}\toprule
+result & 6planes.nb \\\midrule\endhead
+\bottomrule\endfoot
 $T^A$ real, $\{T^A,T^B\}=2\eta^{AB}I_{16}$, $\sigma_{16}$ and $S^{AB}$ properties & Part 1, Out[3]-Out[6] \\
 Grassmann engine checks & Part 2, Out[7] \\
 $\mathcal L$ has 392 monomials, mass and quartic terms non-zero, $\mathcal L^*=\mathcal L$ & Part 3.2, Out[8] \\
@@ -42,7 +50,7 @@ light-like quanta: $J^A = 0$, $\bar\psi\psi = 0$ & Part 4.4, Out[18] \\
 $u^T\sigma u = 1$, $F_A{}^aF_a{}^A = I_8$ & Part 4.5, Out[19] \\
 $M^6$: rank 2, 28 valid parameterizations, explicit $z_7$, $z_8$ & Part 4.6, Out[20] \\
 pair 6-plane: rank 2 & Part 4.6, Out[21]-Out[22] \\
-\bottomrule\end{longtable}}
+\end{longtable}}
 
 The frames $F_A{}^a$, $F_a{}^A$ were also compared with the stored outputs (cells 889 and 891) of Pre-gravity6plane.nb: identical.
 

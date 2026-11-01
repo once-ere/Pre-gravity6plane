@@ -7,9 +7,16 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
 {\raggedright\LARGE\bfseries dirac16complex: a second-quantized Pin(4,4) fermion field and the 6-planes it creates\par}\medskip
@@ -19,7 +26,7 @@ A classroom guide for a beginning student. Everything stated here is computed, w
 
 \section*{1. The stage: eight coordinates and a metric with four times}
 
-The coordinates are $x_0, x_1, \dots, x_7$: $x_0$ is the hidden space direction, $x_1, x_2, x_3$ are ordinary 3-space, $x_4$ is time and $x_5, x_6, x_7$ are superluminal time directions. Lengths are measured with
+The coordinates are $x_0, x_1, \dots, x_7$: $x_0$ is the hidden space direction, $x_1, x_2, x_3$ are ordinary 3-space, $x_4$ is time and $x_5, x_6, x_7$ are superluminal time directions. Lengths are measured with\keepnext
 
 
 \[
@@ -28,14 +35,14 @@ The coordinates are $x_0, x_1, \dots, x_7$: $x_0$ is the hidden space direction,
 
 \section*{2. The eight real 16x16 Dirac matrices}
 
-With $\sigma = \begin{pmatrix} 0 & I_4\\ I_4 & 0\end{pmatrix}$, the eight real $8\times8$ matrices $\tau_A$ of Pre-gravity6plane.nb ($\tau_0 = I_8$, six antisymmetric matrices built from self-dual and anti-self-dual $4\times4$ blocks, $\tau_7 = \tau_1\cdots\tau_6$) and $\bar\tau_A = \sigma\tau_A^T\sigma$, the Dirac matrices are
+With $\sigma = \begin{pmatrix} 0 & I_4\\ I_4 & 0\end{pmatrix}$, the eight real $8\times8$ matrices $\tau_A$ of Pre-gravity6plane.nb ($\tau_0 = I_8$, six antisymmetric matrices built from self-dual and anti-self-dual $4\times4$ blocks, $\tau_7 = \tau_1\cdots\tau_6$) and $\bar\tau_A = \sigma\tau_A^T\sigma$, the Dirac matrices are\keepnext
 
 
 \[
 T^A \equiv (T16^A)[A] = \begin{pmatrix} 0 & \bar\tau_A \\ \tau_A & 0 \end{pmatrix}, \qquad T^AT^B + T^BT^A = 2\eta^{AB} I_{16} .
 \]
 
-All entries are $0$ or $\pm1$ (real). $T^0,\dots,T^3$ are symmetric with square $+I_{16}$; $T^4,\dots,T^7$ are antisymmetric with square $-I_{16}$. Further:
+All entries are $0$ or $\pm1$ (real). $T^0,\dots,T^3$ are symmetric with square $+I_{16}$; $T^4,\dots,T^7$ are antisymmetric with square $-I_{16}$. Further:\keepnext
 
 
 \[
@@ -51,14 +58,14 @@ The 28 matrices $S^{AB}$ generate Spin(4,4); together with the reflections $T^C$
 
 \section*{3. The field dirac16complex}
 
-\textbf{Definition.} dirac16complex is a 16-component Pin(4,4) spinor field
+\textbf{Definition.} dirac16complex is a 16-component Pin(4,4) spinor field\keepnext
 
 
 \[
 \psi(x) = (\psi_0(x), \psi_1(x), \dots, \psi_{15}(x))^T, \qquad \psi_a = \tfrac{1}{\sqrt2}(\xi_a + i\chi_a),
 \]
 
-whose components are complex and anticommuting (Grassmann-odd): with $\xi_a, \chi_a$ real Grassmann generators,
+whose components are complex and anticommuting (Grassmann-odd): with $\xi_a, \chi_a$ real Grassmann generators,\keepnext
 
 
 \[
@@ -77,7 +84,7 @@ The last rule (complex conjugation reverses the order of factors) is the classic
 \mathcal L = \tfrac12\left(\bar\psi\,T^A\partial_A\psi - (\partial_A\bar\psi)\,T^A\psi\right) - m\,\bar\psi\psi - \frac{\lambda}{2}\,(\bar\psi\psi)^2 ,
 \]
 
-with $m \neq 0$ and $\lambda \neq 0$ real constants and $A$ summed over $0,\dots,7$. Compare with the Higgs potential $V = \mu^2\lvert\phi\rvert^2 + \lambda\lvert\phi\rvert^4$: here the mass term is quadratic and the self-coupling quartic in the spinor components; the field is a fermion, so $(\bar\psi\psi)^2$ is the simplest non-trivial self-interaction. Proven properties (exact Grassmann algebra, 392 monomials):
+with $m \neq 0$ and $\lambda \neq 0$ real constants and $A$ summed over $0,\dots,7$. Compare with the Higgs potential $V = \mu^2\lvert\phi\rvert^2 + \lambda\lvert\phi\rvert^4$: here the mass term is quadratic and the self-coupling quartic in the spinor components; the field is a fermion, so $(\bar\psi\psi)^2$ is the simplest non-trivial self-interaction. Proven properties (exact Grassmann algebra, 392 monomials):\keepnext
 
 
 \begin{itemize}
@@ -88,21 +95,21 @@ with $m \neq 0$ and $\lambda \neq 0$ real constants and $A$ summed over $0,\dots
 
 \section*{5. The Euler-Lagrange equations (flat space)}
 
-Treat $\psi_a$ and $\psi_a^{*}$ as independent Grassmann variables and vary $\psi_a^{*}$ with left derivatives:
+Treat $\psi_a$ and $\psi_a^{*}$ as independent Grassmann variables and vary $\psi_a^{*}$ with left derivatives:\keepnext
 
 
 \[
 \frac{\partial^L\mathcal L}{\partial\psi_a^{*}} - \partial_\mu\,\frac{\partial^L\mathcal L}{\partial(\partial_\mu\psi_a^{*})} = 0 \quad (a = 0,\dots,15).
 \]
 
-The exact computation gives the 16 equations
+The exact computation gives the 16 equations\keepnext
 
 
 \[
 \sigma_{16}\left(T^A\partial_A\psi - m\psi - \lambda(\bar\psi\psi)\psi\right) = 0 \quad\Longleftrightarrow\quad T^A\partial_A\psi = (m + \lambda\,\bar\psi\psi)\,\psi ,
 \]
 
-and varying $\psi_a$ gives the complex-conjugate equation $(\partial_A\bar\psi)T^A = -(m + \lambda\bar\psi\psi)\bar\psi$. Example (first component, $\lambda = 0$):
+and varying $\psi_a$ gives the complex-conjugate equation $(\partial_A\bar\psi)T^A = -(m + \lambda\bar\psi\psi)\bar\psi$. Example (first component, $\lambda = 0$):\keepnext
 
 
 \[
@@ -114,7 +121,7 @@ m\psi_4 - \partial_0\psi_{12} + \partial_1\psi_{11} - \partial_2\psi_{10} + \par
 
 \section*{6. Second quantization and the indefinite (Krein) metric}
 
-Quantize with $x_4$ as time. The momentum conjugate to $\psi$ is $\pi = \bar\psi T^4$, and $\{\psi_a(x), \pi_b(y)\} = i\delta_{ab}\delta(x-y)$ gives
+Quantize with $x_4$ as time. The momentum conjugate to $\psi$ is $\pi = \bar\psi T^4$, and $\{\psi_a(x), \pi_b(y)\} = i\delta_{ab}\delta(x-y)$ gives\keepnext
 
 
 \[
@@ -124,26 +131,26 @@ Quantize with $x_4$ as time. The momentum conjugate to $\psi$ is $\pi = \bar\psi
 with eight eigenvalues $+1$ and eight $-1$. The space of states therefore carries an indefinite (Krein) metric. This cannot be avoided: $g_{45} = T^4T^5$ (the rotation by $\pi$ in the $(x_4,x_5)$-plane, an element of Spin(4,4)) obeys $g_{45}^T(\sigma_{16}T^4)g_{45} = -\sigma_{16}T^4$, so it reverses the sign of the $x_4$-charge density $\bar\psi T^4\psi$; with four time directions there is no invariant notion of positive energy.
 
 
-\textbf{Two mirror sectors.} Since $\sigma_{16} = K\beta$ with $\beta = -iT^4$, and $K$ commutes with $T^0, \dots, T^4$ (and anticommutes with $T^5, T^6, T^7$), every field that does not depend on $x_5, x_6, x_7$ splits as $\psi = \psi_+ + \psi_-$, $K\psi_\pm = \pm\psi_\pm$, and
+\textbf{Two mirror sectors.} Since $\sigma_{16} = K\beta$ with $\beta = -iT^4$, and $K$ commutes with $T^0, \dots, T^4$ (and anticommutes with $T^5, T^6, T^7$), every field that does not depend on $x_5, x_6, x_7$ splits as $\psi = \psi_+ + \psi_-$, $K\psi_\pm = \pm\psi_\pm$, and\keepnext
 
 
 \[
 \mathcal L = \mathcal L_D[\psi_+] - \mathcal L_D[\psi_-] - \frac\lambda2\,(S_+ - S_-)^2, \qquad \mathcal L_D[\chi] = \chi^\dagger\beta(T^A\partial_A - m)\chi\ (A=0..4), \qquad S_\pm = \psi_\pm^\dagger\beta\psi_\pm .
 \]
 
-The 16-component field is thus a pair of 8-component universes whose energies (masses) enter with opposite signs: a "+mass" and a "-mass" universe, coupled by $-\lambda S_+S_-$ inside $-\frac\lambda2(S_+-S_-)^2 = -\frac\lambda2(S_+^2 + S_-^2) + \lambda S_+S_-$.
+The 16-component field is thus a pair of 8-component universes whose energies (masses) enter with opposite signs: a ``+mass'' and a ``-mass'' universe, coupled by $-\lambda S_+S_-$ inside $-\frac\lambda2(S_+-S_-)^2 = -\frac\lambda2(S_+^2 + S_-^2) + \lambda S_+S_-$.
 
 
 \section*{7. Mirroring Pre-gravity6plane.nb: dirac16complex depending on $x_0$ and $x_4$}
 
-Pre-gravity6plane.nb studies $\Psi_{16} = f16[k][x_0, x_4]$, a wave function of a Universe depending only on $x_0$ and $x_4$, with Lagrangian $L_a = \frac1H\Psi_{16}^T\sigma_{16}\sum_A T^A\partial_A\Psi_{16} + \frac{2M}{H}\Psi_{16}^T\sigma_{16}\Psi_{16}$ and field equation $T^A\partial_A\Psi_{16} + 2M\Psi_{16} = 0$. The corresponding configurations of dirac16complex are those that depend only on $x_0$ and $x_4$ (no dependence on $x_1, x_2, x_3, x_5, x_6, x_7$). For them the field equation is
+Pre-gravity6plane.nb studies $\Psi_{16} = f16[k][x_0, x_4]$, a wave function of a Universe depending only on $x_0$ and $x_4$, with Lagrangian $L_a = \frac1H\Psi_{16}^T\sigma_{16}\sum_A T^A\partial_A\Psi_{16} + \frac{2M}{H}\Psi_{16}^T\sigma_{16}\Psi_{16}$ and field equation $T^A\partial_A\Psi_{16} + 2M\Psi_{16} = 0$. The corresponding configurations of dirac16complex are those that depend only on $x_0$ and $x_4$ (no dependence on $x_1, x_2, x_3, x_5, x_6, x_7$). For them the field equation is\keepnext
 
 
 \[
 T^0\partial_0\psi + T^4\partial_4\psi = (m + \lambda\bar\psi\psi)\psi, \qquad \text{with } m = -2M \text{ to match the old notebook.}
 \]
 
-\textbf{Couplings (analogue of eLaCouplings).} The 16 equations split into four independent systems of four components:
+\textbf{Couplings (analogue of eLaCouplings).} The 16 equations split into four independent systems of four components:\keepnext
 
 
 \[
@@ -153,21 +160,21 @@ T^0\partial_0\psi + T^4\partial_4\psi = (m + \lambda\bar\psi\psi)\psi, \qquad \t
 exactly the pattern found in Pre-gravity6plane.nb.
 
 
-**Variables $z = 6Hx_0$, $t = Hx_4$ (analogue of eLazt).** The linear equation becomes $6T^0\partial_z\psi + T^4\partial_t\psi = \frac{m}{H}\psi$. A mode $e^{pz+qt}u$ solves it iff $(6pT^0 + qT^4 - \frac mH)u = 0$, possible iff
+\textbf{Variables $z = 6Hx_0$, $t = Hx_4$ (analogue of eLazt).} The linear equation becomes $6T^0\partial_z\psi + T^4\partial_t\psi = \frac{m}{H}\psi$. A mode $e^{pz+qt}u$ solves it iff $(6pT^0 + qT^4 - \frac mH)u = 0$, possible iff\keepnext
 
 
 \[
 (6p)^2 - q^2 = \left(\frac mH\right)^2 \quad\Longleftrightarrow\quad (6p+q)(6p-q) = \frac{m^2}{H^2}.
 \]
 
-Writing $6p + q = 2C$ and $m = -2M$, the exponent is
+Writing $6p + q = 2C$ and $m = -2M$, the exponent is\keepnext
 
 
 \[
 pz + qt = C\left(t + \frac z6\right) - \frac{M^2}{CH^2}\left(t - \frac z6\right),
 \]
 
-which is exactly the family of exponential solutions that Maple produced in Pre-gravity6plane.nb ("Solution 15feb"); the field equation then reads $(6pT^0 + qT^4 + \frac{2M}{H})u = 0$ and the spinor is $u = (6pT^0 + qT^4 - \frac{2M}{H})w$ for any constant $w$, because $(6pT^0+qT^4+\frac{2M}H)(6pT^0+qT^4-\frac{2M}H) = (36p^2-q^2-\frac{4M^2}{H^2})I_{16} = 0$. For a complex field the generic solutions are oscillatory plane waves:
+which is exactly the family of exponential solutions that Maple produced in Pre-gravity6plane.nb (``Solution 15feb''); the field equation then reads $(6pT^0 + qT^4 + \frac{2M}{H})u = 0$ and the spinor is $u = (6pT^0 + qT^4 - \frac{2M}{H})w$ for any constant $w$, because $(6pT^0+qT^4+\frac{2M}H)(6pT^0+qT^4-\frac{2M}H) = (36p^2-q^2-\frac{4M^2}{H^2})I_{16} = 0$. For a complex field the generic solutions are oscillatory plane waves:\keepnext
 
 
 \[
@@ -182,14 +189,14 @@ which is exactly the family of exponential solutions that Maple produced in Pre-
 
 \section*{8. Triality frames and vector forms}
 
-The unit spinor is $u = \frac1{\sqrt2}(1,0,0,0,1,0,0,0)$, the 8th normalized eigenvector of $\sigma$ ($u^T\sigma u = 1$). The triality frames of Pre-gravity6plane.nb are
+The unit spinor is $u = \frac1{\sqrt2}(1,0,0,0,1,0,0,0)$, the 8th normalized eigenvector of $\sigma$ ($u^T\sigma u = 1$). The triality frames of Pre-gravity6plane.nb are\keepnext
 
 
 \[
 (F_A{}^a)_{aA} = \eta_{AA}(\tau_A u)_a, \qquad (F_a{}^A)_{Aa} = (u^T\sigma\bar\tau_A)_a, \qquad F_A{}^aF_a{}^A = F_a{}^AF_A{}^a = I_8 .
 \]
 
-For a Universe $\psi$ write $\psi_1 = (\psi_0,\dots,\psi_7)$ (type 1) and $\psi_2 = (\psi_8,\dots,\psi_{15})$ (type 2), and define the vector forms
+For a Universe $\psi$ write $\psi_1 = (\psi_0,\dots,\psi_7)$ (type 1) and $\psi_2 = (\psi_8,\dots,\psi_{15})$ (type 2), and define the vector forms\keepnext
 
 
 \[
@@ -198,14 +205,14 @@ V_2 = F_a{}^A\,\psi_2, \qquad V_1 = \eta\,(\psi_1^T\sigma F_A{}^a) .
 
 \section*{9. The 6-planes of dirac16complex}
 
-The field equation is real, so the real part of every Universe that depends only on $x_0$ and $x_4$ is itself a real solution of the type studied in Pre-gravity6plane.nb. Apply the old construction to it: $n_1 = V_1[\mathrm{Re}\,\psi]$ and $n_2 = V_2[\mathrm{Re}\,\psi]$ are real 8-vectors depending on $(x_0, x_4)$, and with $Z = (z_1,\dots,z_8)\in\mathbb R^8$:
+The field equation is real, so the real part of every Universe that depends only on $x_0$ and $x_4$ is itself a real solution of the type studied in Pre-gravity6plane.nb. Apply the old construction to it: $n_1 = V_1[\mathrm{Re}\,\psi]$ and $n_2 = V_2[\mathrm{Re}\,\psi]$ are real 8-vectors depending on $(x_0, x_4)$, and with $Z = (z_1,\dots,z_8)\in\mathbb R^8$:\keepnext
 
 
 \[
 \text{7-plane}_k = \{Z : n_k\cdot Z = 0\}, \qquad M^6 = \text{7-plane}_1 \cap \text{7-plane}_2 = \{Z : n_1\cdot Z = 0,\ n_2\cdot Z = 0\}.
 \]
 
-$M^6$ is 6-dimensional whenever $n_1$ and $n_2$ are linearly independent. Solving for a pair of coordinates $\{z_i, z_j\}$ is possible iff the minor $n_{1i}n_{2j} - n_{1j}n_{2i} \neq 0$; there are $\binom82 = 28$ such pairs, the 28 parameterizations of $M^6$. \textbf{Example} (computed in 6planes.nb): for $\psi = e^{i(\frac34x_0 - \frac54x_4)}(\frac34 iT^0 - \frac54 iT^4 + 1)w$ with $w = (1,2,\dots,16)$ at $(x_0,x_4) = (0.3, 0.7)$, the rank of $\{n_1, n_2\}$ is 2 and all 28 minors are non-zero, and
+$M^6$ is 6-dimensional whenever $n_1$ and $n_2$ are linearly independent. Solving for a pair of coordinates $\{z_i, z_j\}$ is possible iff the minor $n_{1i}n_{2j} - n_{1j}n_{2i} \neq 0$; there are $\binom82 = 28$ such pairs, the 28 parameterizations of $M^6$. \textbf{Example} (computed in 6planes.nb): for $\psi = e^{i(\frac34x_0 - \frac54x_4)}(\frac34 iT^0 - \frac54 iT^4 + 1)w$ with $w = (1,2,\dots,16)$ at $(x_0,x_4) = (0.3, 0.7)$, the rank of $\{n_1, n_2\}$ is 2 and all 28 minors are non-zero, and\keepnext
 
 
 \[
@@ -216,14 +223,14 @@ z_7 = -132.890\,z_1 + 189.925\,z_2 - 174.913\,z_3 + 155.902\,z_4 + 77.0462\,z_5 
 z_8 = -149.525\,z_1 + 213.689\,z_2 - 196.301\,z_3 + 174.913\,z_4 + 87.5520\,z_5 - 84.5520\,z_6 .
 \]
 
-\textbf{A pair of universes creates a 6-plane by itself.} For a single plane wave, $V_2 = e^{i\phi}\times$(real vector), so $\mathrm{Re}\,V_2$ and $\mathrm{Im}\,V_2$ are parallel and only give a 7-plane. For the superposition of a positive-energy and a negative-energy Universe,
+\textbf{A pair of universes creates a 6-plane by itself.} For a single plane wave, $V_2 = e^{i\phi}\times$(real vector), so $\mathrm{Re}\,V_2$ and $\mathrm{Im}\,V_2$ are parallel and only give a 7-plane. For the superposition of a positive-energy and a negative-energy Universe,\keepnext
 
 
 \[
 \psi_{pair} = e^{i(kx_0 - Ex_4)}(ikT^0 - iET^4 + m)w + e^{i(kx_0 + Ex_4)}(ikT^0 + iET^4 + m)w', \qquad E = \sqrt{k^2+m^2},
 \]
 
-$\mathrm{Re}\,V_2$ and $\mathrm{Im}\,V_2$ are independent (rank 2) and
+$\mathrm{Re}\,V_2$ and $\mathrm{Im}\,V_2$ are independent (rank 2) and\keepnext
 
 
 \[

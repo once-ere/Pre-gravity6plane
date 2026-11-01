@@ -7,16 +7,23 @@
 \usepackage{listings}
 \usepackage[hidelinks]{hyperref}
 \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,upquote=true}
+\makeatletter
+\newcommand\keepnext{\par\nopagebreak\@nobreaktrue\everypar{\@nobreakfalse\everypar{}}}
+\newcommand\mdneed[1]{\par\if@nobreak\else\begingroup\setlength{\dimen@}{#1}\dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi\endgroup\fi}
+\def\md@ltpatch#1\penalty\z@#2\md@ltend{\def\LT@start{#1\if@nobreak\penalty\@M\else\penalty\z@\fi#2}}
+\expandafter\md@ltpatch\LT@start\md@ltend
+\makeatother
 \setcounter{MaxMatrixCols}{20}
 \allowdisplaybreaks
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\setlength{\emergencystretch}{3em}\sloppy\raggedright
 \begin{document}
 
 {\raggedright\LARGE\bfseries Provenance of `Deflating degrees of freedom: dirac16complex when $x_5, x_6, x_7$ deflate' and of deflation.nb\par}\medskip
 
 \section*{1. The request}
 
-The user's instructions of 2026-10-30, verbatim:
+\mdneed{2.8\baselineskip}The user's instructions of 2026-10-30, verbatim:\keepnext
 
 
 \begin{lstlisting}
@@ -27,21 +34,21 @@ next, study the case where x5, x6, and x7 are associated to metric components (c
 'where x5, x6, and x7 are associated to metric components' means g55* (d x5 )^2 +g66* (d x6 )^2 +g77* (d x7 )^2 .
 \end{lstlisting}
 
-In the project $x_5, x_6, x_7$ are timelike. Asked whether they should stay timelike, the user answered:
+\mdneed{2.8\baselineskip}In the project $x_5, x_6, x_7$ are timelike. Asked whether they should stay timelike, the user answered:\keepnext
 
 
 \begin{lstlisting}
 -g55* (d x5 )^2 -g66* (d x6 )^2 -g77* (d x7 )^2 ; good catch of my error
 \end{lstlisting}
 
-and, asked what the remaining metric components should be:
+\mdneed{2.8\baselineskip}and, asked what the remaining metric components should be:\keepnext
 
 
 \begin{lstlisting}
 Primordial field of 6planes.nb
 \end{lstlisting}
 
-Hence the line element used everywhere, with $z = 6Hx_0$:
+Hence the line element used everywhere, with $z = 6Hx_0$:\keepnext
 
 
 \[
@@ -57,7 +64,7 @@ The standing rules of the project were followed: every document has a provenance
 \section*{2. Sources}
 
 \begin{itemize}
-\item \textbf{Pre-gravity6plane.nb} (P. L. Nash, (C) 2022, GNU GPL). Used: the coordinates $X = \{x_0, \dots, x_7\}$ (cell 45); $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ (cell 66); $\sigma = \begin{pmatrix}0 & I_4\\ I_4 & 0\end{pmatrix}$ (cell 73); $\tau_A$ and $\bar\tau_A = \sigma(\sigma\tau_A)^T$ (cell 265), built from the self-dual and anti-self-dual $4\times4$ matrices and the six antisymmetric $8\times8$ matrices of the notebook; $T^A = (T16^A)[A] = \begin{pmatrix}0 & \bar\tau_A\\ \tau_A & 0\end{pmatrix}$ (cell 308); $\sigma_{16} = T^0T^1T^2T^3$ (cells 306, 333); the name "wave function for a Universe" for a mode function (cell 78); the vielbein of text cells 901 and 913, $\mathrm{diag}\left(\tan 6Hx_0,\ e^{-a_4(Hx_4)}\sin^{-1/6}6Hx_0\ (\times3),\ 1,\ e^{a_4(Hx_4)}\sin^{-1/6}6Hx_0\ (\times3)\right)$.
+\item \textbf{Pre-gravity6plane.nb} (P. L. Nash, (C) 2022, GNU GPL). Used: the coordinates $X = \{x_0, \dots, x_7\}$ (cell 45); $\eta = \mathrm{diag}(1,1,1,1,-1,-1,-1,-1)$ (cell 66); $\sigma = \begin{pmatrix}0 & I_4\\ I_4 & 0\end{pmatrix}$ (cell 73); $\tau_A$ and $\bar\tau_A = \sigma(\sigma\tau_A)^T$ (cell 265), built from the self-dual and anti-self-dual $4\times4$ matrices and the six antisymmetric $8\times8$ matrices of the notebook; $T^A = (T16^A)[A] = \begin{pmatrix}0 & \bar\tau_A\\ \tau_A & 0\end{pmatrix}$ (cell 308); $\sigma_{16} = T^0T^1T^2T^3$ (cells 306, 333); the name ``wave function for a Universe'' for a mode function (cell 78); the vielbein of text cells 901 and 913, $\mathrm{diag}\left(\tan 6Hx_0,\ e^{-a_4(Hx_4)}\sin^{-1/6}6Hx_0\ (\times3),\ 1,\ e^{a_4(Hx_4)}\sin^{-1/6}6Hx_0\ (\times3)\right)$.
 \item \textbf{The primordial gravitational field of 6planes.nb} (this repository, 2026-10-30), chosen by the user: the vielbein above with $a_4(Hx_4) = Hx_4$, $\mathrm{diag}\left(\tan z,\ e^{-Hx_4}\sin^{-1/6}z\ (\times3),\ 1,\ e^{Hx_4}\sin^{-1/6}z\ (\times3)\right)$. In deflation.nb its last three entries are replaced by $e_j = \sqrt{b_{jj}}\,e^{-ax_4/2}$, so that $e_j^2 = g_{jj}$.
 \item \textbf{Code reused verbatim} from \texttt{code/6planes\_src.txt}, the source of 6planes.nb: the construction of $T^A$ (Part 1.1), the exact Grassmann-algebra engine (Part 2), and the curved-space tools \texttt{spinConnection}, \texttt{covConst}, \texttt{christoffelG}, \texttt{riemannG}, \texttt{ricciG}, \texttt{einsteinG}, \texttt{kretschmannG} (Part 3). All other cells of deflation.nb were written for this work.
 \item \textbf{Standard results used} (textbook statements, not computed here):
@@ -72,7 +79,7 @@ The standing rules of the project were followed: every document has a provenance
 
 \section*{3. Computations}
 
-All results are outputs of deflation.nb, produced with Wolfram Language 15.0.1 for Mac OS X ARM (64-bit) on 2026-10-30. The notebook is generated from \texttt{code/deflation\_src.txt} (the concatenation of \texttt{code/deflation\_head.txt} and \texttt{code/deflation\_tail.txt}) by \texttt{code/build\_deflation.wls}. The builder evaluates every input cell in the kernel with \texttt{EvaluationData} and writes the inputs, every message and every output into deflation.nb: 17 input cells, 0 messages, 28 s (log: \texttt{code/build\_deflation.log}). Exact simplifications use the assumptions
+All results are outputs of deflation.nb, produced with Wolfram Language 15.0.1 for Mac OS X ARM (64-bit) on 2026-10-30. The notebook is generated from \texttt{code/deflation\_src.txt} (the concatenation of \texttt{code/deflation\_head.txt} and \texttt{code/deflation\_tail.txt}) by \texttt{code/build\_deflation.wls}. The builder evaluates every input cell in the kernel with \texttt{EvaluationData} and writes the inputs, every message and every output into deflation.nb: 17 input cells, 0 messages, 28 s (log: \texttt{code/build\_deflation.log}). Exact simplifications use the assumptions\keepnext
 
 
 \[
@@ -87,7 +94,7 @@ H > 0, \qquad 0 < x_0 < \frac{\pi}{12H}, \qquad a > 0, \qquad b_{55}, b_{66}, b_
 \textbf{Part 1.1, Out[2].} The eight matrices $T^A$, displayed.
 
 
-\textbf{Part 1.2, Out[3]} (all True). The entries of $T^A$ are in $\{-1, 0, 1\}$; $T^0, \dots, T^3$ are symmetric and $T^4, \dots, T^7$ antisymmetric; and
+\textbf{Part 1.2, Out[3]} (all True). The entries of $T^A$ are in $\{-1, 0, 1\}$; $T^0, \dots, T^3$ are symmetric and $T^4, \dots, T^7$ antisymmetric; and\keepnext
 
 
 \[
@@ -100,21 +107,21 @@ T^AT^B + T^BT^A = 2\eta^{AB}I_{16}, \qquad \Gamma = T^0\cdots T^7 = \mathrm{diag
 \textbf{Part 2, Out[4]} (all True). $\psi_1\psi_2 + \psi_2\psi_1 = 0$, $\psi_1^2 = 0$, $(\psi_1^*\psi_1)^* = \psi_1^*\psi_1$.
 
 
-\textbf{Part 3, Out[6]} (all True). For $K = -i\sigma_{16}T^4$, $\beta = -iT^4$ and $\Pi_\pm = \frac12(I_{16} \pm K)$: $K^\dagger = K$; $K^2 = I_{16}$; the eigenvalue $+1$ occurs 8 times and $-1$ occurs 8 times; $KT^A = T^AK$ ($A = 0..4$); $KT^A = -T^AK$ ($A = 5, 6, 7$); $\sigma_{16} = K\beta$. For $A = 0..4$, and also without $T^A$:
+\textbf{Part 3, Out[6]} (all True). For $K = -i\sigma_{16}T^4$, $\beta = -iT^4$ and $\Pi_\pm = \frac12(I_{16} \pm K)$: $K^\dagger = K$; $K^2 = I_{16}$; the eigenvalue $+1$ occurs 8 times and $-1$ occurs 8 times; $KT^A = T^AK$ ($A = 0..4$); $KT^A = -T^AK$ ($A = 5, 6, 7$); $\sigma_{16} = K\beta$. For $A = 0..4$, and also without $T^A$:\keepnext
 
 
 \[
 \Pi_+\sigma_{16}T^A\Pi_- = 0, \qquad \Pi_+\sigma_{16}T^A\Pi_+ = \Pi_+\beta T^A\Pi_+, \qquad \Pi_-\sigma_{16}T^A\Pi_- = -\Pi_-\beta T^A\Pi_- .
 \]
 
-For $\psi = e^{-i\omega x_4}u$ with arbitrary complex $u$:
+For $\psi = e^{-i\omega x_4}u$ with arbitrary complex $u$:\keepnext
 
 
 \[
 \tfrac12\left(\bar\psi T^4\partial_4\psi - (\partial_4\bar\psi)T^4\psi\right) = \omega\,\psi^\dagger K\psi .
 \]
 
-\textbf{Part 4, Out[7].} With $e_0 = \tan z$, $e_{1,2,3} = e^{-Hx_4}\sin^{-1/6}z$, $e_4 = 1$, $e_j = \sqrt{b_{jj}}\,e^{-ax_4/2}$ and $g_{\mu\nu} = \eta_{AB}e^A{}_\mu e^B{}_\nu$: $e_j^2 = g_{jj}$ (True); $(\sqrt{\lvert g\rvert})^2 = \lvert\det g_{\mu\nu}\rvert$ (True); the entries of $g_{\mu\nu}$ for $\mu = 5, 6, 7$ equal $-g_{55}, -g_{66}, -g_{77}$ (True);
+\textbf{Part 4, Out[7].} With $e_0 = \tan z$, $e_{1,2,3} = e^{-Hx_4}\sin^{-1/6}z$, $e_4 = 1$, $e_j = \sqrt{b_{jj}}\,e^{-ax_4/2}$ and $g_{\mu\nu} = \eta_{AB}e^A{}_\mu e^B{}_\nu$: $e_j^2 = g_{jj}$ (True); $(\sqrt{\lvert g\rvert})^2 = \lvert\det g_{\mu\nu}\rvert$ (True); the entries of $g_{\mu\nu}$ for $\mu = 5, 6, 7$ equal $-g_{55}, -g_{66}, -g_{77}$ (True);\keepnext
 
 
 \[
@@ -128,7 +135,7 @@ g_{\mu\nu} = \mathrm{diag}\left(\tan^2 z,\ e^{-2Hx_4}\sin^{-1/3}z\ (\times3),\ -
 \end{gathered}
 \]
 
-\textbf{Part 5, Out[8].} The full deflation field, with the Christoffel symbols, Riemann, Ricci and Einstein tensors
+\textbf{Part 5, Out[8].} The full deflation field, with the Christoffel symbols, Riemann, Ricci and Einstein tensors\keepnext
 
 
 \[
@@ -139,7 +146,7 @@ g_{\mu\nu} = \mathrm{diag}\left(\tan^2 z,\ e^{-2Hx_4}\sin^{-1/3}z\ (\times3),\ -
 R_{\lambda\nu} = R^\kappa{}_{\lambda\kappa\nu}, \qquad R = g^{\lambda\nu}R_{\lambda\nu}, \qquad G_{\mu\nu} = R_{\mu\nu} - \tfrac12Rg_{\mu\nu}, \qquad R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = \sum \frac{g_{\kappa\kappa}}{g_{\lambda\lambda}g_{\mu\mu}g_{\nu\nu}}(R^\kappa{}_{\lambda\mu\nu})^2 ,
 \]
 
-gives
+gives\keepnext
 
 
 \[
@@ -173,7 +180,7 @@ R_{04} = -3H^2\cot z \ \text{(the only non-zero } R_{\mu\nu},\ \mu < \nu\text{)}
 R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = \frac32\left[a^4 + 6a^2H^2 + 8H^4 + H^4(1245 + 108\cos 2z - \cos 4z)\cot^4 z\csc^4 z + 8H^4\cos^2 2z\,\csc^8 z\right].
 \]
 
-$R$, $G^\mu{}_\mu$, $R_{04}$ and the Kretschmann scalar do not contain $x_4$ (True), and
+$R$, $G^\mu{}_\mu$, $R_{04}$ and the Kretschmann scalar do not contain $x_4$ (True), and\keepnext
 
 
 \[
@@ -183,14 +190,14 @@ $R$, $G^\mu{}_\mu$, $R_{04}$ and the Kretschmann scalar do not contain $x_4$ (Tr
 \textbf{Part 5, Out[9].} The pure deflation field $ds^2 = dx_0^2 + dx_1^2 + dx_2^2 + dx_3^2 - dx_4^2 - g_{55}dx_5^2 - g_{66}dx_6^2 - g_{77}dx_7^2$ gives $R = 3a^2$, $R_{\kappa\lambda\mu\nu}R^{\kappa\lambda\mu\nu} = 3a^4/2$, $G^\mu{}_\mu = -3a^2/2$ ($\mu = 0..3$) and $G^\mu{}_\mu = -3a^2/4$ ($\mu = 4..7$).
 
 
-\textbf{Part 5, Out[10]} (all True). Every Riemann component of the pure deflation field with an index in $\{0,1,2,3\}$ vanishes. On the block $(x_4, x_5, x_6, x_7)$, $R_{\kappa\lambda\mu\nu} = \frac{a^2}{4}(g_{\kappa\mu}g_{\lambda\nu} - g_{\kappa\nu}g_{\lambda\mu})$ with $R_{\kappa\lambda\mu\nu} = g_{\kappa\rho}R^\rho{}_{\lambda\mu\nu}$. With $x_4 = \frac2a\ln\frac{aw}{2}$ and $x_j = y_j/\sqrt{b_{jj}}$, the metric of the block is $-\frac{4}{a^2w^2}I_4$ in the coordinates $(w, y_5, y_6, y_7)$, that is
+\textbf{Part 5, Out[10]} (all True). Every Riemann component of the pure deflation field with an index in $\{0,1,2,3\}$ vanishes. On the block $(x_4, x_5, x_6, x_7)$, $R_{\kappa\lambda\mu\nu} = \frac{a^2}{4}(g_{\kappa\mu}g_{\lambda\nu} - g_{\kappa\nu}g_{\lambda\mu})$ with $R_{\kappa\lambda\mu\nu} = g_{\kappa\rho}R^\rho{}_{\lambda\mu\nu}$. With $x_4 = \frac2a\ln\frac{aw}{2}$ and $x_j = y_j/\sqrt{b_{jj}}$, the metric of the block is $-\frac{4}{a^2w^2}I_4$ in the coordinates $(w, y_5, y_6, y_7)$, that is\keepnext
 
 
 \[
 -dx_4^2 - g_{55}dx_5^2 - g_{66}dx_6^2 - g_{77}dx_7^2 = -\frac{4}{a^2}\,\frac{dw^2 + dy_5^2 + dy_6^2 + dy_7^2}{w^2} .
 \]
 
-\textbf{Part 6, Out[11].} For $p_5 = -g_{55}\dot x_5$, $\dot{} = d/d\ell$, and the normalization $-\dot x_4^2 - g_{55}\dot x_5^2 = -1$:
+\textbf{Part 6, Out[11].} For $p_5 = -g_{55}\dot x_5$, $\dot{} = d/d\ell$, and the normalization $-\dot x_4^2 - g_{55}\dot x_5^2 = -1$:\keepnext
 
 
 \[
@@ -200,14 +207,14 @@ $R$, $G^\mu{}_\mu$, $R_{04}$ and the Kretschmann scalar do not contain $x_4$ (Tr
 The following are True: $\frac12\,d(\dot x_4^2)/dx_4 = -\Gamma^4{}_{55}\dot x_5^2$; with $w = \frac2a e^{ax_4/2}$, $y_5 = \sqrt{b_{55}}x_5$ and $w_* = 2\sqrt{b_{55}}/(ap_5)$ ($p_5 > 0$), $(dw/dy_5)^2 = (w_*^2 - w^2)/w^2$; and $w(x_4^*) = w_*$.
 
 
-\textbf{Part 7, Out[12].} With $\gamma^\mu = E_A{}^\mu T^A$, $D_\mu\psi = \partial_\mu\psi + \Omega_\mu\psi$, $\Omega_\mu = \frac14\omega_\mu{}^A{}_BT_AT^B$, $T_A = \eta_{AB}T^B$, $\omega_\mu{}^A{}_B = e^A{}_\nu(\partial_\mu E_B{}^\nu + \Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda)$ and
+\textbf{Part 7, Out[12].} With $\gamma^\mu = E_A{}^\mu T^A$, $D_\mu\psi = \partial_\mu\psi + \Omega_\mu\psi$, $\Omega_\mu = \frac14\omega_\mu{}^A{}_BT_AT^B$, $T_A = \eta_{AB}T^B$, $\omega_\mu{}^A{}_B = e^A{}_\nu(\partial_\mu E_B{}^\nu + \Gamma^\nu{}_{\mu\lambda}E_B{}^\lambda)$ and\keepnext
 
 
 \[
 \mathcal L = \sqrt{\lvert g\rvert}\left[\tfrac12\left(\bar\psi\gamma^\mu D_\mu\psi - (D_\mu\bar\psi)\gamma^\mu\psi\right) - m\bar\psi\psi - \frac\lambda2(\bar\psi\psi)^2\right], \qquad D_\mu\bar\psi = \partial_\mu\bar\psi - \bar\psi\Omega_\mu ,
 \]
 
-the following are True:
+the following are True:\keepnext
 
 \begin{itemize}
 \item $\partial_\mu\gamma^\nu + \Gamma^\nu{}_{\mu\lambda}\gamma^\lambda + [\Omega_\mu, \gamma^\nu] = 0$;
@@ -216,7 +223,7 @@ the following are True:
 \item $\mathcal L_m[\Gamma\psi^*] = \mathcal L_{-m}[\psi]$ and $\mathcal L_m[T^1\psi(R_1x)] = \mathcal L_{-m}[\psi](R_1x)$.
 \end{itemize}
 
-The computed values are
+The computed values are\keepnext
 
 
 \[
@@ -226,7 +233,7 @@ E_A{}^A = \left(\cot z,\ e^{Hx_4}\sin^{1/6}z\ (\times3),\ 1,\ e^{ax_4/2}/\sqrt{b
 \end{gathered}
 \]
 
-\textbf{Part 8, Out[13].} True: $\gamma^\mu\partial_\mu F + F\gamma^\mu\Omega_\mu = 0$ for $F = \sin^{1/4}z\,e^{3(a+2H)x_4/4}$; $S^2 = \sum_{A\ne4}\eta_{AA}(c_Ak_A)^2I_{16}$ and $ST^4 + T^4S = 0$ for $S = \sum_{A\ne4}c_Ak_AT^A$, $c_A = 1/e_A$, $(k_A) = (k_0, k_1, k_2, k_3, 0, q_5, q_6, q_7)$. The dispersion relation is
+\textbf{Part 8, Out[13].} True: $\gamma^\mu\partial_\mu F + F\gamma^\mu\Omega_\mu = 0$ for $F = \sin^{1/4}z\,e^{3(a+2H)x_4/4}$; $S^2 = \sum_{A\ne4}\eta_{AA}(c_Ak_A)^2I_{16}$ and $ST^4 + T^4S = 0$ for $S = \sum_{A\ne4}c_Ak_AT^A$, $c_A = 1/e_A$, $(k_A) = (k_0, k_1, k_2, k_3, 0, q_5, q_6, q_7)$. The dispersion relation is\keepnext
 
 
 \[
@@ -236,7 +243,7 @@ E_A{}^A = \left(\cot z,\ e^{Hx_4}\sin^{1/6}z\ (\times3),\ 1,\ e^{ax_4/2}/\sqrt{b
 With $\bar q^{\,2} = q_5^2/b_{55} + q_6^2/b_{66} + q_7^2/b_{77}$ the following are True: for $k_1 = k_2 = k_3 = 0$, $\omega^2 = m^2 + k_0^2\cot^2 z - e^{ax_4}\bar q^{\,2}$ and $d\omega^2/dx_4 = -ae^{ax_4}\bar q^{\,2}$; $\omega^2 = 0$ at $x_4^* = \frac1a\ln[(m^2 + k_0^2\cot^2 z)/\bar q^{\,2}]$; and at $a = 2H$, $\omega^2 = m^2 + k_0^2\cot^2 z + C_{2H}e^{2Hx_4}$ with the computed coefficient $C_{2H} = (k_1^2 + k_2^2 + k_3^2)\sin^{1/3}z - \bar q^{\,2}$. The exact limits $\lim_{x_4\to\infty}\omega^2$ for $H = 1$, $x_0 = 1/10$, $m = 1$, $k_0 = 0$, $k_1 = 1$, $k_2 = k_3 = 0$, $q_5 = 1$, $q_6 = q_7 = 0$, $b_{55} = b_{66} = b_{77} = 1$ are $-\infty$ ($a = 3$), $-\infty$ ($a = 2$) and $+\infty$ ($a = 1$).
 
 
-\textbf{Part 8, Out[14].} True: in the pure deflation field $\gamma^\mu$ is covariantly constant and $\gamma^\mu\Omega_\mu = -\frac{3a}{4}T^4$; and for $\psi = e^{3ax_4/4}e^{i(k_1x_1 + q_5x_5)}\chi(x_4)$ with arbitrary $\chi$,
+\textbf{Part 8, Out[14].} True: in the pure deflation field $\gamma^\mu$ is covariantly constant and $\gamma^\mu\Omega_\mu = -\frac{3a}{4}T^4$; and for $\psi = e^{3ax_4/4}e^{i(k_1x_1 + q_5x_5)}\chi(x_4)$ with arbitrary $\chi$,\keepnext
 
 
 \[
@@ -252,7 +259,7 @@ The numbers are listed in Section 3.2.
 \textbf{Part 9, Out[16].} The matrix $(I_{16} + K)\sigma_{16}c_AT^A(I_{16} - K)$ vanishes for $A = 0, \dots, 4$ (True) and not for $A = 5, 6, 7$ (False, as expected). For $A = 5, 6, 7$ the absolute values of its entries are $0$ and $2e^{ax_4/2}/\sqrt{b_{jj}}$.
 
 
-\textbf{Part 9, Out[17]} (all True). For real symbols $\kappa_A$ ($A \ne 4$) and $M = T^4(i\sum_{A\ne4}\kappa_AT^A - m)$:
+\textbf{Part 9, Out[17]} (all True). For real symbols $\kappa_A$ ($A \ne 4$) and $M = T^4(i\sum_{A\ne4}\kappa_AT^A - m)$:\keepnext
 
 
 \[
@@ -261,7 +268,7 @@ The numbers are listed in Section 3.2.
 
 \subsection*{3.2 The numerical integration}
 
-The system $\chi' = T^4(ik_1T^1 + iq_5e^{ax_4/2}T^5/\sqrt{b_{55}} - m)\chi$ with $a = b_{55} = k_1 = m = 1$, $q_5 = 1/2$ was solved by the Wolfram Language function \texttt{NDSolve} on $-8 \le x_4 \le 5$ with \texttt{PrecisionGoal -\textgreater{} 10}, \texttt{AccuracyGoal -\textgreater{} 10}, \texttt{MaxSteps -\textgreater{} 10\^{}6}. The initial vector $\chi(-8)$ is the normalized eigenvector of $\Pi_+h_0\Pi_+ + 10\,\Pi_-$, with $h_0 = -k_1T^4T^1 - imT^4$, whose eigenvalue is closest to $\sqrt{k_1^2 + m^2} = \sqrt2$. Because $h_0$ commutes with $K$, this matrix acts as $h_0$ on the $K = +1$ sector and as $10$ on the $K = -1$ sector, so $\chi(-8)$ is an eigenvector of $h_0$ with eigenvalue $\sqrt2$ in the $K = +1$ sector. The notebook confirms $\chi^\dagger h_0\chi = 1.4142135623730951$ and $\chi^\dagger\Pi_-\chi = 0$. Outputs, with $N = \chi^\dagger\chi$ and $P_\pm = \chi^\dagger\Pi_\pm\chi$:
+The system $\chi' = T^4(ik_1T^1 + iq_5e^{ax_4/2}T^5/\sqrt{b_{55}} - m)\chi$ with $a = b_{55} = k_1 = m = 1$, $q_5 = 1/2$ was solved by the Wolfram Language function \texttt{NDSolve} on $-8 \le x_4 \le 5$ with \texttt{PrecisionGoal -\textgreater{} 10}, \texttt{AccuracyGoal -\textgreater{} 10}, \texttt{MaxSteps -\textgreater{} 10\^{}6}. The initial vector $\chi(-8)$ is the normalized eigenvector of $\Pi_+h_0\Pi_+ + 10\,\Pi_-$, with $h_0 = -k_1T^4T^1 - imT^4$, whose eigenvalue is closest to $\sqrt{k_1^2 + m^2} = \sqrt2$. Because $h_0$ commutes with $K$, this matrix acts as $h_0$ on the $K = +1$ sector and as $10$ on the $K = -1$ sector, so $\chi(-8)$ is an eigenvector of $h_0$ with eigenvalue $\sqrt2$ in the $K = +1$ sector. The notebook confirms $\chi^\dagger h_0\chi = 1.4142135623730951$ and $\chi^\dagger\Pi_-\chi = 0$. Outputs, with $N = \chi^\dagger\chi$ and $P_\pm = \chi^\dagger\Pi_\pm\chi$:\keepnext
 
 
 \begin{itemize}
